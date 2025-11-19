@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KREASI - Berita</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">KREASI <span class="subtitle">Pusat Inovasi dan Edukasi Anak Indonesia</span></div>
+            <div class="search-box">
+                <input type="text" placeholder="Cari...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="right-logos">
+                <img src="https://via.placeholder.com/35" alt="Logo Kemendikbud" class="kemendikbud-logo">
+                <img src="https://via.placeholder.com/35" alt="Logo Kemitraan" class="kemitraan-logo">
+            </div>
+        </div>
+
+        <button class="hamburger-menu" id="hamburger"><i class="fas fa-bars"></i></button>
+        
+        <nav class="main-nav" id="main-nav-menu">
+            <a href="BERANDA.html" class="nav-item">BERANDA</a>
+            <div class="nav-item has-dropdown">PROFILE <i class="fas fa-caret-right"></i>
+                <div class="dropdown-content profile-dropdown">
+                    <a href="profile.html">TENTANG</a>
+                    <a href="#">VISI MISI</a>
+                    <a href="#">STRUKTUR</a>
+                </div>
+            </div>
+            <a href="berita.html" class="nav-item active">BERITA</a>
+            <a href="materi.html" class="nav-item">MATERI</a>
+            <div class="nav-item has-dropdown">GALERI <i class="fas fa-caret-right"></i>
+                <div class="dropdown-content galeri-dropdown">
+                    <a href="galeri.html">FOTO KEGIATAN</a>
+                    <a href="#">VIDEO</a>
+                </div>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-id">ID</button>
+                <button class="btn btn-log">LOG IN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content berita-layout">
+        <h1 class="page-title">BERITA & ARTIKEL</h1>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="sort-order">Urutan:</label>
+                <select id="sort-order">
+                    <option value="terbaru">Terbaru</option>
+                    <option value="terpopuler">Terpopuler</option>
+                    <option value="abjad">A-Z</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="category-filter">Kategori:</label>
+                <select id="category-filter">
+                    <option value="semua">Semua</option>
+                    <option value="berita">Berita</option>
+                    <option value="buletin">Buletin</option>
+                    <option value="praktik-baik">Praktik Baik</option>
+                </select>
+            </div>
+            
+            <div class="search-materi-bar">
+                <input type="text" placeholder="Cari Berita...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="berita-list">
+            <a href="#" class="berita-item">
+                <div class="berita-image"></div>
+                <div class="berita-content">
+                    <h3>Penerapan Kurikulum Merdeka di Wilayah 3T Capai Angka Memuaskan</h3>
+                    <p class="ringkasan">RINGKASAN SINGKAT. Program pendampingan KREASI berhasil meningkatkan pemahaman guru terhadap implementasi kurikulum baru di daerah terpencil.</p>
+                </div>
+            </a>
+            <a href="#" class="berita-item">
+                <div class="berita-image"></div>
+                <div class="berita-content">
+                    <h3>Webinar Inovasi Digital: Mengajar dengan AI</h3>
+                    <p class="ringkasan">RINGKASAN SINGKAT. Ikuti webinar kami yang akan membahas bagaimana kecerdasan buatan dapat digunakan sebagai alat bantu pembelajaran yang efektif.</p>
+                </div>
+            </a>
+            <a href="#" class="berita-item">
+                <div class="berita-image"></div>
+                <div class="berita-content">
+                    <h3>Praktik Baik: Kopi Pagi dan Diskusi Guru</h3>
+                    <p class="ringkasan">RINGKASAN SINGKAT. Kisah sukses dari SMPN 5 Bandung dalam membangun budaya kolaborasi antar guru melalui kegiatan rutin non-formal.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="main-footer">...</footer> <script src="scripts.js"></script>
+</body>
+</html>
