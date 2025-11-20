@@ -110,6 +110,7 @@ h2, .page-title {
   justify-content: space-between;
   align-items: stretch;
   background-color: var(--color-primary); /* Biru gelap solid */
+  padding: 0 20px;
   max-width: 1500px;
   margin: 0 auto;
 }
