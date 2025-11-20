@@ -70,15 +70,8 @@ h2, .page-title {
 }
 
 .logo { 
-  font-size: 1.6em; 
-  font-weight: 900; 
-  color: var(--color-primary);
-}
-.subtitle { 
-  font-size: 0.7em; 
-  display: block; 
-  line-height: 1; 
-  color: #666;
+ height: 35px; 
+  margin-left: 10px
 }
 
 /* Search Bar Top */
