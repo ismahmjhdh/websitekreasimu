@@ -82,7 +82,7 @@ h2, .page-title {
   overflow: hidden; 
   max-width: 350px; 
   flex-grow: 1; 
-  margin: 0 50px; 
+  margin:  50px; 
 }
 .search-box input { 
   border: none; 
