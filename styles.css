@@ -214,7 +214,7 @@ h2, .page-title {
 
 .slides {
   display: flex;
-  width: 500%;
+  width: 100%;
   transition: transform 1s ease;
   gap: 200px;
 }
