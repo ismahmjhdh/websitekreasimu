@@ -214,14 +214,13 @@ h2, .page-title {
 
 .slides {
   display: flex;
-  width: 0;
+  width: 100%;
   animation: slide 10s infinite;
   gap: 200px;
 }
 
 .slide {
   height: 100%;
-  width: 100%;
   object-fit: contain;
 }
 
