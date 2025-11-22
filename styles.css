@@ -31,9 +31,9 @@ a {
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 1550px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: top: 20px;
 }
 
 /* ----------------------- JUDUL HALAMAN ----------------------- */
@@ -66,7 +66,7 @@ h2, .page-title {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 10px 20px
 }
 
 
@@ -219,16 +219,15 @@ h2, .page-title {
   width: 50%;
   animation: slide 10s infinite;
   object-position: left;
-  gap: 200px;
+  gap: 1000px;
 }
 
 .slide {
-  height: 200px;
-  width: 0;
+  height: 300px;
+  width: 100%;
   object-fit: contain;
   flex-shrink: 0;
-  position: center
-  ;
+  position: center top;
 }
 
 .slide img {
@@ -243,7 +242,7 @@ h2, .page-title {
   0% { transform: translateX(0); }
   20% { transform: translateX(0); }
 
-  25% { transform: translateX(-100%); }
+  25% {transform: translatex(-100%);}
   45% { transform: translateX(-100%); }
 
   50% { transform: translateX(-200%); }
