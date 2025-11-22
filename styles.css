@@ -229,8 +229,8 @@ h2, .page-title {
 @keyframes slide {
     0%   { margin-left: 0%; transform: translateX(0);}
     45%  { margin-left: 0%; transform: translateX(0);}
-    50%  { margin-left: -100%; transform: translateX(-100%);}
-    95%  { margin-left: -100%; transform: translateX(-100%); }
+    50%  { margin-left: -33.33%; transform: translateX(-33.33%);}
+    95%  { margin-left: -33.33%; transform: translateX(-33-33.33%%); }
     100% { margin-left: 0%; transform: translateX(0);}
 }
 
