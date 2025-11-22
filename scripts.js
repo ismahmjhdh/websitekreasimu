@@ -20,6 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+
+            let index = 0;
+const slides = document.querySelector(".slides");
+const total = 5; // jumlah foto
+
+setInterval(() => {
+    index++;
+    if (index >= total) index = 0;
+
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}, 10000); // 10 detik per foto
+
         });
     }
 
