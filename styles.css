@@ -221,6 +221,7 @@ h2, .page-title {
 
 .slide {
   height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
