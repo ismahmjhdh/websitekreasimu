@@ -227,6 +227,18 @@ h2, .page-title {
   object-fit: cover;
 }
 
+@media (max-width: 768px) {
+    .slideshow {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow {
+        height: 180px;
+    }
+}
+
 
 /* Card Grid */
 .card-grid { 
