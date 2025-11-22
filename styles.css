@@ -199,15 +199,12 @@ h2, .page-title {
 /* ========================================================= */
 
 .hero-banner { 
-  background-color: #8c9eff; 
   min-height: 350px; 
   display: flex; 
   justify-content: center; 
   align-items: center; 
   text-align: center; 
-  background-image: url('https://via.placeholder.com/1200x350/192a56/FFFFFF?text=Banner+Utama'); 
-  background-size: cover; 
-  background-position: center; 
+  background: none;
   color: white; 
   border-radius: 8px;
 }
