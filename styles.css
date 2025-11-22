@@ -215,7 +215,7 @@ h2, .page-title {
 .slides {
   display: flex;
   width: 100%;
-  animation: slide 10s infinite;
+  transition: transform 1.5s ease;
   gap: 200px;
 }
 
@@ -223,15 +223,25 @@ h2, .page-title {
   height: 100%;
   width: 100%;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 @keyframes slide {
-    0%   { margin-left: 0%; transform: translateX(0);}
-    45%  { margin-left: 0%; transform: translateX(0);}
-    50%  { margin-left: -100%; transform: translateX(-100%);}
-    95%  { margin-left: -100%; transform: translateX(-100%); }
-    100% { margin-left: 0%; transform: translateX(0);}
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+
+  75% { transform: translateX(-300%); }
+  95% { transform: translateX(-300%); }
+
+  100% { transform: translateX(-400%); }
 }
+
 
 /* Card Grid */
 .card-grid { 
