@@ -224,6 +224,7 @@ h2, .page-title {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  gap: 200px;
 }
 
 @keyframes slide {
