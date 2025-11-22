@@ -221,13 +221,13 @@ h2, .page-title {
 .slides {
   display: flex;
   width: 200%;
-  animation: slide 1.5s;
+  animation: slide 1.5s infinite;
 }
 
 .slide {
   display: flex;
   width: 100%;
-  animation: slide 1.5s;
+  animation: slide 1.5s infinite;
 }
 
 /* Card Grid */
