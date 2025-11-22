@@ -206,7 +206,7 @@ h2, .page-title {
 }
 
 .slider {
-  width: 100%;
+  max width: 1500px;
   height: 400px;
   overflow: hidden;
   position: relative;
