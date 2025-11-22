@@ -230,6 +230,14 @@ h2, .page-title {
   animation: slide 1.5s infinite;
 }
 
+@keyframes slide {
+    0%   { margin-left: 0%; }
+    45%  { margin-left: 0%; }
+    50%  { margin-left: -100%; }
+    95%  { margin-left: -100%; }
+    100% { margin-left: 0%; }
+}
+
 /* Card Grid */
 .card-grid { 
   display: grid;
