@@ -221,6 +221,7 @@ h2, .page-title {
   display: flex;
   width: 100%;
   animation: slide 10s infinite;
+  gap: 20px;
 }
 
 .slide {
