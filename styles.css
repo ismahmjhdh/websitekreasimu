@@ -221,13 +221,13 @@ h2, .page-title {
 .slides {
   display: flex;
   width: 200%;
-  animation: slide 1.5s infinite;
+  animation: slide 10s infinite;
 }
 
 .slide {
   display: flex;
   width: 100%;
-  animation: slide 1.5s infinite;
+  animation: slide 10s infinite;
 }
 
 @keyframes slide {
