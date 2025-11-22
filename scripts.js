@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.add('fa-bars');
             }
 
-            let index = 0;
 const slides = document.querySelector(".slides");
 const total = 5; // jumlah foto
 
