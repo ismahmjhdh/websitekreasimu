@@ -220,7 +220,7 @@ h2, .page-title {
 }
 
 .slide {
-  display: none;
+  display: flex;
   width: 100%;
   animation: slide 1.5s;
 }
