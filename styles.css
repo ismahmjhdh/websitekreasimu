@@ -202,12 +202,7 @@ h2, .page-title {
   min-height: 350px; 
   display: block; 
   width: 100%;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
-  background: none;
-  color: white; 
-  border-radius: 8px;
+
 }
 
 .slider {
