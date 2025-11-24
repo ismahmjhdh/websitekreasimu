@@ -225,6 +225,7 @@ h2, .page-title {
 .slide {
   height: 300px;
   width: 100%;
+  min-width: 100% - 1000px;
   object-fit: contain;
   flex-shrink: 0;
   position: center top;
