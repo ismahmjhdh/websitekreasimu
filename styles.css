@@ -173,10 +173,6 @@ h2, .page-title {
   color: var(--color-primary); 
   border: 1px solid var(--color-primary); 
 }
-.btn-log { 
-  background-color: var(--color-secondary); /* LOG IN menggunakan warna HIJAU */
-  color: var(--color-text-light); 
-}
 
 /* Hamburger Menu (Tambahkan Styling Sesuai JS) */
 .hamburger-menu { 
@@ -199,44 +195,39 @@ h2, .page-title {
 /* ========================================================= */
 
 .hero-banner { 
-  min-height: 350px; 
-  display: block; 
+  overflow: hidden; 
   width: 100%;
+  height: 500px;
 
 }
 
 .slider {
   width: 100%;
-  height: 500px;
-  margin: 0;
   overflow: hidden;
-  position: center;
   
 }
 
+
 .slides {
   display: flex;
-  width: 50%;
-  animation: slide 10s infinite;
-  object-position: left;
-  gap: 1000px;
+  animation: slide 20s infinite;
 }
 
 .slide {
-  height: 300px;
   width: 100%;
-  min-width: 100% - 1000px;
+  display: flex;
   object-fit: contain;
   flex-shrink: 0;
-  position: center top;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide img {
-  width: 200%;
-  height: 200%;
-  object-fit: cover;
-  object-position: right;
-
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  opacity: 100%;
 }
 
 @keyframes slide {
@@ -274,13 +265,13 @@ h2, .page-title {
   transform: translateY(-3px);
 }
 .card-image-placeholder { 
-  height: 150px; 
+  height: 250px; 
   background-color: var(--color-background-light); 
   background-image: url('https://via.placeholder.com/300x150/dcdcdc/000000?text=Gambar');
   background-size: cover;
 }
 .card-body { 
-  padding: 20px; 
+  padding: 50px; 
   font-weight: 600;
   color: var(--color-text-dark);
   font-size: 1.1em;

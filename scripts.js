@@ -20,8 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+            
         });
     }
+    let currentIndex = 0;
+const slides = document.querySelector('.slides');
+const slideElements = document.querySelectorAll('.slide');
+
+function updateSlider() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
 
     // ==============================================
     // 2. SLIDER/VIEWER GALERI (Untuk galeri.html)
@@ -68,5 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Inisialisasi slider
         updateSlider(); 
+        
     }
 });
