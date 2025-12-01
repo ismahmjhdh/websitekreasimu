@@ -112,13 +112,13 @@ h2, .page-title {
   background-color: var(--color-primary); /* Biru gelap solid */
   padding: 0 20px;
   max-width: 1500px;
-  margin: 10px auto;
+  margin: 0px auto;
 }
 
 .nav-item {
   color: var(--color-text-light);
-  padding: 15px 20px;
-  font-size: 0.95em;
+  padding: 15px 50px;
+  font-size: 1.00em;
   font-weight: 500;
   transition: background-color 0.2s, color 0.2s;
   position: relative;
@@ -464,22 +464,27 @@ h2, .page-title {
   padding: 40px 20px; 
   margin-top: 50px;
 }
-.footer-container { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: flex; 
-  justify-content: space-around; 
-  flex-wrap: wrap;
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;  /* Biar kiri & kanan saling berjauhan */
+    align-items: flex-start;          /* Menyamakan posisi atas */
+    gap: 40px;                        /* Jarak antar kolom */
+    padding: 40px;
+    background-color: #112350;        /* Warna sesuai gambarnya */
+    color: white;
 }
-.footer-col {
-  min-width: 250px;
-  margin-bottom: 20px;
+
+.footer-left,
+.footer-right {
+    width: 48%;       /* Biar seimbang */
 }
-.footer-col h3 { 
-  color: var(--color-secondary); 
-  margin-bottom: 15px; 
-  font-size: 1.2em;
+
+.footer-left h2,
+.footer-right h2 {
+    color: #32a852;    /* Warna hijau title seperti gambar */
 }
+
 .contact-item i { 
   margin-right: 10px; 
   color: var(--color-secondary); 
