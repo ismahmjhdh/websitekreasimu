@@ -280,6 +280,18 @@ h2, .page-title {
   /* Gaya spesifik acara jika ada */
 }
 
+.section-acara {
+    background-color: #0a2a6a; /* biru navy */
+    padding: 30px 30px;      /* jarak atas-bawah dan kiri-kanan */
+}
+
+.section-acara h2 {
+    color: white;            /* warna teks */
+    margin-bottom: 30px;     /* jarak antara judul dan card */
+    text-align: center;      /* biar judul di tengah */
+    font-size: 40px;
+}
+
 /* Testimoni Section */
 .section-testimoni { 
   background-color: var(--color-background-white); 
@@ -578,4 +590,141 @@ h2, .page-title {
 
   /* Galeri */
   .galeri-viewer { height: 300px; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+  /*profile*/
+.profile-section {
+    padding: 20px 20px;
+    margin: 0 auto;
+}
+
+.profile-section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #0a2a6a;
+}
+
+.profile-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.profile-section img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    /*profile TENTANG*/
+  .about-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;              /* bisa ubah sesuai selera */
+
+    padding:0;
+    overflow: hidden;
+}
+
+.about-hero img {
+    width: 100%;       /* 100% di layar*/
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center ;
+    filter: brightness(60%);    /* agar foto sedikit gelap */
+}
+
+.about-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 20, 90, 0.3);  /* Layer biru transparan */
+}
+
+.about-hero .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.about-hero .text h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    background: #0a2a6a;     /* biru navy */
+    padding: 12px 40px;
+    border-radius: 25px;
+}
+
+/*profile TENTANG-dikdasmen*/
+  .logo-box {
+    max-width: 800px;
+    background: #0c2c68;
+    color: white;
+    padding: 25px 30px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.logo-box p {
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+/*profile TENTANG-KREASI*/
+.kreasi {
+    max-width: 800px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 20px;
+}
+
+.left{
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+.right{
+    max-width: 350px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+/*TUJUAN*/
+.tujuan-box {
+    background-color: red;
+    padding: 30px 30px;      /* jarak atas-bawah dan kiri-kanan */
+}
+
+.tujuan-box h2 {
+    color: black;            /* warna teks */
+    margin-bottom: 20px;     /* jarak antara judul dan card */
+    text-align: center;      /* biar judul di tengah */
+    font-size: 40px;
+}
+
+.tujuan-box p{
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffffff;
 }

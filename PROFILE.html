@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KREASI - Tentang Kami</title>
+    <title>KREASI - Profile</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <header class="main-header">
         <div class="top-bar">
-            <div class="logo">KREASI <span class="subtitle">Pusat Inovasi dan Edukasi Anak Indonesia</span></div>
+            <div class="logo">
+                <img height="70" src="FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png"alt="LOGO KREASI" class="kresi-logo">
+            </div>
             <div class="search-box">
                 <input type="text" placeholder="Cari...">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="right-logos">
-                <img src="https://via.placeholder.com/35" alt="Logo Kemendikbud" class="kemendikbud-logo">
-                <img src="https://via.placeholder.com/35" alt="Logo Kemitraan" class="kemitraan-logo">
+                <img height="70" src="FOTO BERANDA/dikdesmen.png" alt="Logo Kemendikbud" class="kemendikbud-logo">
             </div>
         </div>
 
@@ -25,12 +27,12 @@
         
         <nav class="main-nav" id="main-nav-menu">
             <a href="BERANDA.html" class="nav-item">BERANDA</a>
-            <div class="nav-item has-dropdown active">PROFILE <i class="fas fa-caret-right"></i>
+            <div class="nav-item active has-dropdown">PROFILE <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content profile-dropdown">
-                    <a href="profile.html" class="active">TENTANG</a>
-                    <a href="#">TUJUAN</a>
-                    <a href="#">PROGRAM KREASI</a>
-                    <a href="#">STRUKTUR</a>
+                    <a href="profile.html#tentang">TENTANG</a>
+                    <a href="profile.html#tujuan">TUJUAN</a>
+                    <a href="profile.html#program">PROGRAM KREASI</a>
+                    <a href="profile.html#struktur">STRUKTUR</a>
                 </div>
             </div>
             <a href="berita.html" class="nav-item">BERITA</a>
@@ -43,28 +45,80 @@
             </div>
             <div class="auth-buttons">
                 <button class="btn btn-id">ID</button>
-                <button class="btn btn-log">LOG IN</button>
             </div>
         </nav>
     </header>
 
-    <main class="main-content detail-layout profile-page">
-        <h1 class="page-title">TENTANG KREASI</h1>
-        
-        <div class="profile-content-body">
-            <p><strong>KREASI (Kolaborasi Rakyat Edukasi Anak Indonesia)</strong> didirikan atas inisiatif bersama antara Kementerian Pendidikan dan Kebudayaan dengan berbagai mitra strategis untuk menciptakan ekosistem pembelajaran yang adaptif, inklusif, dan berorientasi pada masa depan.</p>
-            
-            <h3>Fokus Kami</h3>
-            <p>Kami berfokus pada pengembangan modul-modul pembelajaran inovatif, pelatihan intensif bagi para pendidik, serta penyediaan platform berbagi praktik baik di seluruh Indonesia.</p>
-
-            <h3>Misi Kami</h3>
-            <ul>
-                <li>Meningkatkan kualitas edukasi anak melalui kurikulum berbasis kompetensi abad 21.</li>
-                <li>Mendorong inovasi dan kreativitas dalam metode pengajaran di tingkat sekolah dasar hingga menengah.</li>
-                <li>Menyediakan akses merata terhadap sumber daya pendidikan digital yang relevan dan terpercaya.</li>
-            </ul>
+    <section id="tentang" class="profile-section about-hero">
+        <img src="FOTO PROFILE/kappframework-VphNwN(1)(1).png" alt="Foto About Us">
+        <div class="overlay"></div> 
+        <div class="text">
+            <h1>ABOUT US</h1> 
         </div>
-    </main>
+</section>
+    
+    <section id="dikdasmen" class="profile-section">
+        <img src="FOTO BERANDA/dikdesmen.png">
+        <div class="logo-box">
+            <p> Majelis Pendidikan Dasar Menengah dan Pendidikan Nonformal
+            Pimpinan Pusat Muhammadiyah sebagai lembaga mitra lokal bekerja 
+            sama dengan Save the Children menyelenggarakan Program Kolaborasi 
+            Edukasi Untuk Anak Indonesia (KREASI) yang berfokus pada penguatan 
+            literasi, Numerasi, dan Karakter Murid Madrasah Ibtidaiyah/Sekolah 
+            Dasar dan Raudatul Athfal di wilayah Kalimantan Barat dengan 2 
+            Kabupaten yaitu Ketapang dan Kayong Utara.
+            </p>
+        </div>
+    </section>
+
+    <section id="kreasi" class="profile-section kreasi">
+        <div class="left">
+        <img src="FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png" class="logo-kreasi">
+        </div>
+        <div class="right">
+        <p>
+            (Kolaborasi untuk Edukasi Anak Indonesia) merupakan program yang didanai oleh
+            Global Partnership for Education (GPE), dan dikembangkan bersama Kementerian
+            Pendidikan Dasar dan Menengah & Kementerian Agama, dan melalui Save The Children
+            dalam konsorsium kolaboratif Mitra Pendidikan Indonesia (MPI).
+        </p>
+    </div>
+    </section>
+
+<section id="tujuan" class="profile-section tujuan-box">
+    <h2>TUJUAN</h2>
+    <p>
+        KREASI bertujuan untuk meningkatkan kualitas pendidikan di Indonesia dengan memperkuat 
+        pengajaran, pembelajaran, dan pengembangan siswa. KREASI melalui Agen Hibahnya, 
+        Save the Children Australia dan Save the Children Indonesia sebagai perwakilan 
+        di Indonesia, ditunjuk oleh Kementerian Pendidikan Dasar dan Menengah (Kemen Dikdasmen) 
+        dan Kementerian Agama (Kemenag), dengan dukungan dari Mitra Pendidikan Indonesia (MPI), 
+        sebuah konsorsium yang terdiri dari 17 organisasi pemangku kepentingan pendidikan 
+        internasional dan lokal. Program KREASI selaras dengan tujuan pendidikan nasional 
+        Indonesia yang menekankan proses pembelajaran esensial dan fleksibel yang disesuaikan 
+        dengan minat, bakat, dan kebutuhan setiap siswa, dengan fokus pada pendidikan holistik, 
+        relevan, dan berkelanjutan.
+    </p>
+</section>
+
+<section id="program" class="profile-section">
+    <h2>PROGRAM KREASI</h2>
+    <img src="gambar-struktur.png" alt="Struktur Organisasi"><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</section>
+
+<section id="struktur" class="profile-section">
+    <h2>STRUKTUR ORGANISASI</h2>
+    <img src="gambar-struktur.png" alt="Struktur Organisasi">
+</section>
 
     <footer class="main-footer">...</footer> <script src="scripts.js"></script>
 </body>
