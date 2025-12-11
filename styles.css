@@ -634,7 +634,8 @@ html {
 
 .about-hero img {
     width: 100%;       /* 100% di layar*/
-    height: 100%;
+    max-width: 100%;
+    height: 400px;
     object-fit: cover;
     display: block;
     object-position: center ;
@@ -667,6 +668,18 @@ html {
     padding: 12px 40px;
     border-radius: 25px;
 }
+
+.about-scroll {
+    color: white;
+    font-size: 48px; /* sama seperti H1 kamu */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-scroll:hover {
+    opacity: 0.8;
+}
+
 
 /*profile TENTANG-dikdasmen*/
   .logo-box {
@@ -717,14 +730,174 @@ html {
 
 .tujuan-box h2 {
     color: black;            /* warna teks */
-    margin-bottom: 20px;     /* jarak antara judul dan card */
+    margin-bottom: 10px;     /* jarak antara judul dan card */
     text-align: center;      /* biar judul di tengah */
     font-size: 40px;
 }
 
 .tujuan-box p{
+    padding: 10px 80px;
     text-align: justify;
     font-size: 20px;
     line-height: 1.6;
     color: #ffffff;
+}
+
+/* split profile-section kreasi*/
+.split-kreasi {
+  display: flex;
+  align-items: stretch;
+  /* bila ingin full width */
+  width: 100%;
+  /* spasi atas-bawah, bisa diubah */
+  padding: 0px 0;
+}
+
+.split-left,
+.split-right {
+  flex: 1; /* dua bagian sama besar */
+}
+
+/* Untuk gambar + overlay teks */
+.image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+
+.image-container img {    
+  position: absolute;
+  filter: brightness(60%);
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* supaya gambar menyesuaikan, tidak terdistorsi */
+}
+
+/* Overlay teks di atas gambar */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 10px;
+}
+
+.overlay-text h2 {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* styling split-right */
+.split-right {
+  padding: 0 00px;
+}
+
+/* Responsif — di layar kecil, kolom jadi 1 (gambarnya dulu, teks di bawah) */
+@media (max-width: 768px) {
+  .split-section {
+    flex-direction: column;
+  }
+  .split-left,
+  .split-right {
+    width: 100%;
+  }
+  .split-right {
+    padding-top: 20px;
+  }
+}
+
+#program {
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* trik agar rata benar */
+  margin-right: calc(50% - 50vw);
+}
+
+/*split box right*/
+.split-box {
+    background-color: #0c2c68;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    padding: 20px 30px;      /* jarak atas-bawah dan kiri-kanan */
+}
+
+.split-box p{
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffffff;
+    padding: 0px 20px;
+}
+
+
+/*GOALS KREASI*/
+.goals-kreasi {
+  padding: 20px;
+}
+
+.goals-kreasi h2{
+  color: black;
+}
+
+.goals-kreasi p{
+  text-align: center;
+}
+
+.red{
+  color: red;
+}
+
+.flip-card {
+  width: 100%;
+  max-width: 700px;     /* bisa diubah */
+  height: 120px;        /* tinggi card */
+  margin: 25px auto;
+  perspective: 1000px;  /* penting untuk efek 3D */
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* DEPAN */
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;  /* penting */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Warna depan (biru) */
+.flip-front {
+  background: #0c2c68;
+  color: #fff;
+}
+
+/* Belakang (hijau), diputar agar muncul saat flip */
+.flip-back {
+  background: #47dba0;
+  color: #0c2c68;
+  transform: rotateY(180deg);
 }
