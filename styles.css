@@ -33,7 +33,7 @@ a {
 .main-content {
   max-width: 1550px;
   margin: 0 auto;
-  padding: top: 20px;
+  padding-top: 20px;
 }
 
 /* ----------------------- JUDUL HALAMAN ----------------------- */
@@ -328,6 +328,9 @@ h2, .page-title {
 }
 
 /* Capaian Map */
+.section-capaian {
+  padding: 20px;
+}
 .map-placeholder { 
   width: 100%; 
   height: 400px; 
@@ -472,7 +475,7 @@ h2, .page-title {
 
 .footer {
   background: #d9d9d9;
-  padding: 30px 200px;
+  padding: 20px 100px;
 }
 
 .footer-content {
@@ -485,22 +488,22 @@ h2, .page-title {
 .footer-left h2,
 .footer-right h2 {
   text-align: left;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 0px;
 }
 
 .footer-left p{
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .footer-right .subtitle {
-  font-size: 17px;
-  margin-bottom: 8px;
+  font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .contact-item {
-  gap: 15px;
+  gap: 16px;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -514,9 +517,14 @@ h2, .page-title {
 
 .social-icons a {
   text-decoration: none;
-  gap: 20px;
+  gap: 30px;
   font-size: 20px;
   margin-right: 15px;
+}
+
+.social-icons a img{
+  padding: 0x 30px;
+  height: 25px;
 }
 
 .logo-row {
@@ -529,7 +537,7 @@ h2, .page-title {
 }
 
 .logo-row img {
-  height: 35px;
+  height: 30px;
   object-fit: contain;
 }
 
