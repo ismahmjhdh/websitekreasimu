@@ -470,37 +470,69 @@ h2, .page-title {
 /* --- 6. FOOTER --- */
 /* ========================================================= */
 
-.main-footer { 
-  background-color: var(--color-primary); 
-  color: var(--color-text-light); 
-  padding: 40px 20px; 
-  margin-top: 50px;
+.footer {
+  background: #d9d9d9;
+  padding: 30px 200px;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;  /* Biar kiri & kanan saling berjauhan */
-    align-items: flex-start;          /* Menyamakan posisi atas */
-    gap: 40px;                        /* Jarak antar kolom */
-    padding: 40px;
-    background-color: #112350;        /* Warna sesuai gambarnya */
-    color: white;
-}
-
-.footer-left,
-.footer-right {
-    width: 48%;       /* Biar seimbang */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
 .footer-left h2,
 .footer-right h2 {
-    color: #32a852;    /* Warna hijau title seperti gambar */
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0px;
 }
 
-.contact-item i { 
-  margin-right: 10px; 
-  color: var(--color-secondary); 
+.footer-left p{
+  font-size: 17px;
 }
+
+.footer-right .subtitle {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.contact-item {
+  gap: 15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.contact-item .icon {
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  gap: 20px;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.logo-row {
+  border-top: 2px solid black;
+  padding-top: 10px;
+
+  display: flex;
+  justify-content: left ;
+  gap: 7px;
+}
+
+.logo-row img {
+  height: 35px;
+  object-fit: contain;
+}
+
 
 
 /* ========================================================= */
@@ -725,18 +757,18 @@ html {
 /*TUJUAN*/
 .tujuan-box {
     background-color: red;
-    padding: 30px 30px;      /* jarak atas-bawah dan kiri-kanan */
+    padding: 35px 30px;      /* jarak atas-bawah dan kiri-kanan */
 }
 
 .tujuan-box h2 {
     color: black;            /* warna teks */
-    margin-bottom: 10px;     /* jarak antara judul dan card */
+    margin-bottom: 0px;     /* jarak antara judul dan card */
     text-align: center;      /* biar judul di tengah */
     font-size: 40px;
 }
 
 .tujuan-box p{
-    padding: 10px 80px;
+    padding: 20px 120px;
     text-align: justify;
     font-size: 20px;
     line-height: 1.6;
@@ -833,7 +865,7 @@ html {
     font-size: 20px;
     line-height: 1.6;
     color: #ffffff;
-    padding: 0px 20px;
+    padding: 0px 60px;
 }
 
 
@@ -891,13 +923,35 @@ html {
 
 /* Warna depan (biru) */
 .flip-front {
-  background: #0c2c68;
+  background: var(--color-primary);
   color: #fff;
 }
 
 /* Belakang (hijau), diputar agar muncul saat flip */
 .flip-back {
-  background: #47dba0;
-  color: #0c2c68;
+  background: #43d596;
+  color: var(--color-primary);
   transform: rotateY(180deg);
 }
+
+.static-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px 20px;
+    background: red;        /* warna merah */
+    color: white;               /* teks putih biar kontras */
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.static-card h3 {
+    margin-bottom: 10px;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
