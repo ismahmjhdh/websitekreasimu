@@ -292,6 +292,8 @@ h2, .page-title {
     font-size: 40px;
 }
 
+
+
 /* Testimoni Section */
 .section-testimoni { 
   background-color: var(--color-background-white); 
@@ -342,6 +344,11 @@ h2, .page-title {
   border-radius: 8px;
 }
 
+.map-container img {
+  width: 480px;
+  height: auto;
+  margin-right: 40px;
+}
 
 /* ========================================================= */
 /* --- 4. LAYOUT DAFTAR (Berita/Materi) --- */
