@@ -93,40 +93,51 @@
 </section>
 
 
-        <section class="section-capaian">
-           <div class="container">
-    <h1>LOKASI & INTERVENSI PROGRAM</h1>
+       <section class="map-section">
+  <h2>LOKASI & INTERVENSI PROGRAM</h2>
 
-    <div class="slide1" id="slide1">
+  <div class="map-wrapper">
+    
+    <!-- PANAH KIRI -->
+    <button class="arrow left" onclick="prevMap()">&#10094;</button>
 
-        <div class="green-box">
-            <b>Tahun 2025:</b><br>
-            • 3 Kecamatan<br>
-            • 30 SD/MI<br>
-            • 10 TK/RA
+    <!-- KONTEN -->
+    <div class="map-content">
+      
+      <!-- KIRI -->
+      <div class="map-info">
+        <div class="info-box">
+          <h3>Tahun 2025:</h3>
+          <ul>
+            <li>3 Kecamatan</li>
+            <li>30 SD/MI</li>
+            <li>10 TK/RA</li>
+          </ul>
         </div>
-
-        <div class="arrow-straight"></div>
-        <div class="arrow-tip"></div>
-
-        <img src="FOTO BERANDA/KETAPANG OK OK.png" class="map-img" style="width: 400px; height: 200px; margin-right: 100px;">
 
         <div class="legend">
-            <div><span style="background:#22b573;"></span>3 Kecamatan Intervensi</div>
-            <div><span style="background:#e63939;"></span>14 Kecamatan Yang Akan Terdampak</div>
+          <div><span class="green"></span> 3 Kecamatan Intervensi</div>
+          <div><span class="red"></span> 14 Kecamatan Yang Akan Terdampak</div>
         </div>
+      </div>
 
-        <button id="next1" class="btn">&#8250;</button>
+      <!-- KANAN (SLIDER MAP) -->
+      <div class="map-slider">
+        <div class="map-track" id="mapTrack">
+          <img src="FOTO BERANDA/KETAPANG OK OK.png" alt="peta ketapang">
+          <img src="FOTO BERANDA/PETA KAYONG UTARA.png" alt="peta kayong">
+          <img src="map3.png" alt="Map 3">
+        </div>
+      </div>
+
     </div>
 
-    <div class="slide hide" id="slide2">
-        <h1>SLIDE 2</h1>
+    <!-- PANAH KANAN -->
+    <button class="arrow right" onclick="nextMap()">&#10095;</button>
 
-        <button id="prev2" class="btn">&#8249;</button>
-    </div>
+  </div>
+</section>
 
-</div>
-        </section>
 
         <section class="section-testimoni">
             <h2>TESTIMONI MITRA</h2>

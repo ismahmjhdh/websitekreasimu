@@ -78,5 +78,26 @@ function updateSlider() {
         // Inisialisasi slider
         updateSlider(); 
         
+        
+  let index = 0;
+  const track = document.getElementById("mapTrack");
+  const total = track.children.length;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextMap() {
+    index = (index < total -1){
+        index++;
+    updateSlide();
+  }
+
+  function prevMap() {
+    index = (index > 0){
+        index--;
+    updateSlide();
+  }
+
     }
 });
