@@ -33,7 +33,7 @@ a {
 .main-content {
   max-width: 1550px;
   margin: 0 auto;
-  padding: top: 20px;
+  padding-top: 20px;
 }
 
 /* ----------------------- JUDUL HALAMAN ----------------------- */
@@ -295,41 +295,74 @@ h2, .page-title {
 
 
 /* Testimoni Section */
-.section-testimoni { 
-  background-color: var(--color-background-white); 
-  padding: 40px 20px; 
-  border-radius: 8px;
-  box-shadow: var(--color-box-shadow);
-}
-.testimoni-grid { 
-  display: flex; 
-  gap: 40px; 
-  justify-content: center; 
-  flex-wrap: wrap;
-}
-.card-testimoni { 
-  flex-basis: calc(50% - 20px); 
-  background-color: var(--color-background-light); 
-  border-left: 5px solid var(--color-secondary); /* Garis hijau */
-  text-align: center; 
-  padding: 30px; 
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-.profile-photo { 
-  width: 60px; 
-  height: 60px; 
-  background-color: #c5cae9; 
-  border-radius: 50%; 
-  margin: 0 auto 15px; 
-  border: 3px solid var(--color-secondary);
-}
-.card-testimoni .quote {
-  font-style: italic;
-  color: #555;
+.section-testimoni {
+  background: #f5f5f5;
+  padding: 40px 0;
 }
 
+.section-testimoni h2 {
+  margin-left: 20px;
+  padding-bottom: 20px;
+  color: #1a237e;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Container slider */
+.slider-testi {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Track bergerak */
+.slider-track-testi {
+  display: flex;
+  width: calc(300px * 6); /* jumlah card * lebar card */
+  animation: scroll 15s linear infinite;
+}
+
+/* Animasi bergerak */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 3 - 20px * 3)); /* geser separuh track */
+  }
+}
+
+/* Card */
+.card-testi {
+  padding: 15px;
+  width: 300px;
+  height: 200px;
+  background: #082567; /* navy */
+  color: white;
+  margin-right: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.profile-testi {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-testi h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
 /* Capaian Map */
+.section-capaian {
+  padding: 20px;
+}
 .map-placeholder { 
   width: 100%; 
   height: 400px; 
@@ -477,37 +510,75 @@ h2, .page-title {
 /* --- 6. FOOTER --- */
 /* ========================================================= */
 
-.main-footer { 
-  background-color: var(--color-primary); 
-  color: var(--color-text-light); 
-  padding: 40px 20px; 
-  margin-top: 50px;
+.footer {
+  max-height: 500px;
+  background: #d9d9d9;
+  padding: 20px 80px;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;  /* Biar kiri & kanan saling berjauhan */
-    align-items: flex-start;          /* Menyamakan posisi atas */
-    gap: 40px;                        /* Jarak antar kolom */
-    padding: 40px;
-    background-color: #112350;        /* Warna sesuai gambarnya */
-    color: white;
-}
-
-.footer-left,
-.footer-right {
-    width: 48%;       /* Biar seimbang */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
 .footer-left h2,
 .footer-right h2 {
-    color: #32a852;    /* Warna hijau title seperti gambar */
+  text-align: left;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 0px;
 }
 
-.contact-item i { 
-  margin-right: 10px; 
-  color: var(--color-secondary); 
+.footer-left p{
+  font-size: 15px;
 }
+
+.footer-right .subtitle {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.contact-item {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.contact-item .icon {
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  gap: 30px;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.social-icons a img{
+  padding: 0x 30px;
+  height: 25px;
+}
+
+.logo-row {
+  border-top: 2px solid black;
+  padding-top: 10px;
+
+  display: flex;
+  justify-content: left ;
+  gap: 7px;
+}
+
+.logo-row img {
+  height: 30px;
+  object-fit: contain;
+}
+
 
 
 /* ========================================================= */
@@ -641,7 +712,8 @@ html {
 
 .about-hero img {
     width: 100%;       /* 100% di layar*/
-    height: 100%;
+    max-width: 100%;
+    height: 400px;
     object-fit: cover;
     display: block;
     object-position: center ;
@@ -674,6 +746,18 @@ html {
     padding: 12px 40px;
     border-radius: 25px;
 }
+
+.about-scroll {
+    color: white;
+    font-size: 48px; /* sama seperti H1 kamu */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-scroll:hover {
+    opacity: 0.8;
+}
+
 
 /*profile TENTANG-dikdasmen*/
   .logo-box {
@@ -719,19 +803,256 @@ html {
 /*TUJUAN*/
 .tujuan-box {
     background-color: red;
-    padding: 30px 30px;      /* jarak atas-bawah dan kiri-kanan */
+    padding: 35px 30px;      /* jarak atas-bawah dan kiri-kanan */
 }
 
 .tujuan-box h2 {
     color: black;            /* warna teks */
-    margin-bottom: 20px;     /* jarak antara judul dan card */
+    margin-bottom: 0px;     /* jarak antara judul dan card */
     text-align: center;      /* biar judul di tengah */
     font-size: 40px;
 }
 
 .tujuan-box p{
+    padding: 20px 120px;
     text-align: justify;
     font-size: 20px;
     line-height: 1.6;
     color: #ffffff;
+}
+
+/* split profile-section kreasi*/
+.split-kreasi {
+  display: flex;
+  align-items: stretch;
+  /* bila ingin full width */
+  width: 100%;
+  /* spasi atas-bawah, bisa diubah */
+  padding: 0px 0;
+}
+
+.split-left,
+.split-right {
+  flex: 1; /* dua bagian sama besar */
+}
+
+/* Untuk gambar + overlay teks */
+.image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+
+.image-container img {    
+  position: absolute;
+  filter: brightness(60%);
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* supaya gambar menyesuaikan, tidak terdistorsi */
+}
+
+/* Overlay teks di atas gambar */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 10px;
+}
+
+.overlay-text h2 {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* styling split-right */
+.split-right {
+  padding: 0 00px;
+}
+
+/* Responsif — di layar kecil, kolom jadi 1 (gambarnya dulu, teks di bawah) */
+@media (max-width: 768px) {
+  .split-section {
+    flex-direction: column;
+  }
+  .split-left,
+  .split-right {
+    width: 100%;
+  }
+  .split-right {
+    padding-top: 20px;
+  }
+}
+
+#program {
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* trik agar rata benar */
+  margin-right: calc(50% - 50vw);
+}
+
+/*split box right*/
+.split-box {
+    background-color: #0c2c68;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    padding: 20px 30px;      /* jarak atas-bawah dan kiri-kanan */
+}
+
+.split-box p{
+    text-align: justify;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffffff;
+    padding: 0px 60px;
+}
+
+
+/*GOALS KREASI*/
+.goals-kreasi {
+  padding: 15px;
+}
+
+.goals-kreasi h2{
+  font-size: 40px; 
+  color: black;
+}
+
+.goals-kreasi p{
+  font-size: 20px;
+  text-align: center;
+}
+
+.red{
+  color: red;
+}
+
+.flip-card {
+  width: 100%;
+  max-width: 700px;     /* bisa diubah */
+  height: 120px;        /* tinggi card */
+  margin: 25px auto;
+  perspective: 1000px;  /* penting untuk efek 3D */
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* DEPAN */
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;  /* penting */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Warna depan (biru) */
+.flip-front {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Belakang (hijau), diputar agar muncul saat flip */
+.flip-back {
+  background: #43d596;
+  color: var(--color-primary);
+  transform: rotateY(180deg);
+}
+
+.static-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px 20px;
+    background: red;        /* warna merah */
+    color: white;               /* teks putih biar kontras */
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.static-card h3 {
+    margin-bottom: 10px;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/*STRUKTUR*/
+
+.judul {
+  padding: 0px 260px;
+  align-items: center;
+  display: flex;
+  gap: 0px;
+  font-weight: bold;
+}
+
+.judul h2 {
+  text-align: left;
+  flex: 1;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.garis {
+  flex: 2;
+  height: 2px;
+  background-color: black;
+}
+
+.struktur-container {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* biar responsive */
+}
+
+.card {
+  width: 250px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover; /* biar fotonya proporsional */
+}
+
+.nama {
+  margin: 10px 0 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.jabatan {
+  margin-top: 2px;
+  font-size: 16px;
 }
