@@ -247,50 +247,59 @@ h2, .page-title {
 }
 
 /* Card Grid */
-.card-grid { 
+.agenda-section {
+  background-color: #27306d;
+  padding: 70px 80px;
+}
+
+.agenda-section h2 {
+  color: white;
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+.agenda-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; 
-  margin-bottom: 50px; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
-.card { 
-  background-color: var(--color-background-white); 
-  border-radius: 8px; 
-  overflow: hidden; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow lebih nyata */
-  border: 1px solid var(--color-border-subtle);
-  transition: transform 0.2s;
+.agenda-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
-.card:hover {
-  transform: translateY(-3px);
+.agenda-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
 }
-.card-image-placeholder { 
-  height: 250px; 
-  background-color: var(--color-background-light); 
-  background-image: url('https://via.placeholder.com/300x150/dcdcdc/000000?text=Gambar');
-  background-size: cover;
-}
-.card-body { 
-  padding: 50px; 
-  font-weight: 600;
-  color: var(--color-text-dark);
-  font-size: 1.1em;
-}
-.card-acara {
-  /* Gaya spesifik acara jika ada */
+.agenda-body {
+  padding: 20px;
 }
 
-.section-acara {
-    background-color: #0a2a6a; /* biru navy */
-    padding: 30px 30px;      /* jarak atas-bawah dan kiri-kanan */
+.agenda-date {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.section-acara h2 {
-    color: white;            /* warna teks */
-    margin-bottom: 30px;     /* jarak antara judul dan card */
-    text-align: center;      /* biar judul di tengah */
-    font-size: 40px;
+.agenda-body p {
+  font-size: 16px;
+  line-height: 1.5;
 }
+@media (max-width: 900px) {
+  .agenda-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-section {
+    padding: 40px 20px;
+  }
+}
+
 
 
 
