@@ -949,7 +949,7 @@ html {
 
 .image-container img {    
   position: absolute;
-  filter: brightness(60%);
+  opacity: 65%;
   top: 0;
   left: 0;
   max-width: 100%;
@@ -969,10 +969,12 @@ html {
 }
 
 .overlay-text h2 {
-  color: white;
+  color: black;
+  font-style: bold;
   font-size: 2.5rem;
   line-height: 1.2;
   margin: 0;
+  font-size: 55px;
 }
 
 /* styling split-right */
@@ -1033,7 +1035,7 @@ html {
   text-align: center;
 }
 
-.red{
+.red-goals{
   color: red;
 }
 
@@ -1124,7 +1126,8 @@ html {
 }
 
 .garis {
-  flex: 2;
+  align-items: center;
+  flex: 2.5;
   height: 2px;
   background-color: black;
 }
@@ -1137,12 +1140,12 @@ html {
   flex-wrap: wrap; /* biar responsive */
 }
 
-.card {
+.card-struktur {
   width: 250px;
   text-align: center;
 }
 
-.card img {
+.card-struktur img {
   width: 100%;
   height: auto;
   border-radius: 12px;
