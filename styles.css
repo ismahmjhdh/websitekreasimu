@@ -1119,25 +1119,31 @@ html {
 }
 
 .judul h2 {
-  text-align: left;
-  flex: 1;
+  text-align: center;
+  flex: 2;
   font-size: 26px;
   font-weight: bold;
+  font-style: underline;
 }
 
-.garis {
-  align-items: center;
-  flex: 2.5;
-  height: 2px;
-  background-color: black;
+.jabatan {
+  margin-top: 2px;
+  font-size: 16px;
 }
 
 .struktur-container {
-  padding-bottom: 30px;
+  padding: 35px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 50px;
   flex-wrap: wrap; /* biar responsive */
+}
+
+.struktur {
+  padding-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .card-struktur {
@@ -1146,8 +1152,9 @@ html {
 }
 
 .card-struktur img {
-  width: 100%;
-  height: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 220px;
+  height: 280px;
   border-radius: 12px;
   object-fit: cover; /* biar fotonya proporsional */
 }
@@ -1155,10 +1162,20 @@ html {
 .nama {
   margin: 10px 0 0;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .jabatan {
   margin-top: 2px;
-  font-size: 16px;
+  font-size: 15px;
 }
+
+.img-pop-tim {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-pop-tim:hover {
+    transform: scale(1.05);            /* pop up kecil */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
