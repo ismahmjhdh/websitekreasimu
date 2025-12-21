@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KREASI - Berita</title>
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -12,36 +13,51 @@
     <header class="main-header">
         <div class="top-bar">
             <div class="logo">
-                <img height="70" src="FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png"alt="LOGO KREASI" class="kresi-logo">
+                <img height="70"
+                     src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+                     alt="LOGO KREASI"
+                     class="kresi-logo">
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Cari...">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="right-logos">
-                <img height="70" src="FOTO BERANDA/dikdesmen.png" alt="Logo Kemendikbud" class="kemendikbud-logo">
+                <img height="70"
+                     src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
+                     alt="Logo Kemendikbud"
+                     class="kemendikbud-logo">
             </div>
         </div>
 
-        <button class="hamburger-menu" id="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="hamburger-menu" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
         
         <nav class="main-nav" id="main-nav-menu">
             <a href="{{ route('beranda') }}" class="nav-item">BERANDA</a>
-            <div class="nav-item has-dropdown">PROFILE <i class="fas fa-caret-right"></i>
+
+            <div class="nav-item has-dropdown">
+                PROFILE <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content profile-dropdown">
-                    <a href="profile.html">TENTANG</a>
-                    <a href="profile.html#tujuan">TUJUAN</a>
-                    <a href="profile.html#program">PROGRAM KREASI</a>
-                    <a href="profile.html#struktur">STRUKTUR</a>
+                    <a href="{{ url('profile') }}">TENTANG</a>
+                    <a href="{{ url('profile#tujuan') }}">TUJUAN</a>
+                    <a href="{{ url('profile#program') }}">PROGRAM KREASI</a>
+                    <a href="{{ url('profile#struktur') }}">STRUKTUR</a>
                 </div>
             </div>
-            <a href="{{ route('berita') }}" class="nav-item">BERITA</a>
+
+            <a href="{{ route('berita') }}" class="nav-item active">BERITA</a>
             <a href="{{ route('materi') }}" class="nav-item">MATERI</a>
-            <div class="nav-item has-dropdown">GALERI <i class="fas fa-caret-right"></i>
+
+            <div class="nav-item has-dropdown">
+                GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
-                    <a href="galeri.html">FOTO KEGIATAN</a>
+                    <a href="{{ route('galeri') }}">FOTO KEGIATAN</a>
+                    <a href="#">VIDEO</a>
                 </div>
             </div>
+
             <div class="auth-buttons">
                 <button class="btn btn-id">ID</button>
             </div>
@@ -82,77 +98,95 @@
                 <div class="berita-image"></div>
                 <div class="berita-content">
                     <h3>Penerapan Kurikulum Merdeka di Wilayah 3T Capai Angka Memuaskan</h3>
-                    <p class="ringkasan">RINGKASAN SINGKAT. Program pendampingan KREASI berhasil meningkatkan pemahaman guru terhadap implementasi kurikulum baru di daerah terpencil.</p>
+                    <p class="ringkasan">
+                        RINGKASAN SINGKAT. Program pendampingan KREASI berhasil meningkatkan
+                        pemahaman guru terhadap implementasi kurikulum baru di daerah terpencil.
+                    </p>
                 </div>
             </a>
+
             <a href="#" class="berita-item">
                 <div class="berita-image"></div>
                 <div class="berita-content">
                     <h3>Webinar Inovasi Digital: Mengajar dengan AI</h3>
-                    <p class="ringkasan">RINGKASAN SINGKAT. Ikuti webinar kami yang akan membahas bagaimana kecerdasan buatan dapat digunakan sebagai alat bantu pembelajaran yang efektif.</p>
+                    <p class="ringkasan">
+                        RINGKASAN SINGKAT. Ikuti webinar kami yang akan membahas bagaimana
+                        kecerdasan buatan dapat digunakan sebagai alat bantu pembelajaran yang efektif.
+                    </p>
                 </div>
             </a>
+
             <a href="#" class="berita-item">
                 <div class="berita-image"></div>
                 <div class="berita-content">
                     <h3>Praktik Baik: Kopi Pagi dan Diskusi Guru</h3>
-                    <p class="ringkasan">RINGKASAN SINGKAT. Kisah sukses dari SMPN 5 Bandung dalam membangun budaya kolaborasi antar guru melalui kegiatan rutin non-formal.</p>
+                    <p class="ringkasan">
+                        RINGKASAN SINGKAT. Kisah sukses dari SMPN 5 Bandung dalam membangun
+                        budaya kolaborasi antar guru melalui kegiatan rutin non-formal.
+                    </p>
                 </div>
             </a>
         </div>
     </main>
 
     <footer class="footer">
-  <div class="footer-content">
+        <div class="footer-content">
 
-    <!-- About Us -->
-    <div class="footer-left">
-      <h2>About Us</h2>
-      <p>KREASI adalah pusat kolaborasi untuk memajukan 
-        pendidikan anak Indonesia melalui </p>
-      <p>inovasi dan akses materi berkualitas.</p>
-    </div>
+            <div class="footer-left">
+                <h2>About Us</h2>
+                <p>KREASI adalah pusat kolaborasi untuk memajukan 
+                pendidikan anak Indonesia melalui </p>
+                <p>inovasi dan akses materi berkualitas.</p>
+            </div>
 
-    <!-- Contact Information -->
-    <div class="footer-right">
-      <h2>Contact Information</h2>
-      <p class="subtitle">feel free to contact and reach us!</p>
+            <div class="footer-right">
+                <h2>Contact Information</h2>
+                <p class="subtitle">feel free to contact and reach us!</p>
 
-      <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i> Jalan Bangka IX Nomor 
-        40A&B,<br> Pela Mampang, Mampang Prapatan, Jakarta Selatan,
-        <br> DKI Jakarta 12720
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i> (+62) 217824415
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i> Indonesia.KREASI@savethechildren.org
-      </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Jalan Bangka IX Nomor 
+                    40A&B,<br> Pela Mampang, Mampang Prapatan, Jakarta Selatan,
+                    <br> DKI Jakarta 12720
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> (+62) 217824415
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> Indonesia.KREASI@savethechildren.org
+                </div>
 
-      <div class="social-icons">
-        <a href="https://www.facebook.com/SaveChildrenID/" target="_blank"> <img src="FOOTER\Facebook_font_awesome.svg.png"> </a>
-        <a href="https://www.instagram.com/savechildren_id" target="_blank"> <img src="FOOTER\Instagram.png"></a>
-        <a href="https://x.com/savechildren_id" target="_blank"> <img src="FOOTER\Twitter_X.png"></a>
-        <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank"> <img src="FOOTER\LinkedIn_logo_In-Black.svg.png"></a>
-        <a href="#" target="_blank"> <img src="FOOTER\Tiktok_icon.svg.png"></a>
-      </div>
-    </div>
-  </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/SaveChildrenID/" target="_blank">
+                        <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}">
+                    </a>
+                    <a href="https://www.instagram.com/savechildren_id" target="_blank">
+                        <img src="{{ asset('images/FOOTER/Instagram.png') }}">
+                    </a>
+                    <a href="https://x.com/savechildren_id" target="_blank">
+                        <img src="{{ asset('images/FOOTER/Twitter_X.png') }}">
+                    </a>
+                    <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank">
+                        <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}">
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <!-- Logo Bar -->
-  <div class="logo-row">
-    <img src="FOOTER\Tut wuri handayani1.png" alt="">
-    <img src="FOOTER\Kementerian_Agama_new_logo.png" alt="">
-    <img src="FOOTER\Logo_Kementerian_PPN-Bappenas_(2023).png" alt="">
-    <img src="FOOTER\Lambang_Daerah_Kab._Kayong_Utara.png" alt="">
-    <img src="FOOTER\GPE-removebg-preview.png" alt="">
-    <img src="FOTO BERANDA\KREASI-SYMBOL_KREASI--768x416.png" alt="">
-    <img src="FOOTER\Logo_SavetheChildren.png" alt="">
-    <img src="FOTO BERANDA\dikdesmen.png" alt="">
-  </div>
-</footer>
+        <div class="logo-row">
+            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}">
+            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
+            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
+            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
+        </div>
+    </footer>
     
-    <script src="scripts.js"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 </html>
