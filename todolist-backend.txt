@@ -1,0 +1,3 @@
+- Membuat Controller
+- Design Database
+- Migrasi database
