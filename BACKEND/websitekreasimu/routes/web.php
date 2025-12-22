@@ -16,7 +16,7 @@ Route::middleware('web')->group(function () {
     Route::post('/admin/materi', [AdminMateriController::class, 'store']);
 
 Route::get('/', function () {
-    return view('home');
+    return view('beranda');
 });
 
 Route::get('/news', function () {
