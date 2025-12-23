@@ -51,7 +51,6 @@
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
-                    <a href="#">VIDEO</a>
                 </div>
             </div>
 

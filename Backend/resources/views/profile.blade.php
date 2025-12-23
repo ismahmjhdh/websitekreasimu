@@ -55,8 +55,8 @@
         <div class="nav-item has-dropdown">
             GALERI <i class="fas fa-caret-right"></i>
             <div class="dropdown-content galeri-dropdown">
-                <a href="#">FOTO KEGIATAN</a>
-                <a href="#">VIDEO</a>
+                <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
+              
             </div>
         </div>
 
