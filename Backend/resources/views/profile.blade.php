@@ -113,8 +113,14 @@
 <section id="tujuan" class="profile-section tujuan-box">
     <h2>TUJUAN</h2>
     <p>
-        KREASI bertujuan meningkatkan kualitas pendidikan Indonesia melalui
-        pembelajaran esensial, holistik, relevan, dan berkelanjutan.
+        KREASI bertujuan untuk meningkatkan kualitas pendidikan di Indonesia dengan memperkuat pengajaran, 
+        pembelajaran, dan pengembangan siswa. KREASI melalui Agen Hibahnya, Save the Children Australia dan 
+        Save the Children Indonesia sebagai perwakilan di Indonesia, ditunjuk oleh Kementerian Pendidikan Dasar 
+        dan Menengah (Kemen Dikdasmen) dan Kementerian Agama (Kemenag), dengan dukungan dari Mitra Pendidikan 
+        Indonesia (MPI), sebuah konsorsium yang terdiri dari 17 organisasi pemangku kepentingan pendidikan 
+        internasional dan lokal. Program KREASI selaras dengan tujuan pendidikan nasional Indonesia yang 
+        menekankan proses pembelajaran esensial dan fleksibel yang disesuaikan dengan minat, bakat, dan kebutuhan 
+        setiap siswa, dengan fokus pada pendidikan holistik, relevan, dan berkelanjutan.
     </p>
 </section>
 
@@ -132,8 +138,11 @@
     <div class="split-right">
         <div class="split-box">
             <p>
-                Program kolaboratif bersama Global Partnership for Education (GPE)
-                dan Mitra Pendidikan Indonesia (MPI).
+                Program KREASI di Provinsi Kalimantan Barat bekerja di dua (2) kabupaten yaitu Kabupaten 
+                Ketapang dan Kabupaten Kayong Utara dengan Mitra Pelaksana Lokal adalah Majelis Dikdasmen 
+                dan PNF Pimpinan Pusat Muhammadiyah. Sasaran program KREASI adalah sekolah di tingkat 
+                Pendidikan Anak Usia Dini (PAUD) dan Raudhatul Athfal (RA) serta Sekolah Dasar (SD) dan 
+                Madrasah Ibtidaiyah (MI).
             </p>
         </div>
     </div>
