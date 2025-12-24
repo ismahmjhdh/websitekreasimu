@@ -58,6 +58,13 @@
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                    
+=======
+>>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
+>>>>>>> Stashed changes
                 </div>
             </div>
 
@@ -67,16 +74,33 @@
         </nav>
     </header>
 
+<<<<<<< Updated upstream
     <!-- Main Content -->
     <main class="main-content materi-layout">
         <h1 class="page-title">MATERI</h1>
+=======
+<<<<<<< HEAD
+<main class="main-content materi-layout">
+    <h1 class="page-title">MATERI</h1>
+
+=======
+    <!-- Main Content -->
+    <main class="main-content materi-layout">
+        <h1 class="page-title">MATERI</h1>
+>>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
+>>>>>>> Stashed changes
 
         <!-- Search Bar -->
         <div class="search-materi-bar">
             <input type="text" placeholder="Cari Modul/Topik...">
+<<<<<<< Updated upstream
             <button class="search-btn">
                 <i class="fas fa-search"></i>
             </button>
+=======
+<<<<<<< HEAD
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+>>>>>>> Stashed changes
         </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -97,6 +121,7 @@
                     </div>
                 </div>
 
+<<<<<<< Updated upstream
 =======
     @foreach($materi as $item)
         <div class="materi-video">
@@ -144,6 +169,10 @@
                 <div class="materi-card">
                     <img src="{{ asset('images/gambar2.jpg') }}" 
                          alt="Monitoring Sekolah Mentubang">
+=======
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+>>>>>>> Stashed changes
                     <div class="materi-body">
                         <span class="materi-date">01 Oktober 2025</span>
                         <p>Monitoring Sekolah Mentubang</p>
@@ -151,20 +180,30 @@
                 </div>
 
                 <div class="materi-card">
+<<<<<<< Updated upstream
                     <img src="{{ asset('images/gambar3.jpg') }}" 
                          alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+=======
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+>>>>>>> Stashed changes
                     <div class="materi-body">
                         <span class="materi-date">11 November 2025</span>
                         <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
                     </div>
                 </div>
             </div>
+<<<<<<< Updated upstream
 
             <!-- Second Row of Cards -->
             <div class="materi-grid">
                 <div class="materi-card">
                     <img src="{{ asset('images/gambar1.jpg') }}" 
                          alt="Kampanye Perlindungan Anak">
+=======
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+>>>>>>> Stashed changes
                     <div class="materi-body">
                         <span class="materi-date">10 Agustus 2025</span>
                         <p>Kampanye Perlindungan Anak</p>
@@ -172,8 +211,12 @@
                 </div>
 
                 <div class="materi-card">
+<<<<<<< Updated upstream
                     <img src="{{ asset('images/gambar2.jpg') }}" 
                          alt="Monitoring Sekolah Mentubang">
+=======
+                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+>>>>>>> Stashed changes
                     <div class="materi-body">
                         <span class="materi-date">01 Oktober 2025</span>
                         <p>Monitoring Sekolah Mentubang</p>
@@ -181,8 +224,12 @@
                 </div>
 
                 <div class="materi-card">
+<<<<<<< Updated upstream
                     <img src="{{ asset('images/gambar3.jpg') }}" 
                          alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+=======
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+>>>>>>> Stashed changes
                     <div class="materi-body">
                         <span class="materi-date">11 November 2025</span>
                         <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
@@ -190,9 +237,13 @@
                 </div>
             </div>
         </section>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> Stashed changes
 
     
 </main>
@@ -202,6 +253,7 @@
     </main>
 >>>>>>> 0cad661 (hello)
 
+<<<<<<< Updated upstream
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
@@ -224,6 +276,49 @@
                 </div>
 
 =======
+            </div>
+
+            <h2>MATERI</h2>
+
+            <!-- First Row of Cards -->
+=======
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="footer-left">
+            <h2>About Us</h2>
+            <p>KREASI adalah pusat kolaborasi untuk memajukan
+                pendidikan anak Indonesia melalui</p>
+            <p>inovasi dan akses materi berkualitas.</p>
+        </div>
+
+        <div class="footer-right">
+            <h2>Contact Information</h2>
+            <p class="subtitle">feel free to contact and reach us!</p>
+
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                Jalan Bangka IX Nomor 40A&B,<br>
+                Pela Mampang, Mampang Prapatan,<br>
+                Jakarta Selatan, DKI Jakarta 12720
+=======
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Materi Section -->
+        <section class="materi-section">
+            <h2>HEADLINE</h2>
+            
+            <!-- Featured Video -->
+            <div class="materi-video">
+                <iframe src="https://www.youtube.com/embed/SB0MskyMtDM" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+>>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
             </div>
 
             <h2>MATERI</h2>
@@ -259,6 +354,38 @@
             </div>
 
             <!-- Second Row of Cards -->
+>>>>>>> Stashed changes
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" 
+                         alt="Monitoring Sekolah Mentubang">
+                    <div class="materi-body">
+                        <span class="materi-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+                    <div class="materi-body">
+                        <span class="materi-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+<<<<<<< Updated upstream
+            </div>
+
+            <!-- Second Row of Cards -->
             <div class="materi-grid">
                 <div class="materi-card">
                     <img src="{{ asset('images/gambar1.jpg') }}" 
@@ -299,6 +426,21 @@
                 <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
             </div>
 
+=======
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-left">
+                <h2>About Us</h2>
+                <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
+            </div>
+
+>>>>>>> Stashed changes
             <!-- Contact Section -->
             <div class="footer-right">
                 <h2>Contact Information</h2>
@@ -311,7 +453,10 @@
                     Jakarta Selatan, DKI Jakarta 12720
                 </div>
 
+<<<<<<< Updated upstream
 >>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
+=======
+>>>>>>> Stashed changes
                 <div class="contact-item">
                     <i class="fas fa-phone"></i> 
                     (+62) 217824415
