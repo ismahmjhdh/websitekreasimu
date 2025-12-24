@@ -20,6 +20,13 @@ class MateriController extends Controller
         return view('materi.create');
     }
 
+    public function show($id)
+    {
+        $item = Materi::findOrFail($id);
+
+        return view('materi.show', compact('item'));
+    }
+
     // simpan materi
     public function store(Request $request)
     {
