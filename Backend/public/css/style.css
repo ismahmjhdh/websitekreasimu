@@ -608,6 +608,18 @@ h2, .page-title {
     padding: 40px 20px;
   }
 }
+
+.materi-video {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    aspect-ratio: 16/9;
+}
+
+.materi-video iframe {
+    width: 100%;
+    height: 100%;
+}
 /* ========================================================= */
 /* --- 5. DETAIL GALERI (Slider) --- */
 /* ========================================================= */
