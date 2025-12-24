@@ -10,8 +10,8 @@ class MateriController extends Controller
     // list materi
     public function index()
     {
-        $materis = Materi::latest()->get();
-        return view('materi.index', compact('materis'));
+        $materi = materi::latest()->get();
+        return view('materi.index', compact('materi'));
     }
 
     // form tambah materi
