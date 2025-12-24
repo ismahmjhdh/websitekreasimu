@@ -74,6 +74,7 @@
             <input type="text" placeholder="Cari Modul/Topik...">
             <button class="search-btn"><i class="fas fa-search"></i></button>
         </div>
+<<<<<<< HEAD
     </div>
       
     
@@ -90,6 +91,30 @@
                     </div>
                 </div>
 
+=======
+    @foreach($materi as $item)
+        <div class="materi-video">
+            <iframe
+                src="https://www.youtube.com/embed/{{ Str::after($item->youtube_link, 'v=') }}"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    @endforeach
+
+    <section class="materi-section">
+            <h2>HEADLINE</h2>
+
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+>>>>>>> 0cad661 (hello)
                 <div class="materi-card">
                     <img src="{{ asset('images/gambar2.jpg') }}" alt="">
                     <div class="materi-body">
@@ -133,9 +158,13 @@
             </div>
         </section>
 
+<<<<<<< HEAD
 
     
 </main>
+=======
+    </main>
+>>>>>>> 0cad661 (hello)
 
 <footer class="footer">
     <div class="footer-content">
