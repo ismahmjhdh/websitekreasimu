@@ -148,6 +148,93 @@
     </div>
 </section>
 
+<!--goals-->
+<section id="goals" class="profile-section goals-kreasi">
+    <h2><span class="red-goals">GOALS</span> PROGRAM KREASI</h2>
+    <p> Peningkatan pencapaian keterampilan dasar <span class="red-goals">
+        (Literasi, Numerasi, Pendidikan Karakter) </span> 
+        untuk siswa TK/RA dan SD/MI Indonesia</p>
+    
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Kurikulum dan Asessmen</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik untuk kurikulum materi pembelajaran dan 
+        penilaian keterampilan dasar prasekolah dan sekolah dasar yang 
+        merata di tingkat nasional dan sub-nasional.
+      </p>
+    </div>
+    </div>  
+</div>
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Praktik Pembelajaran</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang ditingkatkan untuk pengajaran keterampilan 
+        dasar yang merata di daerah target
+      </p>
+    </div>
+  </div>
+</div>  
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Kepemimpinan Pendidikan</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang ditingkatkan untuk kepemimpinan pengajaran 
+        dan pembelajaran yang adil dan efektif di daerah yang di targetkan
+      </p>
+    </div>
+  </div>
+</div>  
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Perlindungan Anak</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang lebih baik untuk perlindungan 
+        anak yang adil dan pencegahan kekerasan di daerah yang di 
+        targetkan
+      </p>
+    </div>
+  </div>
+</div> 
+
+<div class="static-card">
+    <h3>Kesetaraan gender, disabilitas, inklusi sosial (GEDSI)</h3>
+</div>
+
+<div class="static-card">
+    <h3>Perubahan iklim adaptasi dan mitigasi 
+        (Climate Change)</h3>
+</div>
+</section>
+
 <!-- STRUKTUR -->
 <section id="struktur" class="profile-section">
     <h2>TIM PROGRAM KREASI<br>KABUPATEN KETAPANG</h2>
