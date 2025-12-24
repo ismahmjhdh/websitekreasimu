@@ -80,6 +80,7 @@
         </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
       
     
@@ -109,6 +110,9 @@
 =======
 >>>>>>> c2c5e9d (Memperbaiki page Materi)
 
+=======
+
+>>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
         <!-- Materi Section -->
         <section class="materi-section">
             <h2>HEADLINE</h2>
@@ -120,6 +124,7 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
+<<<<<<< HEAD
             </div>
 
             <h2>MATERI</h2>
@@ -218,6 +223,95 @@
                     Jakarta Selatan, DKI Jakarta 12720
                 </div>
 
+=======
+            </div>
+
+            <h2>MATERI</h2>
+
+            <!-- First Row of Cards -->
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" 
+                         alt="Monitoring Sekolah Mentubang">
+                    <div class="materi-body">
+                        <span class="materi-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+                    <div class="materi-body">
+                        <span class="materi-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row of Cards -->
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" 
+                         alt="Monitoring Sekolah Mentubang">
+                    <div class="materi-body">
+                        <span class="materi-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+                    <div class="materi-body">
+                        <span class="materi-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-left">
+                <h2>About Us</h2>
+                <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-right">
+                <h2>Contact Information</h2>
+                <p class="subtitle">feel free to contact and reach us!</p>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Jalan Bangka IX Nomor 40A&B,<br>
+                    Pela Mampang, Mampang Prapatan,<br>
+                    Jakarta Selatan, DKI Jakarta 12720
+                </div>
+
+>>>>>>> c2c5e9dce37449ab44e6529c16ee5bf58788784b
                 <div class="contact-item">
                     <i class="fas fa-phone"></i> 
                     (+62) 217824415
