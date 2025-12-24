@@ -76,13 +76,7 @@
         </div>
     </div>
       
-    <div class="materi-video">
-      <iframe
-        src="https://www.youtube.com/watch?v=SB0MskyMtDM/{{ Str::after($item->youtube_link, 'v=') }}"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </div>
+    
 
      <section class="materi-section">
             <h2>HEADLINE</h2>
