@@ -56,7 +56,7 @@
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
-                    <a href="#">VIDEO</a>
+                    
                 </div>
             </div>
 
@@ -67,45 +67,79 @@
 </header>
 
 <main class="main-content materi-layout">
-    <h1 class="page-title">KATALOG MATERI PEMBELAJARAN</h1>
+    <h1 class="page-title">MATERI</h1>
 
-    <div class="filter-bar">
-        <div class="filter-group">
-            <label>Filter Jenjang</label>
-            <span><input type="checkbox"> SD</span>
-            <span><input type="checkbox"> SMP</span>
-            <span><input type="checkbox"> SMA/K</span>
-        </div>
 
         <div class="search-materi-bar">
             <input type="text" placeholder="Cari Modul/Topik...">
             <button class="search-btn"><i class="fas fa-search"></i></button>
         </div>
-    </div>
-
-    <div class="card-grid materi-grid">
-        <div class="card materi-item">
-            <h3>Modul 1: Literasi Digital Dasar</h3>
-            <p>Jenjang: SD & SMP</p>
-            <p>Deskripsi: Panduan bagi guru untuk mengenalkan konsep keamanan dan etika digital pada siswa.</p>
-            <a href="#" class="detail-link">Lihat Detail <i class="fas fa-chevron-right"></i></a>
+    @foreach($materi as $item)
+        <div class="materi-video">
+            <iframe
+                src="https://www.youtube.com/embed/{{ Str::after($item->youtube_link, 'v=') }}"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
         </div>
+    @endforeach
 
-        <div class="card materi-item">
-            <h3>Modul 2: Berpikir Komputasional</h3>
-            <p>Jenjang: SMP & SMA/K</p>
-            <p>Deskripsi: Implementasi proyek-proyek sederhana untuk melatih logika dan pemecahan masalah.</p>
-            <a href="#" class="detail-link">Lihat Detail <i class="fas fa-chevron-right"></i></a>
-        </div>
+    <section class="materi-section">
+            <h2>HEADLINE</h2>
 
-        <div class="card materi-item">
-            <h3>Modul 3: Desain Pembelajaran Inklusif</h3>
-            <p>Jenjang: Umum</p>
-            <p>Deskripsi: Prinsip-prinsip merancang kegiatan belajar yang mengakomodasi beragam kebutuhan siswa.</p>
-            <a href="#" class="detail-link">Lihat Detail <i class="fas fa-chevron-right"></i></a>
-        </div>
-    </div>
-</main>
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+            <div class="materi-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <div class="materi-body">
+                        <span class="materi-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
 <footer class="footer">
     <div class="footer-content">
