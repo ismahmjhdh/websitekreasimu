@@ -58,14 +58,6 @@
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
-
-
-                    
-
-                    
-
-
-
                 </div>
             </div>
 
@@ -75,18 +67,6 @@
         </nav>
     </header>
 
-
-    <!-- Main Content -->
-    <main class="main-content materi-layout">
-        <h1 class="page-title">MATERI</h1>
-
-        
-
-<main class="main-content materi-layout">
-    <h1 class="page-title">MATERI</h1>
-
-
-    
     <!-- Main Content -->
     <main class="main-content materi-layout">
         <h1 class="page-title">MATERI</h1>
@@ -94,39 +74,10 @@
         <!-- Search Bar -->
         <div class="search-materi-bar">
             <input type="text" placeholder="Cari Modul/Topik...">
-
             <button class="search-btn">
                 <i class="fas fa-search"></i>
             </button>
-
-            
-
-            <button class="search-btn"><i class="fas fa-search"></i></button>
         </div>
-
-
-
-
-    </div>
-      
-    
-
-     <section class="materi-section">
-            <h2>HEADLINE</h2>
-
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
-                </div>
-
-
-    @foreach($materi as $item)
-
-    
         
         <!-- Featured Video -->
         <div class="materi-video">
@@ -140,195 +91,6 @@
         <section class="materi-section">
             <h2>HEADLINE</h2>
 
-            
-            <!-- Featured Video -->
-            <div class="materi-video">
-                <iframe src="https://www.youtube.com/embed/SB0MskyMtDM" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-
-            </div>
-
-            <h2>MATERI</h2>
-
-            <!-- First Row of Cards -->
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
-                </div>
-
->>>>>>> 0cad661 (hello)
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" 
-                         alt="Monitoring Sekolah Mentubang">
-
-                         
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-
-                    <img src="{{ asset('images/gambar3.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-
-                         
-                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Second Row of Cards -->
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak">
-
-                         
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-
-                    <img src="{{ asset('images/gambar2.jpg') }}" 
-                         alt="Monitoring Sekolah Mentubang">
-
-                         
-                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-
-                    <img src="{{ asset('images/gambar3.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-
-                         
-                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
-                    <div class="materi-body">
-                        <span class="materi-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-    
-</main>
-
-
-
-
-
-    </main>
-
-
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- About Section -->
-            <div class="footer-left">
-                <h2>About Us</h2>
-                <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="footer-right">
-                <h2>Contact Information</h2>
-                <p class="subtitle">feel free to contact and reach us!</p>
-
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Jalan Bangka IX Nomor 40A&B,<br>
-                    Pela Mampang, Mampang Prapatan,<br>
-                    Jakarta Selatan, DKI Jakarta 12720
-                </div>
-
-
-                
-            </div>
-
-            <h2>MATERI</h2>
-
-            
-
-            <!-- First Row of Cards -->
-
-            
-<footer class="footer">
-    <div class="footer-content">
-
-        <div class="footer-left">
-            <h2>About Us</h2>
-            <p>KREASI adalah pusat kolaborasi untuk memajukan
-                pendidikan anak Indonesia melalui</p>
-            <p>inovasi dan akses materi berkualitas.</p>
-        </div>
-
-        <div class="footer-right">
-            <h2>Contact Information</h2>
-            <p class="subtitle">feel free to contact and reach us!</p>
-
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                Jalan Bangka IX Nomor 40A&B,<br>
-                Pela Mampang, Mampang Prapatan,<br>
-                Jakarta Selatan, DKI Jakarta 12720
-
-                
-            <button class="search-btn">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-
-        <!-- Materi Section -->
-        <section class="materi-section">
-            <h2>HEADLINE</h2>
-            
-            <!-- Featured Video -->
-            <div class="materi-video">
-                <iframe src="https://www.youtube.com/embed/SB0MskyMtDM" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-
-            </div>
-
-            <h2>MATERI</h2>
-
             <!-- First Row of Cards -->
             <div class="materi-grid">
                 <div class="materi-card">
@@ -387,52 +149,6 @@
                         <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
                     </div>
                 </div>
-
-            </div>
-
-            <!-- Second Row of Cards -->
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" 
-                         alt="Monitoring Sekolah Mentubang">
-                    <div class="materi-body">
-                        <span class="materi-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-                    <div class="materi-body">
-                        <span class="materi-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- About Section -->
-            <div class="footer-left">
-                <h2>About Us</h2>
-                <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
-            </div>
-
-
-            
             </div>
         </section>
     </main>
@@ -457,13 +173,6 @@
                     Pela Mampang, Mampang Prapatan,<br>
                     Jakarta Selatan, DKI Jakarta 12720
                 </div>
-
-
-
-
-
-
-
 
                 <div class="contact-item">
                     <i class="fas fa-phone"></i> 
