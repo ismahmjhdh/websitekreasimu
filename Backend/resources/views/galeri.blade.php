@@ -54,6 +54,7 @@
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ route('galeri') }}">FOTO KEGIATAN</a>
+                    <a href="{{ url('galeri') }}">VIDEO KEGIATAN</a>
                     
                 </div>
             </div>
@@ -65,28 +66,73 @@
     </header>
 
     <main class="main-content galeri-detail-layout">
-        <h1 class="page-title">DOKUMENTASI: WORKSHOP KURIKULUM ADAPTIF</h1>
 
-        <div class="galeri-counter">FOTO 1/10</div>
+       <!-- Materi Section -->
+        <section class="galeri-section">
+            <h2>GALERI</h2>
 
-        <div class="galeri-viewer">
-            <span class="arrow prev-arrow">
-                <i class="fas fa-chevron-left"></i>
-            </span>
-            
-            <div class="galeri-image"></div>
-            
-            <span class="arrow next-arrow">
-                <i class="fas fa-chevron-right"></i>
-            </span>
-        </div>
+            <!-- First Row of Cards -->
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="galeri-body">
+                        <span class="galeri-date">SENIN 21 JULI 2025 </span>
+                        <p>PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</p>
+                    </div>
+                </div>
 
-        <a href="#" class="unduh-btn">UNDUH FOTO (ZIP)</a>
+                <div class="galeri-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" 
+                         alt="Monitoring Sekolah Mentubang">
+                    <div class="galeri-body">
+                        <span class="galeri-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="galeri-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+                    <div class="galeri-body">
+                        <span class="galeri-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row of Cards -->
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak">
+                    <div class="galeri-body">
+                        <span class="galeri-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
+
+                <div class="galeri-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" 
+                         alt="Monitoring Sekolah Mentubang">
+                    <div class="galeri-body">
+                        <span class="galeri-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
+
+                <div class="galeri-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" 
+                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
+                    <div class="galeri-body">
+                        <span class="galeri-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         
-        <p style="text-align:center; margin-top:20px; font-style:italic;">
-            Gunakan tombol panah di atas untuk melihat foto-foto kegiatan.
-        </p>
-    </main>
 
     <footer class="footer">
         <div class="footer-content">

@@ -707,61 +707,74 @@ h2, .page-title {
 /* --- 5. DETAIL GALERI (Slider) --- */
 /* ========================================================= */
 
-.galeri-viewer {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  margin: 0 auto 20px;
+.galeri-section {
+  background-color: #ffffff;
+  padding: 70px 80px;
+}
+
+.galeri-section h2 {
+  color: #27306d;
+  text-align: left;
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  column-gap: 40px;
+  row-gap: 60px;
+}
+.galeri-card {
+  background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
 
-.galeri-image {
+}
+.galeri-card img {
   width: 100%;
-  height: 100%;
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
-  background-color: #333; /* Latar belakang gelap untuk gambar */
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-text-light);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 15px 10px;
-  cursor: pointer;
-  z-index: 5;
-  font-size: 1.5em;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-}
-.arrow:hover { background-color: rgba(0, 0, 0, 0.8); }
-
-.galeri-counter {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: bold;
-  color: var(--color-secondary);
-}
-
-.unduh-btn {
+  height: 220px;
+  object-fit: cover;
   display: block;
-  width: 250px;
-  margin: 30px auto 10px;
-  padding: 12px;
-  text-align: center;
-  background-color: var(--color-secondary);
-  color: var(--color-text-light);
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.2s;
 }
-.unduh-btn:hover { background-color: #2ecc71; }
+.galeri-body {
+  padding: 20px;
+}
+
+.galeri-date {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.galeri-body p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .galeri-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .galeri-section {
+    padding: 40px 20px;
+  }
+}
+
+.galeri-video {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    aspect-ratio: 16/9;
+}
+
+.galeri-video iframe {
+    width: 100%;
+    height: 100%;
+}
 
 
 /* ========================================================= */
