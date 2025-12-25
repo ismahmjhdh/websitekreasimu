@@ -542,6 +542,71 @@ h2, .page-title {
   color: var(--color-primary);
   text-align: left;
 }
+/* ITEM */
+.berita-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.berita-img {
+    flex: 4; /* 50% */
+}
+
+.berita-content {
+    flex: 6; /* 50% */
+}
+
+/* GAMBAR */
+.berita-img img {
+    width: 380px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* KONTEN */
+.berita-content h3 {
+    color: #c62828;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.berita-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #c62828;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .berita-item {
+        flex-direction: column;
+    }
+
+    .berita-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+    }
+}
 
 .berita-content .ringkasan {
   color: #666;

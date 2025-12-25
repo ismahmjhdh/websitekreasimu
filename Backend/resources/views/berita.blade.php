@@ -94,39 +94,73 @@
         </div>
 
         <div class="berita-list">
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Penerapan Kurikulum Merdeka di Wilayah 3T Capai Angka Memuaskan</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Program pendampingan KREASI berhasil meningkatkan
-                        pemahaman guru terhadap implementasi kurikulum baru di daerah terpencil.
-                    </p>
-                </div>
-            </a>
+            <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="IMG_8446.JPG" alt="Berita">
+            </div>
 
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Webinar Inovasi Digital: Mengajar dengan AI</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Ikuti webinar kami yang akan membahas bagaimana
-                        kecerdasan buatan dapat digunakan sebagai alat bantu pembelajaran yang efektif.
-                    </p>
-                </div>
-            </a>
-
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Praktik Baik: Kopi Pagi dan Diskusi Guru</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Kisah sukses dari SMPN 5 Bandung dalam membangun
-                        budaya kolaborasi antar guru melalui kegiatan rutin non-formal.
-                    </p>
-                </div>
-            </a>
+            <div class="berita-content">
+                <h3>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</h3>
+                <p>
+                    Kampanye Perlindungan Anak SD Negeri 12 Pelerang adalah kegiatan
+                    untuk meningkatkan kesadaran siswa, guru, dan orang tua tentang
+                    pentingnya menjaga keamanan serta hak-hak anak di lingkungan sekolah.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
         </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="img/berita2.jpg" alt="Berita">
+            </div>
+
+            <div class="berita-content">
+                <h3>Monitoring Sekolah Mentubang</h3>
+                <p>
+                    Monitoring Sekolah Mentubang merupakan kegiatan pemantauan
+                    untuk menilai kondisi, kebutuhan, dan perkembangan sekolah.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</h3>
+                <p>
+                    Kampanye Perlindungan Anak SD Negeri 12 Pelerang adalah kegiatan
+                    untuk meningkatkan kesadaran siswa, guru, dan orang tua tentang
+                    pentingnya menjaga keamanan serta hak-hak anak di lingkungan sekolah.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+
+            <div class="berita-img">
+                <img src="IMG_8446.JPG" alt="Berita">
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</h3>
+                <p>
+                    Kampanye Perlindungan Anak SD Negeri 12 Pelerang adalah kegiatan
+                    untuk meningkatkan kesadaran siswa, guru, dan orang tua tentang
+                    pentingnya menjaga keamanan serta hak-hak anak di lingkungan sekolah.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="berita-img">
+                <img src="IMG_8446.JPG" alt="Berita">
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
