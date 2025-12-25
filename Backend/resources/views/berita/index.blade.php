@@ -88,7 +88,7 @@
             </div>
             
             <div class="search-materi-bar">
-                <input type="text" placeholder="Cari Berita...">
+                <input type="search" placeholder="Cari Berita...">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
