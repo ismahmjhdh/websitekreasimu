@@ -512,7 +512,7 @@ h2, .page-title {
   margin-left: 5px;
 }
 
-.berita-item, .materi-item {
+.materi-item {
   display: flex;
   background-color: var(--color-background-white);
   padding: 15px;
@@ -522,30 +522,82 @@ h2, .page-title {
   transition: background-color 0.2s;
 }
 
-.berita-item:hover {
-  background-color: #f2f7ff;
+.berita-layout{
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 40px; /* ⬅️ padding kanan kiri */
 }
 
-.berita-image {
-  min-width: 180px;
-  height: 120px;
-  background-color: var(--color-background-light);
-  margin-right: 20px;
-  border-radius: 4px;
-  background-image: url('https://via.placeholder.com/180x120/dcdcdc/000000?text=Berita');
-  background-size: cover;
+.berita-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
+/* ITEM */
+.berita-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.berita-img {
+    flex: 4; /* 50% */
+}
+
+.berita-content {
+    flex: 6; /* 50% */
+}
+
+/* GAMBAR */
+.berita-img img {
+    width: 380px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* KONTEN */
 .berita-content h3 {
-  font-size: 1.25em;
-  margin-bottom: 5px;
-  color: var(--color-primary);
-  text-align: left;
+    color: #c62828;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-.berita-content .ringkasan {
-  color: #666;
-  font-size: 0.9em;
+.berita-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: #c62828;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .berita-item {
+        flex-direction: column;
+    }
+
+    .berita-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+    }
 }
 
 /* ========================================================= */
