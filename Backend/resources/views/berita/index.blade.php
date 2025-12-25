@@ -94,38 +94,78 @@
         </div>
 
         <div class="berita-list">
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Penerapan Kurikulum Merdeka di Wilayah 3T Capai Angka Memuaskan</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Program pendampingan KREASI berhasil meningkatkan
-                        pemahaman guru terhadap implementasi kurikulum baru di daerah terpencil.
-                    </p>
-                </div>
-            </a>
+            <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}" alt="Berita">
+            </div>
 
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Webinar Inovasi Digital: Mengajar dengan AI</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Ikuti webinar kami yang akan membahas bagaimana
-                        kecerdasan buatan dapat digunakan sebagai alat bantu pembelajaran yang efektif.
-                    </p>
-                </div>
-            </a>
+            <div class="berita-content">
+                <h3>KREASI Kayong Utara Gelar Kampanye Perlindungan Anak</h3>
+                <p>
+                    Kampanye Perlindungan Anak digelar meriah di Pantai Pulau Datok, 
+                    Sukadana, Kayong Utara pada Minggu (10/8/2025). Acara ini resmi 
+                    dibuka Sekretaris Daerah Kabupaten Kayong Utara, Erwin Sudrajat, 
+                    dan dihadiri oleh Direktur KREASI Kalimantan Barat, Gufron Amirullah. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-            <a href="#" class="berita-item">
-                <div class="berita-image"></div>
-                <div class="berita-content">
-                    <h3>Praktik Baik: Kopi Pagi dan Diskusi Guru</h3>
-                    <p class="ringkasan">
-                        RINGKASAN SINGKAT. Kisah sukses dari SMPN 5 Bandung dalam membangun
-                        budaya kolaborasi antar guru melalui kegiatan rutin non-formal.
-                    </p>
-                </div>
-            </a>
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/majelis dikdasmen 17.8.25.jpg') }}" alt="Berita">
+            </div>
+
+            <div class="berita-content">
+                <h3>MAJELIS DIKDASMEN PNF PP MUHAMMADIYAH MENDAPATKAN PENGHARGAAN 
+                    DARI BGTK KALIMANTAN BARAT</h3>
+                <p>
+                   Pada momen upacara peringatan HUT RI ke-80, Balai 
+                   Guru dan Tenaga Kependidikan (BGTK) Provinsi 
+                   Kalimantan Barat memberikan penghargaan kepada 
+                   Majelis Dikdasmen PNF PP Muhammadiyah. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>KREASI Kayong Utara Perkuat Unit Layanan Disabilitas</h3>
+                <p>
+                    KREASI Kayong Utara melakukan aktivasi penguatan Unit 
+                    Layanan Disabilitas (ULD) di Bidang Pendidikan, sebagai 
+                    bentuk komitmen bersama dalam mewujudkan pendidikan yang 
+                    inklusif bagi semua anak, termasuk penyandang disabilitas 
+                    di Sukadana pada Jumat (29/8/2025).
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/layanan disabilitas 29.8.25.JPG') }}" alt="Berita">
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>Pertemuan Monitoring TPPK dan PATMB di Lingkungan Sekolah dan Masyarakat Kabupaten Kayong Utara</h3>
+                <p>
+                    Sukadana, Kamis, 4 September 2025, telah dilaksanakan 
+                    Pertemuan Monitoring Tim Pencegahan dan Penanganan Kekerasan 
+                    (TPPK) serta Perlindungan Anak Terpadu Berbasis Masyarakat (PATBM) 
+                    di lingkungan sekolah dan masyarakat Kabupaten Kayong Utara. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/monitoring tppk dan patmb 4.9.25.JPG') }}" alt="Berita">
+            </div>
         </div>
     </main>
 

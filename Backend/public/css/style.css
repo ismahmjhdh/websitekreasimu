@@ -542,6 +542,18 @@ h2, .page-title {
   color: var(--color-primary);
   text-align: left;
 }
+
+.berita-layout{
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 40px; /* ⬅️ padding kanan kiri */
+}
+
+.berita-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 /* ITEM */
 .berita-item {
     display: flex;
@@ -617,6 +629,12 @@ h2, .page-title {
 /* --- Materi --- */
 /* ========================================================= */
 
+.materi-video{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0px 100px; /* ⬅️ padding kanan kiri */
+    
+}
 .materi-section {
   background-color: #ffffff;
   padding: 70px 80px;
