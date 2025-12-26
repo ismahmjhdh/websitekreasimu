@@ -1294,6 +1294,37 @@ html {
   font-style: underline;
 }
 
+/* tombol struktur */
+.struktur-btn {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.struktur-btn button {
+  padding: 10px 22px;
+  margin: 0 6px;
+  border: none;
+  border-radius: 8px;
+  background: #ddd;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.struktur-btn button.active {
+  background: #0b2c5d;
+  color: #fff;
+}
+
+/* hide & show struktur */
+.struktur {
+  display: none;
+}
+
+.struktur.active {
+  display: block;
+}
+
+
 .jabatan {
   margin-top: 2px;
   font-size: 16px;
@@ -1346,4 +1377,3 @@ html {
     transform: scale(1.05);            /* pop up kecil */
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
