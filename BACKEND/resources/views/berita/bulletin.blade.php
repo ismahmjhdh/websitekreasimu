@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KREASI - Galeri</title>
+    <title>KREASI - Berita</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -35,7 +35,7 @@
         </button>
         
         <nav class="main-nav" id="main-nav-menu">
-            <a href="{{ url('/') }}" class="nav-item">BERANDA</a>
+            <a href="{{ route('beranda') }}" class="nav-item">BERANDA</a>
 
             <div class="nav-item has-dropdown">
                 PROFILE <i class="fas fa-caret-right"></i>
@@ -47,15 +47,14 @@
                 </div>
             </div>
 
-            <a href="{{ route('berita') }}" class="nav-item">BERITA</a>
+            <a href="{{ route('berita') }}" class="nav-item active">BERITA</a>
             <a href="{{ route('materi') }}" class="nav-item">MATERI</a>
 
-            <div class="nav-item active has-dropdown">
+            <div class="nav-item has-dropdown">
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
                     <a href="{{ route('galeri') }}">FOTO KEGIATAN</a>
                     <a href="{{ url('galeri') }}">VIDEO KEGIATAN</a>
-                    
                 </div>
             </div>
 
@@ -65,74 +64,111 @@
         </nav>
     </header>
 
-    <main class="main-content galeri-detail-layout">
-
-       <!-- Materi Section -->
-        <section class="galeri-section">
-            <h2>GALERI</h2>
-
-            <!-- First Row of Cards -->
-            <div class="galeri-grid">
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/23.7.25.JPG') }}"
-                         alt="23.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PENGUATANKAPASITAS PENDIDIK DAN TENAGA KEPENDIDIKAN DALAM PENYUSUNAN KURIKULUM SATUAN PENDIDIKAN BERBASIS LITERASI NUMERASI DAN PENDIDIKAN PERUBAHAN IKLIM DI KABUPATEN KAYONG UTARA</span>
-                        <p>RABU 23-25 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/28.7.25.JPG') }}"
-                         alt="28.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PENINGKATAN KAPASITAS GURU PAUD SIMPANG HILIR</span>
-                        <p>SENIN 28 JULI 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row of Cards -->
-            <div class="galeri-grid">
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/29.7.25.JPG') }}" 
-                         alt="29.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PELATIHANPROGRAM SAFE FAMILIES BAGIFASILITATOR SESI ORANG TUA DAN SESI ANAK DI TINGKAT SEKOLAHKABUPATEN KAYONG UTARA</span>
-                        <p>Selasa 29 juli 2025</p>
-                    </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/selasa 29.7.25.JPG') }}" 
-                         alt="selasa 19.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">WORKSHOP OPTIMALISASI DANA BOP UNTUK MENINGKATKAN KOMPETENSI GURU PAUD</span>
-                        <p>Selasa 29 juli 2025</p>
-                    </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/4.8.25.JPG') }}"
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-                    <div class="galeri-body">
-                        <span class="galeri-date">LOKAKARYA PENERAPAN PEMBELAJARAN BERBASIS PROJEK YANG TERINTEGRASI DENGAN LINGKUNGAN DAN PERUBAHAN IKLIM DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 4-5 AGUSTUS</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <main class="main-content berita-layout">
+        <h1 class="page-title">BERITA & ARTIKEL</h1>
         
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="sort-order">Urutan:</label>
+                <select id="sort-order">
+                    <option value="terbaru">Terbaru</option>
+                    <option value="terpopuler">Terpopuler</option>
+                    <option value="abjad">A-Z</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="category-filter">Kategori:</label>
+                <select id="category-filter">
+                    <option value="semua">Semua</option>
+                    <option value="berita">Berita</option>
+                    <option value="buletin">Buletin</option>
+                    <option value="praktik-baik">Praktik Baik</option>
+                </select>
+            </div>
+            
+            <div class="search-materi-bar">
+                <input type="search" placeholder="Cari Berita...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="berita-list">
+            <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}" alt="Berita">
+            </div>
+
+            <div class="berita-content">
+                <h3>Guru Ketapang Beraksi: Sulap Keterbatasan Jadi Inovasi Lewat Ruang Kolaboratif KREASI</h3>
+                <p>
+                   Kreasi Ketapang Majelis Dikdasmen dan PNF PP Muhammadiyah sukses menggelar
+                    lokakarya "Learning: Kelompok Kerja Guru (KKG) Tingkat Kabupaten" pada 31 Juli hingga
+                    1 Agustus 2025 di Hotel Borneo, Ketapang. Kegiatan yang dihadiri oleh 39 pendidik ini
+                    bukan sekadar pertemuan formalitas, melainkan sebuah ruang kolaboratif mendesak
+                    untuk menjawab tantangan literasi dan numerasi yang masih rendah.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/majelis dikdasmen 17.8.25.jpg') }}" alt="Berita">
+            </div>
+
+            <div class="berita-content">
+                <h3>MAJELIS DIKDASMEN PNF PP MUHAMMADIYAH MENDAPATKAN PENGHARGAAN 
+                    DARI BGTK KALIMANTAN BARAT</h3>
+                <p>
+                   Pada momen upacara peringatan HUT RI ke-80, Balai 
+                   Guru dan Tenaga Kependidikan (BGTK) Provinsi 
+                   Kalimantan Barat memberikan penghargaan kepada 
+                   Majelis Dikdasmen PNF PP Muhammadiyah. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>KREASI Kayong Utara Perkuat Unit Layanan Disabilitas</h3>
+                <p>
+                    KREASI Kayong Utara melakukan aktivasi penguatan Unit 
+                    Layanan Disabilitas (ULD) di Bidang Pendidikan, sebagai 
+                    bentuk komitmen bersama dalam mewujudkan pendidikan yang 
+                    inklusif bagi semua anak, termasuk penyandang disabilitas 
+                    di Sukadana pada Jumat (29/8/2025).
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/layanan disabilitas 29.8.25.JPG') }}" alt="Berita">
+            </div>
+        </div>
+
+        <!-- ITEM -->
+        <div class="berita-item">
+            <div class="berita-content">
+                <h3>Pertemuan Monitoring TPPK dan PATMB di Lingkungan Sekolah dan Masyarakat Kabupaten Kayong Utara</h3>
+                <p>
+                    Sukadana, Kamis, 4 September 2025, telah dilaksanakan 
+                    Pertemuan Monitoring Tim Pencegahan dan Penanganan Kekerasan 
+                    (TPPK) serta Perlindungan Anak Terpadu Berbasis Masyarakat (PATBM) 
+                    di lingkungan sekolah dan masyarakat Kabupaten Kayong Utara. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="berita-img">
+                <img src="{{ asset('images/FOTO BERITA/monitoring tppk dan patmb 4.9.25.JPG') }}" alt="Berita">
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">

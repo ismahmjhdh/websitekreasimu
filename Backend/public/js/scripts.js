@@ -96,4 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // =============================
+  // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
+  // =============================
+  window.showStruktur = function(no) {
+    document.querySelectorAll('.struktur').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    document.querySelectorAll('.struktur-btn button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    const target = document.getElementById('struktur' + no);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('.struktur-btn button')[no - 1]
+      ?.classList.add('active');
+  };
+
+
 });
+
+
