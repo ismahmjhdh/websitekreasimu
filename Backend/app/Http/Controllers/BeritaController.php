@@ -5,13 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 
+
 class BeritaController extends Controller
 {
     // tampil berita (user)
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::where('status', 'published')->latest()->get();
-        return view('berita.index', compact('beritas'));
+        $search = $request->input('search');
+        $sort = $request->input('sort', 'terbaru');
+        $category = $request->input('category');
+
+        $beritas = Berita::published()
+            ->search($search)
+            ->sortBy($sort)
+            ->get();
+
+        return view('berita.index', compact('beritas', 'search', 'sort', 'category'));
+    }
+
+    public function show($id)
+    {
+        $berita = Berita::findOrFail($id);
+        return view('berita.show', compact('berita'));
     }
 
 
@@ -42,4 +57,6 @@ Berita::create([
 
         return redirect('/berita');
     }
+
+  
 }
