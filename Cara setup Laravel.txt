@@ -1,0 +1,65 @@
+============ Laravel Setup ============ 
+
+by : Alfascale-x
+
+
+1. Download Laragon (https://laragon.org/download) 
+    - Tutorial (https://youtu.be/nW60yGRoUrs?si=sQWgDMaBgv_XKu)
+    - Jangan lupa di start All
+    - laragon udh punya php
+
+2. Download Composer (https://getcomposer.org/download/)
+    - Tutorial (https://youtu.be/vcVmga17d8E?si=cI29i8XyscNjsL2Q)
+
+3. Requirement:
+- PHP 8.2.x (WAJIB, jangan 8.5)
+- Composer
+- Git
+- MySQL (kalau pake DB)
+
+
+4. Clone github ini lalu masuk ke folder Backend
+
+    - clone github ini di folder C:\laragon\www
+    - masuk ke folder: cd BACKEND
+
+5. Install dependency
+    - command terminal: composer install
+
+6. Generate APP KEY
+    - command terminal: php artisan key:generate
+
+7. Setup environment
+    - command terminal: copy .env.example .env
+    - edit file .env 
+
+    DB_CONNECTION=mysql
+    #DB_HOST=127.0.0.1
+   #DB_PORT=3306
+   #DB_DATABASE=kreasiku
+   # DB_USERNAME=root
+    #DB_PASSWORD=
+
+    SESSION_DRIVER=file
+    SESSION_LIFETIME=120
+    SESSION_ENCRYPT=false
+SESSION_PATH=/
+    SESSION_DOMAIN=null
+
+    karena databse masih besifat local maka tidak perlu diisi, tapi ganti DB_connection menjadi MySQL
+    dan SESSION_DRIVER menjadi file
+
+    
+
+8. Untuk Frontend : 
+    - Silahkan edit file html yang ada di folder resources/views/ (html berbentuk  .blade.php)
+    - untuk css dan js silahkan edit di folder public/
+    - selalu lakukan git pull sebelum push codenya ke github
+
+9. Untuk saat ini Database baru bisa diakses dari Localhost backend, 
+    jadi fitur seperti berita dan materi belom bisa dijalankan dengan baik
+
+10. cara menjalankannya 
+    - command terminal: php artisan serve
+    - akses: http://127.0.0.1:8000
+    - untuk stop server: ctrl + c
