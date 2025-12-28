@@ -29,7 +29,7 @@ const slideElements = document.querySelectorAll('.slide');
 
 function updateSlider() {
   slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
+ }
 
 
     // ==============================================
@@ -79,4 +79,47 @@ function updateSlider() {
         updateSlider(); 
         
     }
+  let index = 0;
+  const track = document.getElementById("mapTrack");
+
+  if (track) {
+  let index = 0;
+  const total = track.children.length;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextMap() {
+    if (index < total -1){
+        index++;
+    updateSlide();
+  }}
+
+  function prevMap() {
+    if (index > 0){
+        index--;
+    updateSlide();
+  }}
+  }
+
+
+ // =============================
+  // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
+  // =============================
+  window.showStruktur = function(no) {
+    document.querySelectorAll('.struktur').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    document.querySelectorAll('.struktur-btn button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    const target = document.getElementById('struktur' + no);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('.struktur-btn button')[no - 1]
+      ?.classList.add('active');
+  };
 });

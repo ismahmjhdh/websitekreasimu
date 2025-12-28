@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KREASI - Profile</title>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="top-bar">
+        <div class="logo">
+            <img height="70"
+                 src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+                 alt="LOGO KREASI"
+                 class="kresi-logo">
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Cari...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="right-logos">
+            <img height="70"
+                 src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
+                 alt="Logo Kemendikbud"
+                 class="kemendikbud-logo">
+        </div>
+    </div>
+
+    <button class="hamburger-menu" id="hamburger">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="main-nav" id="main-nav-menu">
+        <a href="{{ route('beranda') }}" class="nav-item">BERANDA</a>
+
+        <div class="nav-item active has-dropdown">
+            PROFILE <i class="fas fa-caret-right"></i>
+            <div class="dropdown-content profile-dropdown">
+                <a href="#tentang">TENTANG</a>
+                <a href="#tujuan">TUJUAN</a>
+                <a href="#program">PROGRAM KREASI</a>
+                <a href="#struktur">STRUKTUR</a>
+            </div>
+        </div>
+
+        <a href="{{ route('berita') }}" class="nav-item">BERITA</a>
+        <a href="{{ route('materi') }}" class="nav-item">MATERI</a>
+
+        <div class="nav-item has-dropdown">
+            GALERI <i class="fas fa-caret-right"></i>
+            <div class="dropdown-content galeri-dropdown">
+                <a href="{{ url('galeri') }}">FOTO KEGIATAN</a>
+                <a href="{{ url('galeri') }}">VIDEO KEGIATAN</a>
+              
+            </div>
+        </div>
+
+        <div class="auth-buttons">
+            <button class="btn btn-id">ID</button>
+        </div>
+    </nav>
+</header>
+
+<!-- ABOUT -->
+<section id="tentang" class="profile-section about-hero">
+    <div class="container">
+        <img src="{{ asset('images/FOTO PROFILE/kappframework-VphNwN(1)(1).png') }}" alt="Foto About Us">
+    </div>
+
+    <div class="overlay">
+        <div class="text">
+            <a href="#kreasi" class="about-scroll">ABOUT US</a>
+        </div>
+    </div>
+</section>
+
+<!-- DIKDASMEN -->
+<section id="dikdasmen" class="profile-section">
+    <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
+    <div class="logo-box">
+        <p>
+            Majelis Pendidikan Dasar Menengah dan Pendidikan Nonformal Pimpinan
+            Pusat Muhammadiyah sebagai lembaga mitra lokal bekerja sama dengan
+            Save the Children menyelenggarakan Program Kolaborasi Edukasi Untuk
+            Anak Indonesia (KREASI) yang berfokus pada penguatan literasi,
+            numerasi, dan karakter murid.
+        </p>
+    </div>
+</section>
+
+<!-- KREASI -->
+<section id="kreasi" class="profile-section kreasi">
+    <div class="left">
+        <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+             class="logo-kreasi">
+    </div>
+
+    <div class="right">
+        <p>
+            (Kolaborasi untuk Edukasi Anak Indonesia) merupakan program yang
+            didanai oleh Global Partnership for Education (GPE) dan dikembangkan
+            bersama Kementerian Pendidikan Dasar dan Menengah & Kementerian Agama.
+        </p>
+    </div>
+</section>
+
+<!-- TUJUAN -->
+<section id="tujuan" class="profile-section tujuan-box">
+    <h2>TUJUAN</h2>
+    <p>
+        KREASI bertujuan untuk meningkatkan kualitas pendidikan di Indonesia dengan memperkuat pengajaran, 
+        pembelajaran, dan pengembangan siswa. KREASI melalui Agen Hibahnya, Save the Children Australia dan 
+        Save the Children Indonesia sebagai perwakilan di Indonesia, ditunjuk oleh Kementerian Pendidikan Dasar 
+        dan Menengah (Kemen Dikdasmen) dan Kementerian Agama (Kemenag), dengan dukungan dari Mitra Pendidikan 
+        Indonesia (MPI), sebuah konsorsium yang terdiri dari 17 organisasi pemangku kepentingan pendidikan 
+        internasional dan lokal. Program KREASI selaras dengan tujuan pendidikan nasional Indonesia yang 
+        menekankan proses pembelajaran esensial dan fleksibel yang disesuaikan dengan minat, bakat, dan kebutuhan 
+        setiap siswa, dengan fokus pada pendidikan holistik, relevan, dan berkelanjutan.
+    </p>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" class="profile-section split-kreasi">
+    <div class="split-left">
+        <div class="image-container">
+            <img src="{{ asset('images/FOTO PROFILE/IMG_8446.JPG') }}">
+            <div class="overlay-text">
+                <h2>PROGRAM<br>KREASI</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="split-right">
+        <div class="split-box">
+            <p>
+                Program KREASI di Provinsi Kalimantan Barat bekerja di dua (2) kabupaten yaitu Kabupaten 
+                Ketapang dan Kabupaten Kayong Utara dengan Mitra Pelaksana Lokal adalah Majelis Dikdasmen 
+                dan PNF Pimpinan Pusat Muhammadiyah. Sasaran program KREASI adalah sekolah di tingkat 
+                Pendidikan Anak Usia Dini (PAUD) dan Raudhatul Athfal (RA) serta Sekolah Dasar (SD) dan 
+                Madrasah Ibtidaiyah (MI).
+            </p>
+        </div>
+    </div>
+</section>
+
+<!--goals-->
+<section id="goals" class="profile-section goals-kreasi">
+    <h2><span class="red-goals">GOALS</span> PROGRAM KREASI</h2>
+    <p> Peningkatan pencapaian keterampilan dasar <span class="red-goals">
+        (Literasi, Numerasi, Pendidikan Karakter) </span> 
+        untuk siswa TK/RA dan SD/MI Indonesia</p>
+    
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Kurikulum dan Asessmen</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik untuk kurikulum materi pembelajaran dan 
+        penilaian keterampilan dasar prasekolah dan sekolah dasar yang 
+        merata di tingkat nasional dan sub-nasional.
+      </p>
+    </div>
+    </div>  
+</div>
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Praktik Pembelajaran</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang ditingkatkan untuk pengajaran keterampilan 
+        dasar yang merata di daerah target
+      </p>
+    </div>
+  </div>
+</div>  
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Kepemimpinan Pendidikan</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang ditingkatkan untuk kepemimpinan pengajaran 
+        dan pembelajaran yang adil dan efektif di daerah yang di targetkan
+      </p>
+    </div>
+  </div>
+</div>  
+
+<div class="flip-card">
+  <div class="flip-inner">
+    <!-- DEPAN (biru) -->
+    <div class="flip-front">
+      <h3>Perlindungan Anak</h3>
+    </div>
+
+    <!-- BELAKANG (hijau) -->
+    <div class="flip-back">
+      <p>
+        Kebijakan dan praktik yang lebih baik untuk perlindungan 
+        anak yang adil dan pencegahan kekerasan di daerah yang di 
+        targetkan
+      </p>
+    </div>
+  </div>
+</div> 
+
+<div class="static-card">
+    <h3>Kesetaraan gender, disabilitas, inklusi sosial (GEDSI)</h3>
+</div>
+
+<div class="static-card">
+    <h3>Perubahan iklim adaptasi dan mitigasi 
+        (Climate Change)</h3>
+</div>
+</section>
+
+<!-- STRUKTUR -->
+<section class="STRUKTUR ORGANISASI">
+            <h2>TIM PROGRAM KREASI</h2> 
+            
+  <div class="struktur-btn">
+      <button class="active" onclick="showStruktur(1)">KABUPATEN KETAPANG</button>
+      <button onclick="showStruktur(2)">KAYONG UTARA</button>
+  </div>
+
+  <div id="struktur1" class="struktur active">
+
+  <div class="struktur-container">
+      <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Julni Rhamawan</h3>
+      <p class="jabatan">Program Manager KREASI
+      <br>Kalimantan Barat</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Santoso Setio</h3>
+      <p class="jabatan">Program Coordinator
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+  </div>
+
+  <div class="struktur-container">
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Syarif Syamsurrizal</h3>
+      <p class="jabatan">Advocacy Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Jainal Abidin</h3>
+      <p class="jabatan">Basic Education
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Ilma Karmila</h3>
+      <p class="jabatan">Early Childhood <br>Education Development
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Siti Mauliani</h3>
+      <p class="jabatan">Child Protection Officer
+      <br>KREASI Kabupaten Ketapang</p>
+  </div>
+  </div>
+
+  <div class="struktur-container">
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Sujiman</h3>
+      <p class="jabatan">Monitoring, Evaluation, <br>Accountability & Learning Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Afriyandi Nur Huda</h3>
+      <p class="jabatan">Communcitions & Media Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Heri Setiawan</h3>
+      <p class="jabatan">Logistic Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Nur Malina <br>Indah Putri</h3>
+      <p class="jabatan">Finance Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+    </div>
+  </div>
+
+  <div id="struktur2" class="struktur">
+
+  <div class="struktur-container">
+      <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Anti Angraini </h3>
+      <p class="jabatan">Koordinator KREASI
+      <br>Kalimantan Barat</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Santoso Setio</h3>
+      <p class="jabatan">Program Coordinator
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+  </div>
+
+  <div class="struktur-container">
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Syarif Syamsurrizal</h3>
+      <p class="jabatan">Advocacy Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Jainal Abidin</h3>
+      <p class="jabatan">Basic Education
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Ilma Karmila</h3>
+      <p class="jabatan">Early Childhood <br>Education Development
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Siti Mauliani</h3>
+      <p class="jabatan">Child Protection Officer
+      <br>KREASI Kabupaten Ketapang</p>
+  </div>
+  </div>
+
+  <div class="struktur-container">
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Sujiman</h3>
+      <p class="jabatan">Monitoring, Evaluation, <br>Accountability & Learning Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Afriyandi Nur Huda</h3>
+      <p class="jabatan">Communcitions & Media Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Heri Setiawan</h3>
+      <p class="jabatan">Logistic Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Nur Malina <br>Indah Putri</h3>
+      <p class="jabatan">Finance Officer
+      <br>KREASI Kabupaten Ketapang</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-content">
+
+    <!-- About Us -->
+    <div class="footer-left">
+      <h2>About Us</h2>
+      <p>KREASI adalah pusat kolaborasi untuk memajukan 
+        pendidikan anak Indonesia melalui </p>
+      <p>inovasi dan akses materi berkualitas.</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="footer-right">
+      <h2>Contact Information</h2>
+      <p class="subtitle">feel free to contact and reach us!</p>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i> Jalan Bangka IX Nomor 
+        40A&B,<br> Pela Mampang, Mampang Prapatan, Jakarta Selatan,
+        <br> DKI Jakarta 12720
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i> (+62) 217824415
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i> Indonesia.KREASI@savethechildren.org
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/SaveChildrenID/" target="_blank">
+          <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}">
+        </a>
+        <a href="https://www.instagram.com/savechildren_id" target="_blank">
+          <img src="{{ asset('images/FOOTER/Instagram.png') }}">
+        </a>
+        <a href="https://x.com/savechildren_id" target="_blank">
+          <img src="{{ asset('images/FOOTER/Twitter_X.png') }}">
+        </a>
+        <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank">
+          <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}">
+        </a>
+        <a href="#" target="_blank">
+          <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Bar -->
+  <div class="logo-row">
+    <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="">
+    <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="">
+    <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="">
+    <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="">
+    <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="">
+    <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="">
+    <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="">
+    <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="">
+  </div>
+</footer>
+
+<script src="{{ asset('scripts.js') }}"></script>
+</body>
+</html>
+
