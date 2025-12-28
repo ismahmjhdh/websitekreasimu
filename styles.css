@@ -451,6 +451,17 @@ h2, .page-title {
   font-weight: bold;
   transition: background-color 0.2s;
 }
+
+ /* Panah kiri */
+.arrow-left {
+  left: 10px;
+}
+
+ /* Panah kanan */
+.arrow-right {
+  right: 10px;
+}
+
 .unduh-btn:hover { background-color: #2ecc71; }
 
 
@@ -579,3 +590,8 @@ h2, .page-title {
   /* Galeri */
   .galeri-viewer { height: 300px; }
 }
+
+/* ========================================================= */
+/* --- 8. GAELRI 1 --- */
+/* ========================================================= */
+
