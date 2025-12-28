@@ -94,80 +94,65 @@
         </div>
 
         <div class="berita-list">
-            <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}" alt="Berita">
-            </div>
+          <section class="buletin-section">
+            <h2>BULETIN</h2>
 
-            <div class="berita-content">
-                <h3>Guru Ketapang Beraksi: Sulap Keterbatasan Jadi Inovasi Lewat Ruang Kolaboratif KREASI</h3>
-                <p>
-                   Kreasi Ketapang Majelis Dikdasmen dan PNF PP Muhammadiyah sukses menggelar
-                    lokakarya "Learning: Kelompok Kerja Guru (KKG) Tingkat Kabupaten" pada 31 Juli hingga
-                    1 Agustus 2025 di Hotel Borneo, Ketapang. Kegiatan yang dihadiri oleh 39 pendidik ini
-                    bukan sekadar pertemuan formalitas, melainkan sebuah ruang kolaboratif mendesak
-                    untuk menjawab tantangan literasi dan numerasi yang masih rendah.
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-        </div>
+            <div class="buletin-grid">
+                <div class="materi-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
 
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/majelis dikdasmen 17.8.25.jpg') }}" alt="Berita">
-            </div>
+                <div class="buletin-card">
+                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
 
-            <div class="berita-content">
-                <h3>MAJELIS DIKDASMEN PNF PP MUHAMMADIYAH MENDAPATKAN PENGHARGAAN 
-                    DARI BGTK KALIMANTAN BARAT</h3>
-                <p>
-                   Pada momen upacara peringatan HUT RI ke-80, Balai 
-                   Guru dan Tenaga Kependidikan (BGTK) Provinsi 
-                   Kalimantan Barat memberikan penghargaan kepada 
-                   Majelis Dikdasmen PNF PP Muhammadiyah. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
+                <div class="buletin-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="buletin-grid">
+                <div class="buletin-card">
+                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">10 Agustus 2025</span>
+                        <p>Kampanye Perlindungan Anak</p>
+                    </div>
+                </div>
 
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-content">
-                <h3>KREASI Kayong Utara Perkuat Unit Layanan Disabilitas</h3>
-                <p>
-                    KREASI Kayong Utara melakukan aktivasi penguatan Unit 
-                    Layanan Disabilitas (ULD) di Bidang Pendidikan, sebagai 
-                    bentuk komitmen bersama dalam mewujudkan pendidikan yang 
-                    inklusif bagi semua anak, termasuk penyandang disabilitas 
-                    di Sukadana pada Jumat (29/8/2025).
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
+                <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">01 Oktober 2025</span>
+                        <p>Monitoring Sekolah Mentubang</p>
+                    </div>
+                </div>
 
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/layanan disabilitas 29.8.25.JPG') }}" alt="Berita">
+                <div class="buletin-card">
+                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <div class="buletin-body">
+                        <span class="buletin-date">11 November 2025</span>
+                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                    </div>
+                </div>
             </div>
-        </div>
+           
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-content">
-                <h3>Pertemuan Monitoring TPPK dan PATMB di Lingkungan Sekolah dan Masyarakat Kabupaten Kayong Utara</h3>
-                <p>
-                    Sukadana, Kamis, 4 September 2025, telah dilaksanakan 
-                    Pertemuan Monitoring Tim Pencegahan dan Penanganan Kekerasan 
-                    (TPPK) serta Perlindungan Anak Terpadu Berbasis Masyarakat (PATBM) 
-                    di lingkungan sekolah dan masyarakat Kabupaten Kayong Utara. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-            
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/monitoring tppk dan patmb 4.9.25.JPG') }}" alt="Berita">
-            </div>
-        </div>
+
     </main>
 
     <footer class="footer">

@@ -1377,3 +1377,74 @@ html {
     transform: scale(1.05);            /* pop up kecil */
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
+
+
+/* buletin */
+.buletin-section {
+  background-color: #ffffff;
+  padding: 70px 80px;
+}
+
+.buletin-section h2 {
+  color: #27306d;
+  text-align: left;
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+.buletin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  column-gap: 40px;
+  row-gap: 60px;
+}
+.buletin-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
+
+}
+.buletin-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.buletin-body {
+  padding: 20px;
+}
+
+.buletin-date {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.buletin-body p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .buletin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buletin-section {
+    padding: 40px 20px;
+  }
+}
+
+.buletin-video {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    aspect-ratio: 16/9;
+}
+
+.buletin-video iframe {
+    width: 100%;
+    height: 100%;
+}
