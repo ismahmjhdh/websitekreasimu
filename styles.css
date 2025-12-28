@@ -638,7 +638,7 @@ h2, .page-title {
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-text-light);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0);
   padding: 15px 10px;
   cursor: pointer;
   z-index: 5;
@@ -646,7 +646,7 @@ h2, .page-title {
   border-radius: 50%;
   transition: background-color 0.2s;
 }
-.arrow:hover { background-color: rgba(0, 0, 0, 0.8); }
+.arrow:hover { background-color: rgba(0, 0, 0, 0); }
 
 .galeri-counter {
   text-align: center;
@@ -669,12 +669,12 @@ h2, .page-title {
 }
 
  /* Panah kiri */
-.arrow-left {
+.prev-arrow {
   left: 10px;
 }
 
  /* Panah kanan */
-.arrow-right {
+.next-arrow {
   right: 10px;
 }
 
