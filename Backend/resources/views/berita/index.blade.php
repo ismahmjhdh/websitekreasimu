@@ -14,19 +14,21 @@
         <div class="top-bar">
             <div class="logo">
                 <img height="70"
-                     src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
-                     alt="LOGO KREASI"
-                     class="kresi-logo">
+                    src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+                    alt="LOGO KREASI"
+                    class="kresi-logo">
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Cari...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <form method="GET" action="{{ route('berita') }}">
+                    <input type="text" name="search" placeholder="Cari..." value="{{ $search ?? '' }}">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
             </div>
             <div class="right-logos">
                 <img height="70"
-                     src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
-                     alt="Logo Kemendikbud"
-                     class="kemendikbud-logo">
+                    src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
+                    alt="Logo Kemendikbud"
+                    class="kemendikbud-logo">
             </div>
         </div>
 
@@ -67,105 +69,85 @@
     <main class="main-content berita-layout">
         <h1 class="page-title">BERITA & ARTIKEL</h1>
         
-        <div class="filter-bar">
+        <!-- Filter Bar dengan Form -->
+        <form method="GET" action="{{ route('berita') }}" class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order">
-                    <option value="terbaru">Terbaru</option>
-                    <option value="terpopuler">Terpopuler</option>
-                    <option value="abjad">A-Z</option>
+                <select id="sort-order" name="sort" onchange="this.form.submit()">
+                    <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
+                    <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
                 </select>
             </div>
             
             <div class="filter-group">
                 <label for="category-filter">Kategori:</label>
-                <select id="category-filter">
-                    <option value="semua">Semua</option>
-                    <option value="berita">Berita</option>
-                    <option value="buletin">Buletin</option>
-                    <option value="praktik-baik">Praktik Baik</option>
+                <select id="category-filter" name="category" onchange="this.form.submit()">
+                    <option value="semua" {{ ($category ?? 'semua') == 'semua' ? 'selected' : '' }}>Semua</option>
+                    <option value="berita" {{ ($category ?? '') == 'berita' ? 'selected' : '' }}>Berita</option>
+                    <option value="buletin" {{ ($category ?? '') == 'buletin' ? 'selected' : '' }}>Buletin</option>
+                    <option value="praktik-baik" {{ ($category ?? '') == 'praktik-baik' ? 'selected' : '' }}>Praktik Baik</option>
                 </select>
             </div>
             
             <div class="search-materi-bar">
-                <input type="search" placeholder="Cari Berita...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <input type="search" name="search" placeholder="Cari Berita..." value="{{ $search ?? '' }}">
+                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
             </div>
-        </div>
+
+            @if($search || ($sort && $sort != 'terbaru') || ($category && $category != 'semua'))
+                <a href="{{ route('berita') }}" class="btn btn-reset" style="margin-left: 10px;">
+                    <i class="fas fa-redo"></i> Reset
+                </a>
+            @endif
+        </form>
+
+        <!-- Hasil Pencarian Info -->
+        @if($search)
+            <div style="padding: 15px; background: #f0f0f0; margin-bottom: 20px; border-radius: 5px;">
+                <p style="margin: 0; color: #666;">
+                    <i class="fas fa-search"></i> Menampilkan hasil pencarian untuk: 
+                    <strong>"{{ $search }}"</strong> 
+                    ({{ $beritas->count() }} hasil ditemukan)
+                </p>
+            </div>
+        @endif
 
         <div class="berita-list">
-            <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}" alt="Berita">
-            </div>
+            @forelse($beritas as $berita)
+                <!-- ITEM -->
+                <div class="berita-item">
+                    @if($berita->image_url)
+                        <div class="berita-img">
+                            <img src="{{ $berita->image_url }}" alt="{{ $berita->title }}">
+                        </div>
+                    @endif
 
-            <div class="berita-content">
-                <h3>KREASI Kayong Utara Gelar Kampanye Perlindungan Anak</h3>
-                <p>
-                    Kampanye Perlindungan Anak digelar meriah di Pantai Pulau Datok, 
-                    Sukadana, Kayong Utara pada Minggu (10/8/2025). Acara ini resmi 
-                    dibuka Sekretaris Daerah Kabupaten Kayong Utara, Erwin Sudrajat, 
-                    dan dihadiri oleh Direktur KREASI Kalimantan Barat, Gufron Amirullah. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-        </div>
+                    <div class="berita-content">
+                        <h3>{{ $berita->title }}</h3>
+                        <p>
+                            {{ Str::limit(strip_tags($berita->content), 200) }}
+                        </p>
+                        <a href="{{ route('berita.show', $berita->id) }}" class="btn">Selengkapnya</a>
+                    </div>
 
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/majelis dikdasmen 17.8.25.jpg') }}" alt="Berita">
-            </div>
-
-            <div class="berita-content">
-                <h3>MAJELIS DIKDASMEN PNF PP MUHAMMADIYAH MENDAPATKAN PENGHARGAAN 
-                    DARI BGTK KALIMANTAN BARAT</h3>
-                <p>
-                   Pada momen upacara peringatan HUT RI ke-80, Balai 
-                   Guru dan Tenaga Kependidikan (BGTK) Provinsi 
-                   Kalimantan Barat memberikan penghargaan kepada 
-                   Majelis Dikdasmen PNF PP Muhammadiyah. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-        </div>
-
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-content">
-                <h3>KREASI Kayong Utara Perkuat Unit Layanan Disabilitas</h3>
-                <p>
-                    KREASI Kayong Utara melakukan aktivasi penguatan Unit 
-                    Layanan Disabilitas (ULD) di Bidang Pendidikan, sebagai 
-                    bentuk komitmen bersama dalam mewujudkan pendidikan yang 
-                    inklusif bagi semua anak, termasuk penyandang disabilitas 
-                    di Sukadana pada Jumat (29/8/2025).
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/layanan disabilitas 29.8.25.JPG') }}" alt="Berita">
-            </div>
-        </div>
-
-        <!-- ITEM -->
-        <div class="berita-item">
-            <div class="berita-content">
-                <h3>Pertemuan Monitoring TPPK dan PATMB di Lingkungan Sekolah dan Masyarakat Kabupaten Kayong Utara</h3>
-                <p>
-                    Sukadana, Kamis, 4 September 2025, telah dilaksanakan 
-                    Pertemuan Monitoring Tim Pencegahan dan Penanganan Kekerasan 
-                    (TPPK) serta Perlindungan Anak Terpadu Berbasis Masyarakat (PATBM) 
-                    di lingkungan sekolah dan masyarakat Kabupaten Kayong Utara. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-            
-            <div class="berita-img">
-                <img src="{{ asset('images/FOTO BERITA/monitoring tppk dan patmb 4.9.25.JPG') }}" alt="Berita">
-            </div>
+                    @if(!$berita->image_url && $loop->iteration % 2 == 0)
+                        <!-- Alternate layout untuk berita tanpa gambar -->
+                    @endif
+                </div>
+            @empty
+                <!-- Tidak ada berita -->
+                <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
+                    <i class="fas fa-search" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+                    <h3 style="color: #999; margin-bottom: 10px;">Tidak ada berita ditemukan</h3>
+                    @if($search)
+                        <p style="color: #666;">Coba gunakan kata kunci yang berbeda</p>
+                        <a href="{{ route('berita') }}" class="btn" style="margin-top: 15px;">
+                            <i class="fas fa-arrow-left"></i> Kembali ke semua berita
+                        </a>
+                    @endif
+                </div>
+            @endforelse
         </div>
     </main>
 

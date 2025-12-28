@@ -35,6 +35,9 @@ Route::get('/berita/create', [BeritaController::class, 'create'])
 Route::post('/berita', [BeritaController::class, 'store'])
     ->name('berita.store');
 
+Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+
+
 
 // ================= MATERI =================
 Route::get('/materi', [MateriController::class, 'index'])
