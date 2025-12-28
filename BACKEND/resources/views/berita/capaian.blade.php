@@ -99,8 +99,8 @@
 
              <div class="capaian-grid">
                 <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
+                    <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}"
+                         alt="Sang Nahkoda Di Tepian Sungai Pawan">
                     <div class="capaian-body">
                         <span class="capaian-date">Sang Nahkoda Di Tepian Sungai Pawan</span>
                         <p>Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
@@ -111,8 +111,8 @@
 
                 <div class="capaian-grid">
                 <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
+                    <img src="{{ asset('images/FOTO BERITA/Merawat Budi Pekerti Di Bumi Ale-Ale.jpg') }}"
+                         alt="Merawat Budi Pekerti Di Bumi Ale-Ale">
                     <div class="capaian-body">
                         <span class="capaian-date">Merawat Budi Pekerti Di Bumi Ale-Ale</span>
                         <p>Lebih Dari Sekadar Akademik, Pendidikan Adalah Tentang Karakter. Melalui 
@@ -124,8 +124,8 @@
 
                 <div class="capaian-grid">
                 <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
+                    <img src="{{ asset('images/FOTO BERITA/Merawat Logika Di Tengah Keterbatasan.jpg') }}"
+                         alt="Merawat Logika Di Tengah Keterbatasan">
                     <div class="capaian-body">
                         <span class="capaian-date">Merawat Logika Di Tengah Keterbatasan</span>
                         <p>Keterbatasan Bukanlah Penghalang Bagi Kreativitas. Merawat Logika Di 
@@ -137,8 +137,8 @@
 
                 <div class="capaian-grid">
                 <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
+                    <img src="{{ asset('images/FOTO BERITA/Guru Di Garis Depan Literasi.jpg') }}"
+                         alt="Guru Di Garis Depan Literasi">
                     <div class="capaian-body">
                         <span class="capaian-date">Guru Di Garis Depan Literasi</span>
                         <p>Di Balik Setiap Buku Yang Dibaca Dan Tulisan Yang Dibuat, Ada Perjuangan 
@@ -150,8 +150,8 @@
 
                 <div class="capaian-grid">
                 <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
+                    <img src="{{ asset('images/FOTO BERITA/Membangun Sekolah Tanpa Kekerasan.jpg') }}"
+                         alt="Membangun Sekolah Tanpa Kekerasan">
                     <div class="capaian-body">
                         <span class="capaian-date">Membangun Sekolah Tanpa Kekerasan</span>
                         <p>Apa Yang Terjadi Ketika Seluruh Elemen Sekolah Bersatumelawan Kekerasan? 
