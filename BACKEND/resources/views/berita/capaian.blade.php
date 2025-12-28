@@ -100,7 +100,7 @@
              <div class="capaian-grid">
                 <div class="capaian-card">
                     <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}"
-                         alt="Sang Nahkoda Di Tepian Sungai Pawan">
+                         alt="Sang Nahkoda Di Tepian Sungai Pawan" >
                     <div class="capaian-body">
                         <span class="capaian-date">Sang Nahkoda Di Tepian Sungai Pawan</span>
                         <p>Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
