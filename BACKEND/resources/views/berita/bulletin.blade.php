@@ -93,63 +93,69 @@
             </div>
         </div>
 
-        <div class="berita-list">
+        <div class="buletin-list">
           <section class="buletin-section">
             <h2>BULETIN</h2>
 
-            <div class="buletin-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
+             <div class="buletin-grid">
+                <div class="buletin-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
                     <div class="buletin-body">
-                        <span class="buletin-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
 
+                <div class="buletin-grid">
                 <div class="buletin-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
                     <div class="buletin-body">
-                        <span class="buletin-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
 
+                <div class="buletin-grid">
                 <div class="buletin-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
                     <div class="buletin-body">
-                        <span class="buletin-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
-            <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
-                    <div class="buletin-body">
-                        <span class="buletin-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
 
-                <img src="{{ asset('images/gambar2.jpg') }}" alt="">
+                <div class="buletin-grid">
+                <div class="buletin-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
                     <div class="buletin-body">
-                        <span class="buletin-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
 
+                <div class="buletin-grid">
                 <div class="buletin-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
                     <div class="buletin-body">
-                        <span class="buletin-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
-            </div>
-           
+
+                <div class="buletin-grid">
+                <div class="buletin-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="buletin-body">
+                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
+                        <p>SENIN 21 JULI 2025</p>
                     </div>
                 </div>
-            </div>
         </section>
 
 

@@ -14,21 +14,19 @@
         <div class="top-bar">
             <div class="logo">
                 <img height="70"
-                    src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
-                    alt="LOGO KREASI"
-                    class="kresi-logo">
+                     src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+                     alt="LOGO KREASI"
+                     class="kresi-logo">
             </div>
             <div class="search-box">
-                <form method="GET" action="{{ route('berita') }}">
-                    <input type="text" name="search" placeholder="Cari..." value="{{ $search ?? '' }}">
-                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                </form>
+                <input type="text" placeholder="Cari...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="right-logos">
                 <img height="70"
-                    src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
-                    alt="Logo Kemendikbud"
-                    class="kemendikbud-logo">
+                     src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
+                     alt="Logo Kemendikbud"
+                     class="kemendikbud-logo">
             </div>
         </div>
 
@@ -69,87 +67,103 @@
     <main class="main-content berita-layout">
         <h1 class="page-title">BERITA & ARTIKEL</h1>
         
-        <!-- Filter Bar dengan Form -->
-        <form method="GET" action="{{ route('berita') }}" class="filter-bar">
+        <div class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order" name="sort" onchange="this.form.submit()">
-                    <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
-                    <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
-                    <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
+                <select id="sort-order">
+                    <option value="terbaru">Terbaru</option>
+                    <option value="terpopuler">Terpopuler</option>
+                    <option value="abjad">A-Z</option>
                 </select>
             </div>
             
             <div class="filter-group">
                 <label for="category-filter">Kategori:</label>
-                <select id="category-filter" name="category" onchange="this.form.submit()">
-                    <option value="semua" {{ ($category ?? 'semua') == 'semua' ? 'selected' : '' }}>Semua</option>
-                    <option value="berita" {{ ($category ?? '') == 'berita' ? 'selected' : '' }}>Berita</option>
-                    <option value="buletin" {{ ($category ?? '') == 'buletin' ? 'selected' : '' }}>Buletin</option>
-                    <option value="praktik-baik" {{ ($category ?? '') == 'praktik-baik' ? 'selected' : '' }}>Praktik Baik</option>
+                <select id="category-filter">
+                    <option value="semua">Semua</option>
+                    <option value="berita">Berita</option>
+                    <option value="buletin">Buletin</option>
+                    <option value="praktik-baik">Praktik Baik</option>
                 </select>
             </div>
             
             <div class="search-materi-bar">
-                <input type="search" name="search" placeholder="Cari Berita..." value="{{ $search ?? '' }}">
-                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                <input type="search" placeholder="Cari Berita...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
-
-            @if($search || ($sort && $sort != 'terbaru') || ($category && $category != 'semua'))
-                <a href="{{ route('berita') }}" class="btn btn-reset" style="margin-left: 10px;">
-                    <i class="fas fa-redo"></i> Reset
-                </a>
-            @endif
-        </form>
-
-        <!-- Hasil Pencarian Info -->
-        @if($search)
-            <div style="padding: 15px; background: #f0f0f0; margin-bottom: 20px; border-radius: 5px;">
-                <p style="margin: 0; color: #666;">
-                    <i class="fas fa-search"></i> Menampilkan hasil pencarian untuk: 
-                    <strong>"{{ $search }}"</strong> 
-                    ({{ $beritas->count() }} hasil ditemukan)
-                </p>
-            </div>
-        @endif
-
-        <div class="berita-list">
-            @forelse($beritas as $berita)
-                <!-- ITEM -->
-                <div class="berita-item">
-                    @if($berita->image_url)
-                        <div class="berita-img">
-                            <img src="{{ $berita->image_url }}" alt="{{ $berita->title }}">
-                        </div>
-                    @endif
-
-                    <div class="berita-content">
-                        <h3>{{ $berita->title }}</h3>
-                        <p>
-                            {{ Str::limit(strip_tags($berita->content), 200) }}
-                        </p>
-                        <a href="{{ route('berita.show', $berita->id) }}" class="btn">Selengkapnya</a>
-                    </div>
-
-                    @if(!$berita->image_url && $loop->iteration % 2 == 0)
-                        <!-- Alternate layout untuk berita tanpa gambar -->
-                    @endif
-                </div>
-            @empty
-                <!-- Tidak ada berita -->
-                <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
-                    <i class="fas fa-search" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
-                    <h3 style="color: #999; margin-bottom: 10px;">Tidak ada berita ditemukan</h3>
-                    @if($search)
-                        <p style="color: #666;">Coba gunakan kata kunci yang berbeda</p>
-                        <a href="{{ route('berita') }}" class="btn" style="margin-top: 15px;">
-                            <i class="fas fa-arrow-left"></i> Kembali ke semua berita
-                        </a>
-                    @endif
-                </div>
-            @endforelse
         </div>
-        
+
+        <div class="capaian-list">
+          <section class="capaian-section">
+            <h2>CAPAIAN</h2>
+
+             <div class="capaian-grid">
+                <div class="capaian-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="capaian-body">
+                        <span class="capaian-date">Sang Nahkoda Di Tepian Sungai Pawan</span>
+                        <p>Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
+                        Pemimpin Yang Gigihmengarahkan Sekolahnya Melewati Arus Tantangan. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="capaian-grid">
+                <div class="capaian-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="capaian-body">
+                        <span class="capaian-date">Merawat Budi Pekerti Di Bumi Ale-Ale</span>
+                        <p>Lebih Dari Sekadar Akademik, Pendidikan Adalah Tentang Karakter. Melalui 
+                            Merawat Budi Pekerti Di Bumi Ale-Ale, Kitaakan Menyaksikan Bagaimana 
+                             Para Guru Menanamkan Nilai-Nilai Luhur Dan Etika Kepada Para Siswa. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="capaian-grid">
+                <div class="capaian-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="capaian-body">
+                        <span class="capaian-date">Merawat Logika Di Tengah Keterbatasan</span>
+                        <p>Keterbatasan Bukanlah Penghalang Bagi Kreativitas. Merawat Logika Di 
+                             Tengah Keterbatasan Akan Membawa Kita Melihat Bagaimana Para Guru Di 
+                             Kabupaten Ketapang Berinovasi Mengajarkan Matematika Dan Banyak Lagi. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="capaian-grid">
+                <div class="capaian-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="capaian-body">
+                        <span class="capaian-date">Guru Di Garis Depan Literasi</span>
+                        <p>Di Balik Setiap Buku Yang Dibaca Dan Tulisan Yang Dibuat, Ada Perjuangan 
+                             Seorang Guru. Guru Di Garis Depan Literasi Adalah Kisah Tentang Mereka 
+                             Yang Berdedikasi Membangun Fondasi Membaca Dan Berpikir Kritis. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="capaian-grid">
+                <div class="capaian-card">
+                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
+                         alt="21.7.25">
+                    <div class="capaian-body">
+                        <span class="capaian-date">Membangun Sekolah Tanpa Kekerasan</span>
+                        <p>Apa Yang Terjadi Ketika Seluruh Elemen Sekolah Bersatumelawan Kekerasan? 
+                            Membangun Sekolah Tanpa Kekerasanakan Menunjukkan Kepada Kita 
+                            Sebuah Inisiatif Luar Biasa. 
+                        </p>
+                    </div>
+                </div>
+                
+        </section>
+
+
     </main>
 
     <footer class="footer">
