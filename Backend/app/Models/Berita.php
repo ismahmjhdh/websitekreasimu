@@ -17,13 +17,15 @@ class Berita extends Model
         'youtube_link',
         'image_url',
         'video_url',
+        'pdf_url',  // Tambahkan ini
         'created_by',
         'status',
+        'category',
     ];
 
-    public $timestamps = false; // karena tabel kamu cuma punya created_at
+    public $timestamps = false;
 
-
+    // Relationship dengan Admin
     public function admin()
     {
         return $this->belongsTo(Admin::class, 'created_by');
@@ -35,7 +37,7 @@ class Berita extends Model
         if (!empty($search)) {
             return $query->where(function($q) use ($search) {
                 $q->where('title', 'LIKE', "%{$search}%")
-                ->orWhere('content', 'LIKE', "%{$search}%");
+                  ->orWhere('content', 'LIKE', "%{$search}%");
             });
         }
         return $query;
@@ -47,12 +49,20 @@ class Berita extends Model
         return $query->where('status', 'published');
     }
 
+    // Scope untuk filter kategori
+    public function scopeCategory($query, $category)
+    {
+        if (!empty($category) && $category != 'semua') {
+            return $query->where('category', $category);
+        }
+        return $query;
+    }
+
     // Scope untuk sorting
     public function scopeSortBy($query, $sort)
     {
         switch ($sort) {
             case 'terpopuler':
-                // Jika ada field views/popularity
                 return $query->orderBy('created_at', 'desc');
             case 'abjad':
                 return $query->orderBy('title', 'asc');

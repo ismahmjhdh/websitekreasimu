@@ -35,8 +35,9 @@ Route::get('/berita/create', [BeritaController::class, 'create'])
 Route::post('/berita', [BeritaController::class, 'store'])
     ->name('berita.store');
 
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
-
+Route::get('/berita/{id}/download-pdf', [BeritaController::class, 'downloadPdf'])->name('berita.download');
 
 
 // ================= MATERI =================

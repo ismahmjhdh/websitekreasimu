@@ -7,6 +7,53 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .category-berita {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .category-buletin {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .category-praktik-baik {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .btn-download {
+            background: #f57c00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #e65100;
+            transform: translateY(-2px);
+        }
+
+        .btn-download i {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,9 +61,9 @@
         <div class="top-bar">
             <div class="logo">
                 <img height="70"
-                    src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
-                    alt="LOGO KREASI"
-                    class="kresi-logo">
+                     src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+                     alt="LOGO KREASI"
+                     class="kresi-logo">
             </div>
             <div class="search-box">
                 <form method="GET" action="{{ route('berita') }}">
@@ -26,9 +73,9 @@
             </div>
             <div class="right-logos">
                 <img height="70"
-                    src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
-                    alt="Logo Kemendikbud"
-                    class="kemendikbud-logo">
+                     src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
+                     alt="Logo Kemendikbud"
+                     class="kemendikbud-logo">
             </div>
         </div>
 
@@ -115,25 +162,45 @@
 
         <div class="berita-list">
             @forelse($beritas as $berita)
-                <!-- ITEM -->
+                <!-- Format Sama untuk Semua Kategori -->
                 <div class="berita-item">
                     @if($berita->image_url)
                         <div class="berita-img">
-                            <img src="{{ $berita->image_url }}" alt="{{ $berita->title }}">
+                            <img src="{{ asset($berita->image_url) }}" alt="{{ $berita->title }}">
                         </div>
                     @endif
 
                     <div class="berita-content">
+                        <span class="category-badge category-{{ $berita->category }}">
+                            @if($berita->category == 'berita')
+                                <i class="fas fa-newspaper"></i>
+                            @elseif($berita->category == 'buletin')
+                                <i class="fas fa-book"></i>
+                            @elseif($berita->category == 'praktik-baik')
+                                <i class="fas fa-star"></i>
+                            @endif
+                            {{ ucwords(str_replace('-', ' ', $berita->category)) }}
+                        </span>
+                        
                         <h3>{{ $berita->title }}</h3>
+                        
                         <p>
                             {{ Str::limit(strip_tags($berita->content), 200) }}
                         </p>
-                        <a href="{{ route('berita.show', $berita->id) }}" class="btn">Selengkapnya</a>
+                        
+                        @if($berita->category == 'buletin' && $berita->pdf_url)
+                            <!-- Tombol Download untuk Buletin -->
+                            <a href="{{ route('berita.download', $berita->id) }}" class="btn-download">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </a>
+                        @else
+                            <!-- Tombol Selengkapnya untuk Berita & Praktik Baik -->
+                            <a href="{{ route('berita.show', $berita->id) }}" class="btn">
+                                Selengkapnya <i class="fas fa-arrow-right"></i>
+                            </a>
+                        @endif
                     </div>
-
-                    @if(!$berita->image_url && $loop->iteration % 2 == 0)
-                        <!-- Alternate layout untuk berita tanpa gambar -->
-                    @endif
                 </div>
             @empty
                 <!-- Tidak ada berita -->
@@ -149,7 +216,6 @@
                 </div>
             @endforelse
         </div>
-        
     </main>
 
     <footer class="footer">
