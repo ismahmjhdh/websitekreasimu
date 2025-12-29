@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KREASI - Berita</title>
+    <title>KREASI - Buletin</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -19,8 +19,10 @@
                      class="kresi-logo">
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Cari...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <form method="GET" action="{{ route('buletin') }}">
+                    <input type="text" name="search" placeholder="Cari..." value="{{ $search ?? '' }}">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
             </div>
             <div class="right-logos">
                 <img height="70"
@@ -47,7 +49,7 @@
                 </div>
             </div>
 
-            <a href="{{ route('berita') }}" class="nav-item active">BERITA</a>
+            <a href="{{ route('berita') }}" class="nav-item">BERITA</a>
             <a href="{{ route('materi') }}" class="nav-item">MATERI</a>
 
             <div class="nav-item has-dropdown">
@@ -65,62 +67,57 @@
     </header>
 
     <main class="main-content berita-layout">
-        <h1 class="page-title">BERITA & ARTIKEL</h1>
+        <h1 class="page-title">BULETIN</h1>
         
         <div class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order">
-                    <option value="terbaru">Terbaru</option>
-                    <option value="terpopuler">Terpopuler</option>
-                    <option value="abjad">A-Z</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="category-filter">Kategori:</label>
-                <select id="category-filter">
-                    <option value="semua">Semua</option>
-                    <option value="berita">Berita</option>
-                    <option value="buletin">Buletin</option>
-                    <option value="praktik-baik">Praktik Baik</option>
+                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('buletin') }}?sort=' + this.value">
+                    <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
+                    <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
                 </select>
             </div>
             
             <div class="search-materi-bar">
-                <input type="search" placeholder="Cari Berita...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <form method="GET" action="{{ route('buletin') }}">
+                    <input type="search" name="search" placeholder="Cari Buletin..." value="{{ $search ?? '' }}">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
             </div>
         </div>
 
         <div class="buletin-list">
-          <section class="buletin-section">
-            <h2>BULETIN</h2>
-
-            <div class="bulletin-item">
-            <div class="bulletin-content">
-                <h3>Sang Nahkoda Di Tepian Sungai Pawan</h3>
-                <p>
-                    Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
-                    Pemimpin Yang Gigihmengarahkan Sekolahnya Melewati Arus Tantangan. 
-                </p>
-                <a href="#" class="btn">Selengkapnya</a>
-            </div>
-            
-            <div class="buletin-img">
-                <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}" alt="berita">
-            </div>
+            <section class="buletin-section">
+                @forelse($buletins as $buletin)
+                    <div class="bulletin-item">
+                        <div class="bulletin-content">
+                            <h3>{{ $buletin->title }}</h3>
+                            <p>{{ Str::limit(strip_tags($buletin->content), 200) }}</p>
+                            @if($buletin->pdf_url)
+                                <a href="{{ route('berita.download', $buletin->id) }}" class="btn">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            @else
+                                <a href="{{ route('berita.show', $buletin->id) }}" class="btn">Selengkapnya</a>
+                            @endif
+                        </div>
+                        
+                        @if($buletin->image_url)
+                            <div class="buletin-img">
+                                <img src="{{ asset($buletin->image_url) }}" alt="{{ $buletin->title }}">
+                            </div>
+                        @endif
+                    </div>
+                @empty
+                    <p style="text-align: center; padding: 40px; color: #999;">Belum ada buletin tersedia.</p>
+                @endforelse
+            </section>
         </div>
-
-             
-        </section>
-
-
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-
             <div class="footer-left">
                 <h2>About Us</h2>
                 <p>KREASI adalah pusat kolaborasi untuk memajukan 
