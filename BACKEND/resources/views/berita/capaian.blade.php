@@ -65,6 +65,13 @@
     <main class="main-content berita-layout">
         <h1 class="page-title">CAPAIAN</h1>
 
+        <!-- Navigation Button -->
+        <div class="nav-buttons">
+            <a href="{{ route('berita') }}" class="btn btn-nav">
+                <i class="fas fa-arrow-left"></i> KEMBALI KE BERITA
+            </a>
+        </div>
+
         <!-- Filter & Search Bar -->
         <div class="filter-bar">
             <div class="filter-group">
