@@ -133,7 +133,7 @@
                     <option value="semua" {{ ($category ?? 'semua') == 'semua' ? 'selected' : '' }}>Semua</option>
                     <option value="berita" {{ ($category ?? '') == 'berita' ? 'selected' : '' }}>Berita</option>
                     <option value="buletin" {{ ($category ?? '') == 'buletin' ? 'selected' : '' }}>Buletin</option>
-                    <option value="praktik-baik" {{ ($category ?? '') == 'praktik-baik' ? 'selected' : '' }}>Praktik Baik</option>
+                    <option value="praktik-baik" {{ ($category ?? '') == 'praktik-baik' ? 'selected' : '' }}>capaian</option>
                 </select>
             </div>
             

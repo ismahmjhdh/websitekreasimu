@@ -97,70 +97,86 @@
           <section class="capaian-section">
             <h2>CAPAIAN</h2>
 
-             <div class="capaian-grid">
-                <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}"
-                         alt="Sang Nahkoda Di Tepian Sungai Pawan" >
-                    <div class="capaian-body">
-                        <span class="capaian-date">Sang Nahkoda Di Tepian Sungai Pawan</span>
-                        <p>Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
-                        Pemimpin Yang Gigihmengarahkan Sekolahnya Melewati Arus Tantangan. 
-                        </p>
-                    </div>
-                </div>
+            <div class="capaian-item">
+            <div class="capaian-content">
+                <h3>Sang Nahkoda Di Tepian Sungai Pawan</h3>
+                <p>
+                    Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
+                    Pemimpin Yang Gigihmengarahkan Sekolahnya Melewati Arus Tantangan. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="capaian-img">
+                <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}" alt="berita">
+            </div>
+        </div>
 
-                <div class="capaian-grid">
-                <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO BERITA/Merawat Budi Pekerti Di Bumi Ale-Ale.jpg') }}"
-                         alt="Merawat Budi Pekerti Di Bumi Ale-Ale">
-                    <div class="capaian-body">
-                        <span class="capaian-date">Merawat Budi Pekerti Di Bumi Ale-Ale</span>
-                        <p>Lebih Dari Sekadar Akademik, Pendidikan Adalah Tentang Karakter. Melalui 
-                            Merawat Budi Pekerti Di Bumi Ale-Ale, Kitaakan Menyaksikan Bagaimana 
-                             Para Guru Menanamkan Nilai-Nilai Luhur Dan Etika Kepada Para Siswa. 
-                        </p>
-                    </div>
-                </div>
 
-                <div class="capaian-grid">
-                <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO BERITA/Merawat Logika Di Tengah Keterbatasan.jpg') }}"
-                         alt="Merawat Logika Di Tengah Keterbatasan">
-                    <div class="capaian-body">
-                        <span class="capaian-date">Merawat Logika Di Tengah Keterbatasan</span>
-                        <p>Keterbatasan Bukanlah Penghalang Bagi Kreativitas. Merawat Logika Di 
-                             Tengah Keterbatasan Akan Membawa Kita Melihat Bagaimana Para Guru Di 
-                             Kabupaten Ketapang Berinovasi Mengajarkan Matematika Dan Banyak Lagi. 
-                        </p>
-                    </div>
-                </div>
+            <div class="capaian-item">
+            <div class="capaian-content">
+                <h3>Merawat Budi Pekerti Di Bumi Ale-Ale</h3>
+                <p>
+                    Lebih Dari Sekadar Akademik, Pendidikan Adalah Tentang Karakter. Melalui 
+                    Merawat Budi Pekerti Di Bumi Ale-Ale, Kitaakan Menyaksikan Bagaimana 
+                    Para Guru Menanamkan Nilai-Nilai Luhur Dan Etika Kepada Para Siswa. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="capaian-img">
+                <img src="{{ asset('images/FOTO BERITA/Merawat Budi Pekerti Di Bumi Ale-Ale.jpg') }}" alt="berita">
+            </div>
+        </div>
 
-                <div class="capaian-grid">
-                <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO BERITA/Guru Di Garis Depan Literasi.jpg') }}"
-                         alt="Guru Di Garis Depan Literasi">
-                    <div class="capaian-body">
-                        <span class="capaian-date">Guru Di Garis Depan Literasi</span>
-                        <p>Di Balik Setiap Buku Yang Dibaca Dan Tulisan Yang Dibuat, Ada Perjuangan 
-                             Seorang Guru. Guru Di Garis Depan Literasi Adalah Kisah Tentang Mereka 
-                             Yang Berdedikasi Membangun Fondasi Membaca Dan Berpikir Kritis. 
-                        </p>
-                    </div>
-                </div>
+          <div class="capaian-item">
+            <div class="capaian-content">
+                <h3>Merawat Logika Di Tengah Keterbatasan</h3>
+                <p>
+                    Keterbatasan Bukanlah Penghalang Bagi Kreativitas. Merawat Logika Di 
+                    Tengah Keterbatasan Akan Membawa Kita Melihat Bagaimana Para Guru Di 
+                    Kabupaten Ketapang Berinovasi Mengajarkan Matematika Dan Banyak Lagi.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="capaian-img">
+                <img src="{{ asset('images/FOTO BERITA/Merawat Logika Di Tengah Keterbatasan.jpg') }}" alt="berita">
+            </div>
+        </div>  
 
-                <div class="capaian-grid">
-                <div class="capaian-card">
-                    <img src="{{ asset('images/FOTO BERITA/Membangun Sekolah Tanpa Kekerasan.jpg') }}"
-                         alt="Membangun Sekolah Tanpa Kekerasan">
-                    <div class="capaian-body">
-                        <span class="capaian-date">Membangun Sekolah Tanpa Kekerasan</span>
-                        <p>Apa Yang Terjadi Ketika Seluruh Elemen Sekolah Bersatumelawan Kekerasan? 
-                            Membangun Sekolah Tanpa Kekerasanakan Menunjukkan Kepada Kita 
-                            Sebuah Inisiatif Luar Biasa. 
-                        </p>
-                    </div>
-                </div>
-                
+        <div class="capaian-item">
+            <div class="capaian-content">
+                <h3>Guru Di Garis Depan Literasi</h3>
+                <p>
+                    Di Balik Setiap Buku Yang Dibaca Dan Tulisan Yang Dibuat, Ada Perjuangan 
+                    Seorang Guru. Guru Di Garis Depan Literasi Adalah Kisah Tentang Mereka 
+                    Yang Berdedikasi Membangun Fondasi Membaca Dan Berpikir Kritis.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="capaian-img">
+                <img src="{{ asset('images/FOTO BERITA/Guru Di Garis Depan Literasi.jpg') }}" alt="berita">
+            </div>
+        </div>
+
+        <div class="capaian-item">
+            <div class="capaian-content">
+                <h3>Membangun Sekolah Tanpa Kekerasan</h3>
+                <p>
+                    Apa Yang Terjadi Ketika Seluruh Elemen Sekolah Bersatumelawan Kekerasan? 
+                    Membangun Sekolah Tanpa Kekerasanakan Menunjukkan Kepada Kita 
+                    Sebuah Inisiatif Luar Biasa.
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="capaian-img">
+                <img src="{{ asset('images/FOTO BERITA/Membangun Sekolah Tanpa Kekerasan.jpg') }}" alt="berita">
+            </div>
+        </div>
+
         </section>
 
 

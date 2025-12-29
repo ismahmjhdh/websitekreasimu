@@ -97,65 +97,22 @@
           <section class="buletin-section">
             <h2>BULETIN</h2>
 
-             <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
+            <div class="bulletin-item">
+            <div class="bulletin-content">
+                <h3>Sang Nahkoda Di Tepian Sungai Pawan</h3>
+                <p>
+                    Mari Kita Mengenal Sang Nahkoda Di Tepian Sungai Pawan, Sosok 
+                    Pemimpin Yang Gigihmengarahkan Sekolahnya Melewati Arus Tantangan. 
+                </p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+            
+            <div class="buletin-img">
+                <img src="{{ asset('images/FOTO BERITA/Sang Mahkota Di Tepian Sungai Pawan.jpg') }}" alt="berita">
+            </div>
+        </div>
 
-                <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
-
-                <div class="buletin-grid">
-                <div class="buletin-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="buletin-body">
-                        <span class="buletin-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
-                    </div>
-                </div>
+             
         </section>
 
 
