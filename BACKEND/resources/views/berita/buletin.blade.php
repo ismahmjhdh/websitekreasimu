@@ -7,6 +7,19 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+    </style>
 </head>
 <body>
 
@@ -68,18 +81,21 @@
 
     <main class="main-content berita-layout">
         <h1 class="page-title">BULETIN</h1>
-        
-        <!-- Navigation Button -->
+
+        <!-- Navigation Buttons -->
         <div class="nav-buttons">
             <a href="{{ route('berita') }}" class="btn btn-nav">
-                <i class="fas fa-arrow-left"></i> KEMBALI KE BERITA
+                <i class="fas fa-newspaper"></i> BERITA
+            </a>
+            <a href="{{ route('capaian') }}" class="btn btn-nav">
+                <i class="fas fa-trophy"></i> CAPAIAN
             </a>
         </div>
-
+        
         <div class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('buletin') }}?sort=' + this.value">
+                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('buletin') }}?sort=' + this.value + '{{ $search ? '&search=' . $search : '' }}'">
                     <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
                     <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
                     <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
@@ -92,39 +108,71 @@
                     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
                 </form>
             </div>
+
+            @if($search)
+                <a href="{{ route('buletin') }}" class="btn btn-reset" style="margin-left: 10px;">
+                    <i class="fas fa-redo"></i> Reset
+                </a>
+            @endif
         </div>
 
-        <div class="buletin-list">
-            <section class="buletin-section">
-                @forelse($buletins as $buletin)
-                    <div class="bulletin-item">
-                        <div class="bulletin-content">
-                            <h3>{{ $buletin->title }}</h3>
-                            <p>{{ Str::limit(strip_tags($buletin->content), 200) }}</p>
-                            @if($buletin->pdf_url)
-                                <a href="{{ route('berita.download', $buletin->id) }}" class="btn">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            @else
-                                <a href="{{ route('berita.show', $buletin->id) }}" class="btn">Selengkapnya</a>
-                            @endif
+        @if($search)
+            <div style="padding: 15px; background: #f0f0f0; margin-bottom: 20px; border-radius: 5px;">
+                <p style="margin: 0; color: #666;">
+                    <i class="fas fa-search"></i> Menampilkan hasil pencarian untuk: 
+                    <strong>"{{ $search }}"</strong> 
+                    ({{ $buletins->count() }} hasil ditemukan)
+                </p>
+            </div>
+        @endif
+
+        <div class="berita-list">
+            @forelse($buletins as $buletin)
+                <div class="berita-item">
+                    @if($buletin->image_url)
+                        <div class="berita-img">
+                            <img src="{{ asset($buletin->image_url) }}" alt="{{ $buletin->title }}">
                         </div>
+                    @endif
+
+                    <div class="berita-content">
+                        <span class="category-badge">
+                            <i class="fas fa-file-pdf"></i> Buletin
+                        </span>
                         
-                        @if($buletin->image_url)
-                            <div class="buletin-img">
-                                <img src="{{ asset($buletin->image_url) }}" alt="{{ $buletin->title }}">
-                            </div>
+                        <h3>{{ $buletin->title }}</h3>
+                        
+                        <p>{{ Str::limit(strip_tags($buletin->content), 200) }}</p>
+                        
+                        @if($buletin->pdf_url)
+                            <a href="{{ route('berita.download', $buletin->id) }}" class="btn">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        @else
+                            <a href="{{ route('berita.show', $buletin->id) }}" class="btn">
+                                Selengkapnya <i class="fas fa-arrow-right"></i>
+                            </a>
                         @endif
                     </div>
-                @empty
-                    <p style="text-align: center; padding: 40px; color: #999;">Belum ada buletin tersedia.</p>
-                @endforelse
-            </section>
+                </div>
+            @empty
+                <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
+                    <i class="fas fa-file-pdf" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+                    <h3 style="color: #999; margin-bottom: 10px;">Tidak ada buletin ditemukan</h3>
+                    @if($search)
+                        <p style="color: #666;">Coba gunakan kata kunci yang berbeda</p>
+                        <a href="{{ route('buletin') }}" class="btn" style="margin-top: 15px;">
+                            <i class="fas fa-arrow-left"></i> Kembali ke semua buletin
+                        </a>
+                    @endif
+                </div>
+            @endforelse
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
+
             <div class="footer-left">
                 <h2>About Us</h2>
                 <p>KREASI adalah pusat kolaborasi untuk memajukan 
