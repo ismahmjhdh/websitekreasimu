@@ -61,84 +61,58 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content berita-layout">
-        <h1 class="page-title">CAPAIAN</h1>
+    <main class="main-content galeri-detail-layout">
 
-        <!-- Navigation Button -->
-        <div class="nav-buttons">
-            <a href="{{ route('berita') }}" class="btn btn-nav">
-                <i class="fas fa-arrow-left"></i> KEMBALI KE BERITA
-            </a>
-        </div>
+        <!-- Capaian Section -->
+        <section class="galeri-section">
+            <h2>CAPAIAN</h2>
 
-        <!-- Filter & Search Bar -->
-        <div class="filter-bar">
-            <div class="filter-group">
-                <label for="sort-order">Urutan:</label>
-                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('capaian') }}?sort=' + this.value + '{{ $search ? '&search=' . $search : '' }}'">
-                    <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
-                    <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
-                    <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
-                </select>
-            </div>
-
-            <div class="search-materi-bar">
-                <form method="GET" action="{{ route('capaian') }}">
-                    <input type="search" name="search" placeholder="Cari Capaian..." value="{{ $search ?? '' }}">
-                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-
-            @if($search)
-                <a href="{{ route('capaian') }}" class="btn btn-reset">
-                    <i class="fas fa-redo"></i> Reset
+            <!-- Navigation Button -->
+            <div class="nav-buttons" style="display: flex; justify-content: center; margin: 30px 0;">
+                <a href="{{ route('berita') }}" class="btn btn-nav">
+                    <i class="fas fa-arrow-left"></i> KEMBALI KE BERITA
                 </a>
-            @endif
-        </div>
-
-        <!-- Search Result Info -->
-        @if($search)
-            <div class="search-info">
-                <p>
-                    <i class="fas fa-search"></i> Menampilkan hasil pencarian untuk:
-                    <strong>"{{ $search }}"</strong>
-                    ({{ $capaians->count() }} hasil ditemukan)
-                </p>
             </div>
-        @endif
 
-        <!-- Capaian List -->
-        <div class="capaian-list">
-            <section class="capaian-section">
+            <!-- Filter & Search Bar -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="sort-order">Urutan:</label>
+                    <select id="sort-order" name="sort" onchange="window.location.href='{{ route('capaian') }}?sort=' + this.value">
+                        <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
+                        <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
+                        <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
+                    </select>
+                </div>
+                
+                <div class="search-materi-bar">
+                    <form method="GET" action="{{ route('capaian') }}">
+                        <input type="search" name="search" placeholder="Cari Capaian..." value="{{ $search ?? '' }}">
+                        <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Capaian Grid Display -->
+            <div class="galeri-grid">
                 @forelse($capaians as $capaian)
-                    <div class="capaian-item">
-                        <div class="capaian-content">
-                            <h3>{{ $capaian->title }}</h3>
-                            <p>{{ Str::limit(strip_tags($capaian->content), 200) }}</p>
+                    <div class="galeri-card">
+                        @if($capaian->image_url)
+                            <img src="{{ asset($capaian->image_url) }}" alt="{{ $capaian->title }}">
+                        @else
+                            <img src="{{ asset('images/placeholder.png') }}" alt="{{ $capaian->title }}">
+                        @endif
+                        <div class="galeri-body">
+                            <span class="galeri-date">{{ $capaian->title }}</span>
+                            <p>{{ Str::limit(strip_tags($capaian->content), 100) }}</p>
                             <a href="{{ route('berita.show', $capaian->id) }}" class="btn">Selengkapnya</a>
                         </div>
-
-                        @if($capaian->image_url)
-                            <div class="capaian-img">
-                                <img src="{{ asset($capaian->image_url) }}" alt="{{ $capaian->title }}">
-                            </div>
-                        @endif
                     </div>
                 @empty
-                    <div class="empty-state">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Belum ada capaian tersedia</h3>
-                        @if($search)
-                            <p>Coba gunakan kata kunci yang berbeda</p>
-                            <a href="{{ route('capaian') }}" class="btn">
-                                <i class="fas fa-arrow-left"></i> Kembali ke semua capaian
-                            </a>
-                        @endif
-                    </div>
+                    <p style="text-align: center; padding: 40px; color: #999;">Belum ada capaian tersedia.</p>
                 @endforelse
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
