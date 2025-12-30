@@ -71,7 +71,7 @@ class AdminController extends Controller
 
         if ($search) {
             $query->where('title', 'LIKE', "%{$search}%")
-                  ->orWhere('content', 'LIKE', "%{$search}%");
+                ->orWhere('content', 'LIKE', "%{$search}%");
         }
 
         if ($category && $category !== 'all') {
