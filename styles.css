@@ -1286,5 +1286,95 @@ html {
     transform: scale(1.05);            /* pop up kecil */
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
->>>>>>> 09223c806d66aa22dbbad713544b17ae372f8072
+
+/* ========================================================= */
+/* --- Search Info & Empty State Styles --- */
+/* ========================================================= */
+.search-info {
+    padding: 15px;
+    background: #f0f0f0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.search-info p {
+    margin: 0;
+    color: #666;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.empty-state h3 {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #666;
+}
+
+.empty-state .btn {
+    margin-top: 15px;
+}
+
+/* ========================================================= */
+/* --- Galeri Placeholder for Capaian --- */
+/* ========================================================= */
+.galeri-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #ccc;
+    border-radius: 8px 8px 0 0;
+}
+
+/* ========================================================= */
+/* --- Navigation Buttons --- */
+/* ========================================================= */
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-nav:hover {
+    background-color: #1e9b4f;
+    box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-nav i {
+    font-size: 18px;
+}
 

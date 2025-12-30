@@ -741,6 +741,9 @@ h2, .page-title {
 }
 .galeri-body {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
 }
 
 .galeri-date {
@@ -748,11 +751,29 @@ h2, .page-title {
   font-size: 18px;
   display: block;
   margin-bottom: 10px;
+  flex-grow: 0;
 }
 
 .galeri-body p {
   font-size: 16px;
   line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.galeri-body .btn {
+  align-self: flex-start;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.galeri-body .btn:hover {
+  background-color: #1e9b4f;
+  transform: translateY(-2px);
 }
 @media (max-width: 900px) {
   .galeri-grid {

@@ -4,46 +4,55 @@ namespace App\Http\Controllers;
 
 use App\Models\Materi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MateriController extends Controller
 {
-    // list materi
-    public function index()
+    // Tampil halaman materi
+    public function index(Request $request)
     {
-        $materis = Materi::latest()->get();
-        return view('materi.index', compact('materis'));
+        $search = $request->input('search');
+
+        $materis = Materi::query()
+            ->search($search)
+            ->latest('created_at')
+            ->get();
+
+        return view('materi.index', compact('materis', 'search'));
     }
 
-    // form tambah materi
-    public function create()
-    {
-        return view('materi.create');
-    }
-
-    public function show($id)
-    {
-        $item = Materi::findOrFail($id);
-
-        return view('materi.show', compact('item'));
-    }
-
-    // simpan materi
-    public function store(Request $request)
+    // Verifikasi password dan download/view file
+    public function verifyPassword(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'access_password' => 'required',
+            'password' => 'required',
         ]);
 
-        Materi::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'file_url' => $request->file_url,
-            'access_password' => bcrypt($request->access_password),
-            'related_news_id' => $request->related_news_id,
-            'created_by' => 1
-        ]);
+        $materi = Materi::findOrFail($id);
 
-        return redirect('/materi');
+        // Cek password (plain text comparison atau bisa pakai Hash jika di-hash)
+        if ($request->password === $materi->access_password) {
+            // Password benar, redirect ke file atau download
+            if ($materi->file_url) {
+                $filePath = public_path($materi->file_url);
+                
+                if (file_exists($filePath)) {
+                    // Return file untuk download
+                    return response()->download($filePath);
+                }
+            }
+            
+            return back()->with('error', 'File tidak ditemukan');
+        }
+
+        // Password salah
+        return back()->with('error', 'Password salah! Silakan coba lagi.');
+    }
+
+    // Detail materi (jika perlu)
+    public function show($id)
+    {
+        $materi = Materi::with('berita')->findOrFail($id);
+        return view('materi.show', compact('materi'));
     }
 }

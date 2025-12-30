@@ -17,7 +17,7 @@ class Berita extends Model
         'youtube_link',
         'image_url',
         'video_url',
-        'pdf_url',  // Tambahkan ini
+        'pdf_url',
         'created_by',
         'status',
         'category',
@@ -25,13 +25,11 @@ class Berita extends Model
 
     public $timestamps = false;
 
-    // Relationship dengan Admin
     public function admin()
     {
         return $this->belongsTo(Admin::class, 'created_by');
     }
 
-    // Scope untuk pencarian
     public function scopeSearch($query, $search)
     {
         if (!empty($search)) {
@@ -43,22 +41,19 @@ class Berita extends Model
         return $query;
     }
 
-    // Scope untuk filter status
     public function scopePublished($query)
     {
         return $query->where('status', 'published');
     }
 
-    // Scope untuk filter kategori
     public function scopeCategory($query, $category)
     {
-        if (!empty($category) && $category != 'semua') {
+        if (!empty($category)) {
             return $query->where('category', $category);
         }
         return $query;
     }
 
-    // Scope untuk sorting
     public function scopeSortBy($query, $sort)
     {
         switch ($sort) {

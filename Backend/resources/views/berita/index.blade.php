@@ -16,42 +16,8 @@
             font-size: 12px;
             font-weight: bold;
             margin-bottom: 10px;
-        }
-
-        .category-berita {
             background: #e3f2fd;
             color: #1976d2;
-        }
-
-        .category-buletin {
-            background: #fff3e0;
-            color: #f57c00;
-        }
-
-        .category-praktik-baik {
-            background: #e8f5e9;
-            color: #388e3c;
-        }
-
-        .btn-download {
-            background: #f57c00;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-download:hover {
-            background: #e65100;
-            transform: translateY(-2px);
-        }
-
-        .btn-download i {
-            font-size: 16px;
         }
     </style>
 </head>
@@ -115,41 +81,41 @@
 
     <main class="main-content berita-layout">
         <h1 class="page-title">BERITA & ARTIKEL</h1>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <a href="{{ route('capaian') }}" class="btn btn-nav">
+                <i class="fas fa-trophy"></i> CAPAIAN
+            </a>
+            <a href="{{ route('buletin') }}" class="btn btn-nav">
+                <i class="fas fa-file-pdf"></i> BULETIN
+            </a>
+        </div>
         
-        <!-- Filter Bar dengan Form -->
-        <form method="GET" action="{{ route('berita') }}" class="filter-bar">
+        <div class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order" name="sort" onchange="this.form.submit()">
+                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('berita') }}?sort=' + this.value + '{{ $search ? '&search=' . $search : '' }}'">
                     <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
                     <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
                     <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
                 </select>
             </div>
             
-            <div class="filter-group">
-                <label for="category-filter">Kategori:</label>
-                <select id="category-filter" name="category" onchange="this.form.submit()">
-                    <option value="semua" {{ ($category ?? 'semua') == 'semua' ? 'selected' : '' }}>Semua</option>
-                    <option value="berita" {{ ($category ?? '') == 'berita' ? 'selected' : '' }}>Berita</option>
-                    <option value="buletin" {{ ($category ?? '') == 'buletin' ? 'selected' : '' }}>Buletin</option>
-                    <option value="praktik-baik" {{ ($category ?? '') == 'praktik-baik' ? 'selected' : '' }}>capaian</option>
-                </select>
-            </div>
-            
             <div class="search-materi-bar">
-                <input type="search" name="search" placeholder="Cari Berita..." value="{{ $search ?? '' }}">
-                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                <form method="GET" action="{{ route('berita') }}">
+                    <input type="search" name="search" placeholder="Cari Berita..." value="{{ $search ?? '' }}">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
             </div>
 
-            @if($search || ($sort && $sort != 'terbaru') || ($category && $category != 'semua'))
+            @if($search)
                 <a href="{{ route('berita') }}" class="btn btn-reset" style="margin-left: 10px;">
                     <i class="fas fa-redo"></i> Reset
                 </a>
             @endif
-        </form>
+        </div>
 
-        <!-- Hasil Pencarian Info -->
         @if($search)
             <div style="padding: 15px; background: #f0f0f0; margin-bottom: 20px; border-radius: 5px;">
                 <p style="margin: 0; color: #666;">
@@ -162,7 +128,6 @@
 
         <div class="berita-list">
             @forelse($beritas as $berita)
-                <!-- Format Sama untuk Semua Kategori -->
                 <div class="berita-item">
                     @if($berita->image_url)
                         <div class="berita-img">
@@ -171,41 +136,22 @@
                     @endif
 
                     <div class="berita-content">
-                        <span class="category-badge category-{{ $berita->category }}">
-                            @if($berita->category == 'berita')
-                                <i class="fas fa-newspaper"></i>
-                            @elseif($berita->category == 'buletin')
-                                <i class="fas fa-book"></i>
-                            @elseif($berita->category == 'praktik-baik')
-                                <i class="fas fa-star"></i>
-                            @endif
-                            {{ ucwords(str_replace('-', ' ', $berita->category)) }}
+                        <span class="category-badge">
+                            <i class="fas fa-newspaper"></i> Berita
                         </span>
                         
                         <h3>{{ $berita->title }}</h3>
                         
-                        <p>
-                            {{ Str::limit(strip_tags($berita->content), 200) }}
-                        </p>
+                        <p>{{ Str::limit(strip_tags($berita->content), 200) }}</p>
                         
-                        @if($berita->category == 'buletin' && $berita->pdf_url)
-                            <!-- Tombol Download untuk Buletin -->
-                            <a href="{{ route('berita.download', $berita->id) }}" class="btn-download">
-                                <i class="fas fa-download"></i>
-                                Download PDF
-                            </a>
-                        @else
-                            <!-- Tombol Selengkapnya untuk Berita & Praktik Baik -->
-                            <a href="{{ route('berita.show', $berita->id) }}" class="btn">
-                                Selengkapnya <i class="fas fa-arrow-right"></i>
-                            </a>
-                        @endif
+                        <a href="{{ route('berita.show', $berita->id) }}" class="btn">
+                            Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             @empty
-                <!-- Tidak ada berita -->
                 <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
-                    <i class="fas fa-search" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+                    <i class="fas fa-newspaper" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
                     <h3 style="color: #999; margin-bottom: 10px;">Tidak ada berita ditemukan</h3>
                     @if($search)
                         <p style="color: #666;">Coba gunakan kata kunci yang berbeda</p>

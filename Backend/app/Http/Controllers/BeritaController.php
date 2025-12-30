@@ -4,27 +4,55 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
-    // Tampil berita dengan fitur pencarian dan filter (user)
+    // Halaman Berita (hanya kategori 'berita')
     public function index(Request $request)
     {
         $search = $request->input('search');
         $sort = $request->input('sort', 'terbaru');
-        $category = $request->input('category', 'semua');
 
         $beritas = Berita::published()
+            ->category('berita')
             ->search($search)
-            ->category($category)
             ->sortBy($sort)
             ->get();
 
-        return view('berita.index', compact('beritas', 'search', 'sort', 'category'));
+        return view('berita.index', compact('beritas', 'search', 'sort'));
     }
 
-    // Detail berita
+    // Halaman Buletin (hanya kategori 'buletin')
+    public function buletin(Request $request)
+    {
+        $search = $request->input('search');
+        $sort = $request->input('sort', 'terbaru');
+
+        $buletins = Berita::published()
+            ->category('buletin')
+            ->search($search)
+            ->sortBy($sort)
+            ->get();
+
+        return view('berita.buletin', compact('buletins', 'search', 'sort'));
+    }
+
+    // Halaman Capaian (hanya kategori 'capaian')
+    public function capaian(Request $request)
+    {
+        $search = $request->input('search');
+        $sort = $request->input('sort', 'terbaru');
+
+        $capaians = Berita::published()
+            ->category('capaian')
+            ->search($search)
+            ->sortBy($sort)
+            ->get();
+
+        return view('berita.capaian', compact('capaians', 'search', 'sort'));
+    }
+
+    // Detail berita/buletin/capaian
     public function show($id)
     {
         $berita = Berita::findOrFail($id);
@@ -63,18 +91,17 @@ class BeritaController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'category' => 'required|in:berita,buletin,praktik-baik',
-            'pdf_file' => 'nullable|mimes:pdf|max:10240', // max 10MB
+            'category' => 'required|in:berita,buletin,capaian',
+            'pdf_file' => 'nullable|mimes:pdf|max:10240',
         ]);
 
         $pdfUrl = null;
         
-        // Handle PDF upload
         if ($request->hasFile('pdf_file')) {
             $file = $request->file('pdf_file');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('pdfs/buletin'), $fileName);
-            $pdfUrl = 'pdfs/buletin/' . $fileName;
+            $file->move(public_path('pdf'), $fileName);
+            $pdfUrl = 'pdf/' . $fileName;
         }
 
         Berita::create([

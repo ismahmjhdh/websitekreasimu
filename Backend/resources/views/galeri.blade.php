@@ -71,66 +71,34 @@
         <section class="galeri-section">
             <h2>GALERI</h2>
 
-            <!-- First Row of Cards -->
+            <!-- Gallery Grid from Database -->
             <div class="galeri-grid">
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/21.7.25.JPG') }}"
-                         alt="21.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PEMBUKAAN DAN PENGARAHAN TEKNIS KELAS TAMBAHAN LITERASI DAN NUMERASI DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 21 JULI 2025</p>
+                @forelse($galeris as $galeri)
+                    <div class="galeri-card">
+                        <img src="{{ asset($galeri->image_url) }}"
+                             alt="{{ $galeri->caption }}">
+                        <div class="galeri-body">
+                            <span class="galeri-date">{{ $galeri->caption ?? 'Foto Kegiatan' }}</span>
+                            <p>{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/23.7.25.JPG') }}"
-                         alt="23.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PENGUATANKAPASITAS PENDIDIK DAN TENAGA KEPENDIDIKAN DALAM PENYUSUNAN KURIKULUM SATUAN PENDIDIKAN BERBASIS LITERASI NUMERASI DAN PENDIDIKAN PERUBAHAN IKLIM DI KABUPATEN KAYONG UTARA</span>
-                        <p>RABU 23-25 JULI 2025</p>
+                @empty
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
+                        <p>Belum ada foto dalam galeri. Silakan upload foto melalui admin panel.</p>
                     </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/28.7.25.JPG') }}"
-                         alt="28.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PENINGKATAN KAPASITAS GURU PAUD SIMPANG HILIR</span>
-                        <p>SENIN 28 JULI 2025</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
-            <!-- Second Row of Cards -->
-            <div class="galeri-grid">
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/29.7.25.JPG') }}" 
-                         alt="29.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">PELATIHANPROGRAM SAFE FAMILIES BAGIFASILITATOR SESI ORANG TUA DAN SESI ANAK DI TINGKAT SEKOLAHKABUPATEN KAYONG UTARA</span>
-                        <p>Selasa 29 juli 2025</p>
-                    </div>
+            <!-- Pagination -->
+            @if($galeris->hasPages())
+                <div style="display: flex; justify-content: center; margin-top: 40px; gap: 10px;">
+                    {{ $galeris->links() }}
                 </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/selasa 29.7.25.JPG') }}" 
-                         alt="selasa 19.7.25">
-                    <div class="galeri-body">
-                        <span class="galeri-date">WORKSHOP OPTIMALISASI DANA BOP UNTUK MENINGKATKAN KOMPETENSI GURU PAUD</span>
-                        <p>Selasa 29 juli 2025</p>
-                    </div>
-                </div>
-
-                <div class="galeri-card">
-                    <img src="{{ asset('images/FOTO GALERI/4.8.25.JPG') }}"
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-                    <div class="galeri-body">
-                        <span class="galeri-date">LOKAKARYA PENERAPAN PEMBELAJARAN BERBASIS PROJEK YANG TERINTEGRASI DENGAN LINGKUNGAN DAN PERUBAHAN IKLIM DI KABUPATEN KAYONG UTARA</span>
-                        <p>SENIN 4-5 AGUSTUS</p>
-                    </div>
-                </div>
-            </div>
+            @endif
         </section>
+                </div>
+            </div>
+
 
         
 

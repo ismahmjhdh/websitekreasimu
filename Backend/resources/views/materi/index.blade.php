@@ -6,6 +6,252 @@
     <title>KREASI - Materi</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Password Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            animation: slideDown 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .materi-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .materi-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .materi-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .password-group {
+            position: relative;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .toggle-password:hover {
+            color: #333;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn-modal {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-cancel {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-submit {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Materi Card Styles */
+        .materi-card {
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .materi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .materi-card::after {
+            content: '\f023';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-error {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,10 +266,12 @@
             </div>
 
             <div class="search-box">
-                <input type="text" placeholder="Cari...">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+                <form method="GET" action="{{ route('materi') }}">
+                    <input type="text" name="search" placeholder="Cari..." value="{{ $search ?? '' }}">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
 
             <div class="right-logos">
@@ -52,7 +300,7 @@
             </div>
 
             <a href="{{ route('berita') }}" class="nav-item">BERITA</a>
-            <a href="{{ route('materi') }}" class="nav-item">MATERI</a>
+            <a href="{{ route('materi') }}" class="nav-item active">MATERI</a>
 
             <div class="nav-item has-dropdown">
                 GALERI <i class="fas fa-caret-right"></i>
@@ -72,12 +320,29 @@
     <main class="main-content materi-layout">
         <h1 class="page-title">MATERI</h1>
 
+        <!-- Alert Messages -->
+        @if(session('error'))
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>
+                {{ session('success') }}
+            </div>
+        @endif
+
         <!-- Search Bar -->
         <div class="search-materi-bar">
-            <input type="text" placeholder="Cari Modul/Topik...">
-            <button class="search-btn">
-                <i class="fas fa-search"></i>
-            </button>
+            <form method="GET" action="{{ route('materi') }}">
+                <input type="text" name="search" placeholder="Cari Modul/Topik..." value="{{ $search ?? '' }}">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
         </div>
         
         <!-- Featured Video -->
@@ -90,80 +355,91 @@
 
         <!-- Materi Section -->
         <section class="materi-section">
-            <h2>HEADLINE</h2>
+            <h2>MATERI PEMBELAJARAN</h2>
 
-            <!-- First Row of Cards -->
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
+            @if($materis->count() > 0)
+                <div class="materi-grid">
+                    @foreach($materis as $materi)
+                        <div class="materi-card" onclick="openPasswordModal({{ $materi->id }}, '{{ $materi->title }}', '{{ Str::limit($materi->description, 100) }}')">
+                            @if($materi->berita && $materi->berita->image_url)
+                                <img src="{{ asset($materi->berita->image_url) }}" alt="{{ $materi->title }}">
+                            @else
+                                <img src="{{ asset('images/default-materi.jpg') }}" alt="{{ $materi->title }}">
+                            @endif
+                            <div class="materi-body">
+                                <span class="materi-date">
+                                    <i class="fas fa-calendar"></i> 
+                                    {{ date('d F Y', strtotime($materi->created_at)) }}
+                                </span>
+                                <p>{{ $materi->title }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" 
-                         alt="Monitoring Sekolah Mentubang">
-                    <div class="materi-body">
-                        <span class="materi-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
+            @else
+                <div style="text-align: center; padding: 60px 20px; background: #f9f9f9; border-radius: 10px;">
+                    <i class="fas fa-folder-open" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+                    <h3 style="color: #999; margin-bottom: 10px;">Belum ada materi tersedia</h3>
+                    @if($search)
+                        <p style="color: #666;">Coba gunakan kata kunci yang berbeda</p>
+                        <a href="{{ route('materi') }}" class="btn" style="margin-top: 15px;">
+                            <i class="fas fa-arrow-left"></i> Kembali ke semua materi
+                        </a>
+                    @endif
                 </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-                    <div class="materi-body">
-                        <span class="materi-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row of Cards -->
-            <div class="materi-grid">
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak">
-                    <div class="materi-body">
-                        <span class="materi-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" 
-                         alt="Monitoring Sekolah Mentubang">
-                    <div class="materi-body">
-                        <span class="materi-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
-                </div>
-
-                <div class="materi-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" 
-                         alt="Kampanye Perlindungan Anak SD Negeri 12 Pelerang">
-                    <div class="materi-body">
-                        <span class="materi-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
-            </div>
+            @endif
         </section>
     </main>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-lock"></i> Akses Materi</h2>
+                <button class="close-modal" onclick="closePasswordModal()">&times;</button>
+            </div>
+
+            <form id="passwordForm" method="POST" action="">
+                @csrf
+                <div class="modal-body">
+                    <div class="materi-info">
+                        <h3 id="modalMateriTitle"></h3>
+                        <p id="modalMateriDesc"></p>
+                    </div>
+
+                    <p><i class="fas fa-info-circle"></i> Materi ini dilindungi. Masukkan password untuk mengakses:</p>
+
+                    <div class="password-group">
+                        <input type="password" 
+                               id="passwordInput" 
+                               name="password" 
+                               class="password-input" 
+                               placeholder="Masukkan password..." 
+                               required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="fas fa-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-modal btn-cancel" onclick="closePasswordModal()">Batal</button>
+                    <button type="submit" class="btn-modal btn-submit">
+                        <i class="fas fa-unlock"></i> Akses Materi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
-            <!-- About Section -->
             <div class="footer-left">
                 <h2>About Us</h2>
                 <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
             </div>
 
-            <!-- Contact Section -->
             <div class="footer-right">
                 <h2>Contact Information</h2>
                 <p class="subtitle">feel free to contact and reach us!</p>
@@ -185,53 +461,113 @@
                     Indonesia.KREASI@savethechildren.org
                 </div>
 
-                <!-- Social Media Links -->
                 <div class="social-icons">
                     <a href="https://www.facebook.com/SaveChildrenID/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}" 
-                             alt="Facebook">
+                        <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}" alt="Facebook">
                     </a>
                     <a href="https://www.instagram.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Instagram.png') }}" 
-                             alt="Instagram">
+                        <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram">
                     </a>
                     <a href="https://x.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Twitter_X.png') }}" 
-                             alt="Twitter X">
+                        <img src="{{ asset('images/FOOTER/Twitter_X.png') }}" alt="Twitter X">
                     </a>
                     <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}" 
-                             alt="LinkedIn">
+                        <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}" alt="LinkedIn">
                     </a>
                     <a href="#">
-                        <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}" 
-                             alt="TikTok">
+                        <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}" alt="TikTok">
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Partner Logos -->
         <div class="logo-row">
-            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" 
-                 alt="Tut Wuri Handayani">
-            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" 
-                 alt="Kementerian Agama">
-            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" 
-                 alt="Bappenas">
-            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" 
-                 alt="Kayong Utara">
-            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" 
-                 alt="GPE">
-            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" 
-                 alt="KREASI">
-            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" 
-                 alt="Save the Children">
-            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" 
-                 alt="Dikdesmen">
+            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="Tut Wuri Handayani">
+            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="Kementerian Agama">
+            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="Bappenas">
+            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="Kayong Utara">
+            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="GPE">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="KREASI">
+            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="Save the Children">
+            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Dikdesmen">
         </div>
     </footer>
 
     <script src="{{ asset('js/scripts.js') }}"></script>
+    
+    <script>
+        // Open Password Modal
+        function openPasswordModal(materiId, title, description) {
+            const modal = document.getElementById('passwordModal');
+            const form = document.getElementById('passwordForm');
+            const titleEl = document.getElementById('modalMateriTitle');
+            const descEl = document.getElementById('modalMateriDesc');
+            
+            // Set form action
+            form.action = `/materi/${materiId}/verify`;
+            
+            // Set materi info
+            titleEl.textContent = title;
+            descEl.textContent = description;
+            
+            // Show modal
+            modal.classList.add('active');
+            
+            // Focus on password input
+            setTimeout(() => {
+                document.getElementById('passwordInput').focus();
+            }, 300);
+        }
+
+        // Close Password Modal
+        function closePasswordModal() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.remove('active');
+            
+            // Reset form
+            document.getElementById('passwordForm').reset();
+        }
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('passwordModal');
+            if (event.target === modal) {
+                closePasswordModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePasswordModal();
+            }
+        });
+
+        // Auto-hide alerts after 5 seconds
+        setTimeout(() => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.transition = 'opacity 0.5s';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            });
+        }, 5000);
+    </script>
 </body>
 </html>
