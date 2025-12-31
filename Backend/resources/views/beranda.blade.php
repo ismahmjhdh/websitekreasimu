@@ -118,7 +118,7 @@
             <h2>LOKASI & INTERVENSI PROGRAM</h2>
 
             <div class="map-wrapper">
-                <button class="arrow left" onclick="prevMap()">&#10094;</button>
+                <button class="arrow left" onclick="prevMap()"><i class="fas fa-chevron-left"></i></button>
 
                 <div class="map-content">
                     <div class="map-info">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <button class="arrow right" onclick="nextMap()">&#10095;</button>
+                <button class="arrow right" onclick="nextMap()"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
