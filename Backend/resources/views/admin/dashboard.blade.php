@@ -17,7 +17,7 @@
         }
 
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #242d6b 100%);
             color: white;
             padding: 20px 30px;
             display: flex;
@@ -85,7 +85,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #242d6b;
         }
 
         .stat-card h4 {
@@ -112,12 +112,12 @@
             color: #333;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #242d6b;
         }
 
         .section a {
             display: inline-block;
-            background: #667eea;
+            background: #242d6b;
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -127,7 +127,7 @@
         }
 
         .section a:hover {
-            background: #764ba2;
+            background: #da291c;
         }
 
         .item-list {
