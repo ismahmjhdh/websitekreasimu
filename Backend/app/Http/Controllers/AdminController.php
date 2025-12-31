@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Berita;
 use App\Models\Materi;
+use App\Models\MateriFile;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -228,30 +229,84 @@ class AdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'file' => 'required|file|max:51200', // 50MB
-            'access_password' => 'required|string|min:4',
+            'description' => 'required|string|max:5000',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120|dimensions:min_width=300,min_height=200', // 5MB, min dimensions
+            'files' => 'required|array|min:1|max:10', // Max 10 files
+            'files.*' => 'required|file|mimes:pdf|max:51200', // 50MB per file
+            'access_password' => 'required|string|min:8|max:255|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/', // Strong password: min 8 char, uppercase, lowercase, digit
             'related_news_id' => 'nullable|exists:berita,id',
         ]);
 
-        $fileUrl = null;
-
-        // Upload file
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/materi'), $filename);
-            $fileUrl = 'uploads/materi/' . $filename;
+        // Additional security: Validate admin is authenticated
+        if (!session('admin_id')) {
+            return redirect()->route('admin.login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        Materi::create([
+        // Handle thumbnail upload dengan security
+        $thumbnailUrl = null;
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            
+            // Validate MIME type dari file content
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mimeType = finfo_file($finfo, $thumbnail->getRealPath());
+            finfo_close($finfo);
+            
+            if (!in_array($mimeType, ['image/jpeg', 'image/png', 'image/gif'])) {
+                return back()->with('error', 'Format gambar tidak valid. Gunakan JPEG, PNG, atau GIF.');
+            }
+            
+            $thumbnailName = time() . '_' . uniqid() . '_' . $thumbnail->hashName();
+            $thumbnail->move(public_path('uploads/materi/thumbnail'), $thumbnailName);
+            $thumbnailUrl = 'uploads/materi/thumbnail/' . $thumbnailName;
+        }
+
+        // Buat materi baru dengan password di-hash
+        $materi = Materi::create([
             'title' => $request->title,
             'description' => $request->description,
-            'file_url' => $fileUrl,
-            'access_password' => $request->access_password, // Bisa di-hash jika perlu
+            'thumbnail_url' => $thumbnailUrl,
+            'access_password' => Hash::make($request->access_password), // HASH PASSWORD untuk security
             'related_news_id' => $request->related_news_id,
             'created_by' => session('admin_id'),
         ]);
+
+        // Upload multiple files dengan validation
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            $order = 0;
+            
+            foreach ($files as $file) {
+                // Validate MIME type dari file content
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $file->getRealPath());
+                finfo_close($finfo);
+                
+                if ($mimeType !== 'application/pdf') {
+                    return back()->with('error', 'Format file tidak valid. Hanya PDF yang diizinkan.');
+                }
+                
+                // Validate file size
+                $fileSize = $file->getSize();
+                if ($fileSize > 52428800) { // 50MB
+                    return back()->with('error', 'Ukuran file melebihi batas 50MB.');
+                }
+                
+                // Use hash name untuk security
+                $filename = time() . '_' . uniqid() . '_' . $file->hashName();
+                $file->move(public_path('uploads/materi'), $filename);
+                $fileUrl = 'uploads/materi/' . $filename;
+                
+                MateriFile::create([
+                    'materi_id' => $materi->id,
+                    'file_name' => $file->getClientOriginalName(),
+                    'file_url' => $fileUrl,
+                    'file_type' => 'pdf',
+                    'file_size' => $fileSize,
+                    'order' => $order++,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.materi.index')->with('success', 'Materi berhasil ditambahkan!');
     }
@@ -272,25 +327,91 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'file' => 'nullable|file|max:51200',
-            'access_password' => 'required|string|min:4',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120|dimensions:min_width=300,min_height=200',
+            'files' => 'nullable|array',
+            'files.*' => 'nullable|file|mimes:pdf|max:51200',
+            'access_password' => 'nullable|string|min:8|max:255|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/',
             'related_news_id' => 'nullable|exists:berita,id',
         ]);
 
-        // Handle file upload
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/materi'), $filename);
-            $materi->file_url = 'uploads/materi/' . $filename;
+        // Additional security: Validate admin is authenticated
+        if (!session('admin_id')) {
+            return redirect()->route('admin.login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        $materi->update([
+        // Handle thumbnail upload dengan security
+        if ($request->hasFile('thumbnail')) {
+            // Hapus thumbnail lama jika ada
+            if ($materi->thumbnail_url && file_exists(public_path($materi->thumbnail_url))) {
+                unlink(public_path($materi->thumbnail_url));
+            }
+            
+            $thumbnail = $request->file('thumbnail');
+            
+            // Validate MIME type dari file content
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mimeType = finfo_file($finfo, $thumbnail->getRealPath());
+            finfo_close($finfo);
+            
+            if (!in_array($mimeType, ['image/jpeg', 'image/png', 'image/gif'])) {
+                return back()->with('error', 'Format gambar tidak valid. Gunakan JPEG, PNG, atau GIF.');
+            }
+            
+            $thumbnailName = time() . '_' . uniqid() . '_' . $thumbnail->hashName();
+            $thumbnail->move(public_path('uploads/materi/thumbnail'), $thumbnailName);
+            $materi->thumbnail_url = 'uploads/materi/thumbnail/' . $thumbnailName;
+        }
+
+        // Update data materi
+        $updateData = [
             'title' => $request->title,
             'description' => $request->description,
-            'access_password' => $request->access_password,
+            'thumbnail_url' => $materi->thumbnail_url,
             'related_news_id' => $request->related_news_id,
-        ]);
+        ];
+
+        // Only update password jika diberikan (untuk allow edit tanpa mengubah password)
+        if ($request->filled('access_password')) {
+            $updateData['access_password'] = Hash::make($request->access_password); // HASH PASSWORD
+        }
+
+        $materi->update($updateData);
+
+        // Handle file upload jika ada file baru
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            $order = $materi->files()->max('order') + 1 ?? 0;
+            
+            foreach ($files as $file) {
+                // Validate MIME type dari file content
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $mimeType = finfo_file($finfo, $file->getRealPath());
+                finfo_close($finfo);
+                
+                if ($mimeType !== 'application/pdf') {
+                    return back()->with('error', 'Format file tidak valid. Hanya PDF yang diizinkan.');
+                }
+                
+                // Get file size sebelum move
+                $fileSize = $file->getSize();
+                if ($fileSize > 52428800) { // 50MB
+                    return back()->with('error', 'Ukuran file melebihi batas 50MB.');
+                }
+                
+                $filename = time() . '_' . uniqid() . '_' . $file->hashName();
+                $file->move(public_path('uploads/materi'), $filename);
+                $fileUrl = 'uploads/materi/' . $filename;
+                
+                MateriFile::create([
+                    'materi_id' => $materi->id,
+                    'file_name' => $file->getClientOriginalName(),
+                    'file_url' => $fileUrl,
+                    'file_type' => 'pdf',
+                    'file_size' => $fileSize,
+                    'order' => $order++,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.materi.index')->with('success', 'Materi berhasil diupdate!');
     }
