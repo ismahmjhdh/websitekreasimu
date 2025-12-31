@@ -110,19 +110,21 @@ h2, .page-title {
   justify-content: space-between;
   align-items: stretch;
   background-color: var(--color-primary); /* Biru gelap solid */
-  padding: 0 20px;
-  max-width: 1500px;
+  padding: 0 0px;
+  max-width: 100%;
   margin: 0px auto;
 }
 
 .nav-item {
   color: var(--color-text-light);
-  padding: 15px 50px;
+  justify-content: center;
+  padding: 15px 0px;
   font-size: 1.00em;
   font-weight: 500;
   transition: background-color 0.2s, color 0.2s;
   position: relative;
   display: flex;
+  flex: 1;
   align-items: center;
   cursor: pointer;
   text-transform: uppercase;
@@ -139,9 +141,9 @@ h2, .page-title {
   display: none;
   position: absolute;
   top: 100%;
+  width: 100%;
   left: 0;
   background-color: var(--color-background-white);
-  min-width: 180px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
   z-index: 10;
 }
@@ -156,7 +158,33 @@ h2, .page-title {
   border-left: 5px solid var(--color-secondary); /* Highlight hijau */
   color: var(--color-primary);
 }
-.has-dropdown:hover .dropdown-content { display: block; }
+
+.has-dropdown:hover .dropdown-content { 
+  display: block; 
+}
+
+/* Auth Buttons */
+.auth-buttons { 
+  justify-content: center;
+  flex: 0.3;
+  display: flex; 
+  align-items: center; 
+}
+
+.btn { 
+  padding: 8px 15px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: bold; 
+  margin-left: 10px; 
+}
+
+.btn-id { 
+  background-color: var(--color-background-white); 
+  color: var(--color-primary); 
+  border: 1px solid var(--color-primary); 
+}
 
 /* Auth Buttons */
 .auth-buttons { display: flex; align-items: center; }
