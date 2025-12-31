@@ -90,13 +90,13 @@
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #242d6b;
         }
 
         .btn-login {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #242d6b 100%);
             color: white;
             border: none;
             border-radius: 5px;
