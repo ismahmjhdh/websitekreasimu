@@ -222,7 +222,7 @@ class AdminController extends Controller
         $beritas = Berita::all();
         return view('admin.materi.create', compact('beritas'));
     }
-
+    
     // Simpan materi baru
     public function materiStore(Request $request)
     {
