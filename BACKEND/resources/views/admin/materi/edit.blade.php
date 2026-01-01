@@ -1,178 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Materi - Admin Kreasimu</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .navbar-logo {
-            height: 50px;
-            width: auto;
-        }
-
-        .navbar-left h2 {
-            font-size: 20px;
-            margin: 0;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .page-header {
-            margin-bottom: 30px;
-        }
-
-        .page-header h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-submit {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-submit:hover {
-            background: #764ba2;
-        }
-
-        .btn-cancel {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-cancel:hover {
-            background: #5a6268;
-        }
-
-        .alert {
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        .help-text {
-            color: #999;
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-        .file-info {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 10px;
-            font-size: 12px;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/admin-styles.css') }}">
 </head>
 <body>
     <nav class="navbar">
@@ -223,15 +55,42 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="file">File Materi (Upload File Baru - Opsional)</label>
-                    <input type="file" id="file" name="file">
-                    <div class="help-text">Max 50MB. Kosongkan jika tidak ingin mengubah file</div>
-                    @if ($materi->file_url)
-                        <div class="file-info">
-                            📄 File saat ini: <a href="{{ asset($materi->file_url) }}" target="_blank">Unduh</a>
+                    <label for="thumbnail">Thumbnail Materi (Opsional)</label>
+                    <input type="file" id="thumbnail" name="thumbnail" accept="image/*">
+                    <div class="help-text">Max 5MB. Format: JPEG, PNG, JPG, GIF</div>
+                    
+                    @if ($materi->thumbnail_url)
+                        <div class="file-info" style="margin-top: 15px;">
+                            <strong>🖼️ Thumbnail saat ini:</strong>
+                            <div style="margin-top: 10px;">
+                                <img src="{{ asset($materi->thumbnail_url) }}" alt="Thumbnail" style="max-width: 200px; max-height: 150px; border-radius: 5px;">
+                            </div>
                         </div>
                     @endif
-                    @error('file')
+                    @error('thumbnail')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="files">File Materi PDF (Tambah File Baru - Opsional)</label>
+                    <input type="file" id="files" name="files[]" accept=".pdf" multiple>
+                    <div class="help-text">Max 50MB per file. Gunakan Ctrl+Click untuk pilih multiple file. Format PDF</div>
+                    
+                    @if ($materi->files && $materi->files->count() > 0)
+                        <div class="file-info">
+                            <strong>📄 File yang ada:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                @foreach($materi->files as $file)
+                                    <li style="margin-bottom: 8px;">
+                                        {{ $file->file_name }}
+                                        <a href="{{ asset($file->file_url) }}" target="_blank" style="margin-left: 10px;">(Unduh)</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @error('files')
                         <div class="error-message">{{ $message }}</div>
                     @enderror
                 </div>
