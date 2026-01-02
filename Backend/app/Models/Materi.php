@@ -14,13 +14,22 @@ class Materi extends Model
     protected $fillable = [
         'title',
         'description',
-        'file_url',
+        'thumbnail_url',
         'access_password',
         'related_news_id',
         'created_by',
     ];
 
-    public $timestamps = false;
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    // Relationship dengan MateriFile
+    public function files()
+    {
+        return $this->hasMany(MateriFile::class)->orderBy('order');
+    }
 
     // Relationship dengan Berita
     public function berita()

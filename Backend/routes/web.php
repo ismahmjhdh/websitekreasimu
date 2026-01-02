@@ -57,11 +57,18 @@ Route::get('/materi/create', [MateriController::class, 'create'])
 Route::post('/materi', [MateriController::class, 'store'])
     ->name('materi.store');
 
-Route::get('/materi/{id}', [MateriController::class, 'show'])
-    ->name('materi.show');
-
 Route::post('/materi/{id}/verify', [MateriController::class, 'verifyPassword'])
-->name('materi.verify');
+    ->name('materi.verify')
+    ->middleware('rate.limit.materi');
+
+Route::get('/materi/{id}', [MateriController::class, 'show'])
+    ->name('materi.show')
+    ->middleware('verify.materi.password');
+
+// Secure file download - require password verification
+Route::get('/materi/{materiId}/download/{fileId}', [MateriController::class, 'downloadFile'])
+    ->name('materi.download')
+    ->middleware(['web', 'verify.materi.password']);
 
 
 // ================= ADMIN PANEL =================
@@ -69,8 +76,8 @@ Route::post('/materi/{id}/verify', [MateriController::class, 'verifyPassword'])
 Route::get('/admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'login']);
 
-// Admin Routes (dengan middleware)
-Route::middleware('admin.auth')->group(function () {
+// Admin Routes (dengan middleware security)
+Route::middleware(['admin.auth', 'admin.security'])->group(function () {
     // Dashboard
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');

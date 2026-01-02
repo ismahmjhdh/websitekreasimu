@@ -21,16 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
     =============================== */
     const slides = document.querySelector('.slides');
     const slideItems = document.querySelectorAll('.slide');
-    let heroIndex = 0;
 
-    function updateHeroSlider() {
-        slides.style.transform = `translateX(-${heroIndex * 100}%)`;
+    if (slides && slideItems.length > 0) {
+        let heroIndex = 0;
+
+        function updateHeroSlider() {
+            slides.style.transform = `translateX(-${heroIndex * 100}%)`;
+        }
+
+        setInterval(() => {
+            heroIndex = (heroIndex + 1) % slideItems.length;
+            updateHeroSlider();
+        }, 4000);
     }
-
-    setInterval(() => {
-        heroIndex = (heroIndex + 1) % slideItems.length;
-        updateHeroSlider();
-    }, 4000);
 
     /* ===============================
        3. GALERI VIEWER (galeri.html)
@@ -97,23 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-  // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
-  // =============================
-  window.showStruktur = function(no) {
-    document.querySelectorAll('.struktur').forEach(el => {
-      el.classList.remove('active');
-    });
+    // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
+    // =============================
+    window.showStruktur = function (no) {
+        document.querySelectorAll('.struktur').forEach(el => {
+            el.classList.remove('active');
+        });
 
-    document.querySelectorAll('.struktur-btn button').forEach(btn => {
-      btn.classList.remove('active');
-    });
+        document.querySelectorAll('.struktur-btn button').forEach(btn => {
+            btn.classList.remove('active');
+        });
 
-    const target = document.getElementById('struktur' + no);
-    if (target) target.classList.add('active');
+        const target = document.getElementById('struktur' + no);
+        if (target) target.classList.add('active');
 
-    document.querySelectorAll('.struktur-btn button')[no - 1]
-      ?.classList.add('active');
-  };
+        document.querySelectorAll('.struktur-btn button')[no - 1]
+            ?.classList.add('active');
+    };
 
 
 });

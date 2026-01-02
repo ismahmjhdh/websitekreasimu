@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'admin.auth' => \App\Http\Middleware\AdminAuth::class,
+            'admin.security' => \App\Http\Middleware\AdminSecurityHeaders::class,
+            'verify.materi.password' => \App\Http\Middleware\VerifyMateriPassword::class,
+            'rate.limit.materi' => \App\Http\Middleware\RateLimitMateriPassword::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
