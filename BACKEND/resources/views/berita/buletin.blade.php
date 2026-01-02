@@ -91,7 +91,7 @@
             </div>
             
             <div class="search-materi-bar">
-                <form method="GET" action="{{ route('buletin') }}">
+                <form method="GET" action="{{ route('buletin') }}" style="display: flex; width: 100%;">
                     <input type="search" name="search" placeholder="Cari Buletin..." value="{{ $search ?? '' }}">
                     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
                 </form>
