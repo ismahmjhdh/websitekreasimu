@@ -86,8 +86,8 @@
                 </div>
                 
                 <div class="search-materi-bar">
-                    <form method="GET" action="{{ route('capaian') }}">
-                        <input type="search" name="search" placeholder="Cari Capaian..." value="{{ $search ?? '' }}">
+                    <form method="GET" action="{{ route('capaian') }}" style="display: flex; width: 100%;">
+                        <input type="text" name="search" placeholder="Cari Capaian..." value="{{ $search ?? '' }}">
                         <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
