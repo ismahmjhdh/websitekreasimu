@@ -83,7 +83,7 @@
         <div class="filter-bar">
             <div class="filter-group">
                 <label for="sort-order">Urutan:</label>
-                <select id="sort-order" name="sort" onchange="updateSort(this.value)">
+                <select id="sort-order" name="sort" onchange="window.location.href='{{ route('buletin') }}?sort=' + this.value + '{{ $search ? '&search=' . $search : '' }}'">
                     <option value="terbaru" {{ ($sort ?? 'terbaru') == 'terbaru' ? 'selected' : '' }}>Terbaru</option>
                     <option value="terpopuler" {{ ($sort ?? '') == 'terpopuler' ? 'selected' : '' }}>Terpopuler</option>
                     <option value="abjad" {{ ($sort ?? '') == 'abjad' ? 'selected' : '' }}>A-Z</option>
@@ -216,22 +216,6 @@
         </div>
     </footer>
     
-    <script>
-        function updateSort(sortValue) {
-            const baseUrl = "{{ route('buletin') }}";
-            const search = @json($search ?? null);
-            
-            // Create URL object to safely manage query parameters
-            const url = new URL(baseUrl, window.location.origin);
-            url.searchParams.set('sort', sortValue);
-            
-            if (search) {
-                url.searchParams.set('search', search);
-            }
-            
-            window.location.href = url.toString();
-        }
-    </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 </html>
