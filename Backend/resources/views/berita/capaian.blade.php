@@ -50,8 +50,8 @@
             <div class="nav-item has-dropdown">
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
-                    <a href="{{ route('galeri') }}">FOTO KEGIATAN</a>
-                    <a href="{{ url('galeri') }}">VIDEO KEGIATAN</a>
+                    <a href="{{ route('galeri', ['type' => 'photo']) }}">FOTO KEGIATAN</a>
+                    <a href="{{ route('galeri', ['type' => 'video']) }}">VIDEO KEGIATAN</a>
                 </div>
             </div>
 
