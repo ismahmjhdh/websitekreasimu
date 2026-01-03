@@ -92,7 +92,7 @@ class MateriController extends Controller
         // Materi akan langsung accessible di sini karena middleware sudah verifikasi
         // Tapi kita tambah extra security check
         $verifiedMateris = session('verified_materis', []);
-        if (!in_array($id, $verifiedMateris)) {
+        if (!isset($verifiedMateris[$id])) {
             abort(403, 'Akses tidak diizinkan. Silakan verifikasi password terlebih dahulu.');
         }
 
@@ -105,7 +105,7 @@ class MateriController extends Controller
     {
         // Middleware sudah verifikasi, tapi kita tambah extra check untuk safety
         $verifiedMateris = session('verified_materis', []);
-        if (!in_array($materiId, $verifiedMateris)) {
+        if (!isset($verifiedMateris[$materiId])) {
             abort(401, 'Unauthorized - Silakan verifikasi password terlebih dahulu.');
         }
 
@@ -115,10 +115,14 @@ class MateriController extends Controller
         // Validate file path untuk prevent directory traversal
         $filePath = public_path($file->file_url);
         $realPath = realpath($filePath);
+        $uploadsPath = realpath(public_path('uploads/materi'));
         
-        // Ensure file exists dan di dalam uploads folder
-        if (!$realPath || strpos($realPath, realpath(public_path('uploads/materi'))) !== 0) {
-            abort(404, 'File tidak ditemukan.');
+        // Debug info if needed (uncomment to debug)
+        // if (!$realPath) dd("Realpath failed for: " . $filePath);
+        
+        // Ensure file exists dan di dalam uploads folder (Case insensitive check for Windows)
+        if (!$realPath || !$uploadsPath || !str_starts_with(strtolower(str_replace('\\', '/', $realPath)), strtolower(str_replace('\\', '/', $uploadsPath)))) {
+            abort(404, 'File tidak ditemukan (Path Error).');
         }
 
         if (!file_exists($filePath)) {

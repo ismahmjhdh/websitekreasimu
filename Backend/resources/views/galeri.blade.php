@@ -53,9 +53,8 @@
             <div class="nav-item active has-dropdown">
                 GALERI <i class="fas fa-caret-right"></i>
                 <div class="dropdown-content galeri-dropdown">
-                    <a href="{{ route('galeri') }}">FOTO KEGIATAN</a>
-                    <a href="{{ url('galeri') }}">VIDEO KEGIATAN</a>
-                    
+                    <a href="{{ route('galeri', ['type' => 'photo']) }}">FOTO KEGIATAN</a>
+                    <a href="{{ route('galeri', ['type' => 'video']) }}">VIDEO KEGIATAN</a>
                 </div>
             </div>
 
@@ -69,22 +68,41 @@
 
        <!-- Materi Section -->
         <section class="galeri-section">
-            <h2>GALERI</h2>
+            <h2>GALERI {{ isset($type) ? ($type == 'video' ? 'VIDEO' : 'FOTO') : '' }}</h2>
 
             <!-- Gallery Grid from Database -->
             <div class="galeri-grid">
                 @forelse($galeris as $galeri)
                     <div class="galeri-card">
-                        <img src="{{ asset($galeri->image_url) }}"
-                             alt="{{ $galeri->caption }}">
+                        @if($galeri->type == 'video' && $galeri->video_url)
+                            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px 8px 0 0;">
+                                @php
+                                    // Make sure it's embed URL
+                                    $videoUrl = $galeri->video_url;
+                                    if (strpos($videoUrl, 'watch?v=') !== false) {
+                                        $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
+                                    } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
+                                        $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
+                                    }
+                                @endphp
+                                <iframe src="{{ $videoUrl }}" 
+                                        frameborder="0" 
+                                        allowfullscreen
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                                </iframe>
+                            </div>
+                        @else
+                            <img src="{{ asset($galeri->image_url) }}" alt="{{ $galeri->caption }}">
+                        @endif
+                        
                         <div class="galeri-body">
-                            <span class="galeri-date">{{ $galeri->caption ?? 'Foto Kegiatan' }}</span>
+                            <span class="galeri-date">{{ $galeri->caption ?? ($galeri->type == 'video' ? 'Video Kegiatan' : 'Foto Kegiatan') }}</span>
                             <p>{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
                         </div>
                     </div>
                 @empty
                     <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
-                        <p>Belum ada foto dalam galeri. Silakan upload foto melalui admin panel.</p>
+                        <p>Belum ada {{ isset($type) && $type == 'video' ? 'video' : 'foto' }} dalam galeri.</p>
                     </div>
                 @endforelse
             </div>

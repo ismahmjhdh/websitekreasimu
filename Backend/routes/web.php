@@ -21,9 +21,16 @@ Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
-Route::get('/galeri', function () {
-    $galeris = \App\Models\Galeri::latest('created_at')->paginate(9);
-    return view('galeri', compact('galeris'));
+Route::get('/galeri', function (\Illuminate\Http\Request $request) {
+    $type = $request->query('type');
+    $query = \App\Models\Galeri::latest('created_at');
+    
+    if ($type) {
+        $query->where('type', $type);
+    }
+    
+    $galeris = $query->paginate(9);
+    return view('galeri', compact('galeris', 'type'));
 })->name('galeri');
 
 
