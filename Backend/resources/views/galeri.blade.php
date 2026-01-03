@@ -92,7 +92,7 @@
                                 </iframe>
                             </div>
                         @else
-                            <img src="{{ asset($galeri->image_url) }}" alt="{{ $galeri->caption }}">
+                            <img src="{{ url($galeri->image_url) }}" alt="{{ $galeri->caption }}">
                         @endif
                         
                         <div class="galeri-body">
