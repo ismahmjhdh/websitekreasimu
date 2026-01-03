@@ -397,9 +397,9 @@ h2, .page-title {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: black;
-  color: white;
-  border: none;
+  background: #030000;
+  color: #000000;
+  border: #000000;
   font-size: 22px;
   width: 45px;
   height: 45px;
@@ -409,8 +409,8 @@ h2, .page-title {
   z-index: 10;
 }
 
-.arrow.left { left: -50px; }
-.arrow.right { right: -50px; }
+.arrow.left { left: 100px; color: #000000; }
+.arrow.right { right: -100px; color: #000000; }
 
 
 
