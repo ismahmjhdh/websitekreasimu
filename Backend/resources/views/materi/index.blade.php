@@ -194,59 +194,34 @@
         <div class="footer-content">
             <div class="footer-left">
                 <h2>About Us</h2>
-                <p>KREASI adalah pusat kolaborasi untuk memajukan pendidikan anak Indonesia melalui inovasi dan akses materi berkualitas.</p>
+                <p>KREASI adalah pusat kolaborasi untuk memajukan 
+                pendidikan anak Indonesia melalui </p>
+                <p>inovasi dan akses materi berkualitas.</p>
             </div>
 
             <div class="footer-right">
                 <h2>Contact Information</h2>
                 <p class="subtitle">feel free to contact and reach us!</p>
 
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Jalan Bangka IX Nomor 40A&B,<br>
-                    Pela Mampang, Mampang Prapatan,<br>
-                    Jakarta Selatan, DKI Jakarta 12720
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i> 
-                    (+62) 217824415
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i> 
-                    Indonesia.KREASI@savethechildren.org
-                </div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
 
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/SaveChildrenID/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}" alt="Facebook">
-                    </a>
-                    <a href="https://www.instagram.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram">
-                    </a>
-                    <a href="https://x.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Twitter_X.png') }}" alt="Twitter X">
-                    </a>
-                    <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}" alt="LinkedIn">
-                    </a>
-                    <a href="#">
-                        <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}" alt="TikTok">
-                    </a>
+                    <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                    <a href= "https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
                 </div>
             </div>
         </div>
 
         <div class="logo-row">
-            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="Tut Wuri Handayani">
-            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="Kementerian Agama">
-            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="Bappenas">
-            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="Kayong Utara">
-            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="GPE">
-            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="KREASI">
-            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="Save the Children">
-            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Dikdesmen">
+            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}">
+            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
+            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
+            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
         </div>
     </footer>
 
