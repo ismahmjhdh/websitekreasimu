@@ -112,7 +112,7 @@
                     ({{ $buletins->count() }} hasil ditemukan)
                 </p>
             </div>
-        @endif
+        @endif 
 
         <div class="berita-list">
             @forelse($buletins as $buletin)
