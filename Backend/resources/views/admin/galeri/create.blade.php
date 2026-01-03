@@ -40,21 +40,9 @@
                 @csrf
 
                 <div class="form-group">
-                    <label>Tipe Galeri *</label>
-                    <div style="display: flex; gap: 20px; margin-top: 5px;">
-                        <label>
-                            <input type="radio" name="type" value="photo" checked onchange="toggleType()"> Foto
-                        </label>
-                        <label>
-                            <input type="radio" name="type" value="video" onchange="toggleType()"> Video
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group" id="photoInputGroup">
                     <label for="image_file">Foto *</label>
                     <div class="file-input-wrapper">
-                        <input type="file" id="image_file" name="image_file" accept="image/*" onchange="previewImage(event)">
+                        <input type="file" id="image_file" name="image_file" accept="image/*" required onchange="previewImage(event)">
                         <label for="image_file" class="file-input-label">
                             <div>📷 Klik atau drag foto di sini</div>
                             <div class="help-text">Max 5MB (JPEG, PNG, JPG, GIF)</div>
@@ -66,18 +54,9 @@
                     @enderror
                 </div>
 
-                <div class="form-group" id="videoInputGroup" style="display: none;">
-                    <label for="video_url">URL Video (YouTube) *</label>
-                    <input type="url" id="video_url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." value="{{ old('video_url') }}">
-                    <div class="help-text">Masukkan link lengkap YouTube</div>
-                    @error('video_url')
-                        <div class="error-message">{{ $message }}</div>
-                    @enderror
-                </div>
-
                 <div class="form-group">
                     <label for="caption">Caption (Opsional)</label>
-                    <textarea id="caption" name="caption" placeholder="Tambahkan deskripsi...">{{ old('caption') }}</textarea>
+                    <textarea id="caption" name="caption" placeholder="Tambahkan deskripsi atau keterangan untuk foto...">{{ old('caption') }}</textarea>
                     <div class="help-text">Max 500 karakter</div>
                     @error('caption')
                         <div class="error-message">{{ $message }}</div>
@@ -85,7 +64,7 @@
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="btn btn-submit">Simpan Galeri</button>
+                    <button type="submit" class="btn btn-submit">Simpan Foto</button>
                     <a href="{{ route('admin.galeri.index') }}" class="btn btn-cancel">Batal</a>
                 </div>
             </form>
@@ -93,36 +72,6 @@
     </div>
 
     <script>
-        function toggleType() {
-            const types = document.getElementsByName('type');
-            let selectedType = 'photo';
-            for (const type of types) {
-                if (type.checked) {
-                    selectedType = type.value;
-                    break;
-                }
-            }
-
-            const photoGroup = document.getElementById('photoInputGroup');
-            const videoGroup = document.getElementById('videoInputGroup');
-            const photoInput = document.getElementById('image_file');
-            const videoInput = document.getElementById('video_url');
-
-            if (selectedType === 'photo') {
-                photoGroup.style.display = 'block';
-                videoGroup.style.display = 'none';
-                photoInput.required = true;
-                videoInput.required = false;
-            } else {
-                photoGroup.style.display = 'none';
-                videoGroup.style.display = 'block';
-                photoInput.required = false;
-                videoInput.required = true;
-            }
-        }
-        
-        // Init state
-        toggleType();
         function previewImage(event) {
             const file = event.target.files[0];
             const preview = document.getElementById('preview');

@@ -96,9 +96,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="access_password">Password Akses (Opsional)</label>
-                    <input type="password" id="access_password" name="access_password" minlength="4">
-                    <div class="help-text">Kosongkan jika tidak ingin mengubah password. Siswa harus memasukkan password ini untuk mengakses materi</div>
+                    <label for="access_password">Password Akses *</label>
+                    <input type="password" id="access_password" name="access_password" required minlength="4" value="{{ $materi->access_password }}">
+                    <div class="help-text">Siswa harus memasukkan password ini untuk mengakses materi</div>
                     @error('access_password')
                         <div class="error-message">{{ $message }}</div>
                     @enderror
