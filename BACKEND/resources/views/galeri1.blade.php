@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KREASI - Galeri</title>
-
+    <title>KREASI - Beranda</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,26 +12,18 @@
     <header class="main-header">
         <div class="top-bar">
             <div class="logo">
-                <img height="70"
-                     src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
-                     alt="LOGO KREASI"
-                     class="kresi-logo">
+                <img height="70" src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"alt="LOGO KREASI" class="kresi-logo">
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Cari...">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
             <div class="right-logos">
-                <img height="70"
-                     src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}"
-                     alt="Logo Kemendikbud"
-                     class="kemendikbud-logo">
+                <img height="70" src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Logo Kemendikbud" class="kemendikbud-logo">
             </div>
         </div>
 
-        <button class="hamburger-menu" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="hamburger-menu" id="hamburger"><i class="fas fa-bars"></i></button>
         
         <nav class="main-nav" id="main-nav-menu">
             <a href="{{ url('/') }}" class="nav-item">BERANDA</a>
@@ -66,61 +57,27 @@
 
     <main class="main-content galeri-detail-layout">
 
-       <!-- Materi Section -->
-        <section class="galeri-section">
-            <h2>GALERI {{ isset($type) ? ($type == 'video' ? 'VIDEO' : 'FOTO') : '' }}</h2>
+<main class="main-content galeri-detail-layout">
+        <h1 class="page-title">DOKUMENTASI: WORKSHOP KURIKULUM ADAPTIF</h1>
 
-            <!-- Gallery Grid from Database -->
-            <div class="galeri-grid">
-                @forelse($galeris as $galeri)
-                    <div class="galeri-card">
-                        @if($galeri->type == 'video' && $galeri->video_url)
-                            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px 8px 0 0;">
-                                @php
-                                    // Make sure it's embed URL
-                                    $videoUrl = $galeri->video_url;
-                                    if (strpos($videoUrl, 'watch?v=') !== false) {
-                                        $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
-                                    } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
-                                        $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
-                                    }
-                                @endphp
-                                <iframe src="{{ $videoUrl }}" 
-                                        frameborder="0" 
-                                        allowfullscreen
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                                </iframe>
-                            </div>
-                        @else
-                            <img src="{{ asset($galeri->image_url) }}" alt="{{ $galeri->caption }}">
-                        @endif
-                        
-                        <div class="galeri-body">
-                            <span class="galeri-date">{{ $galeri->caption ?? ($galeri->type == 'video' ? 'Video Kegiatan' : 'Foto Kegiatan') }}</span>
-                            <p>{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
-                        </div>
-                    </div>
-                @empty
-                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
-                        <p>Belum ada {{ isset($type) && $type == 'video' ? 'video' : 'foto' }} dalam galeri.</p>
-                    </div>
-                @endforelse
-            </div>
+        <div class="galeri-counter">FOTO 1/10</div>
 
-            <!-- Pagination -->
-            @if($galeris->hasPages())
-                <div style="display: flex; justify-content: center; margin-top: 40px; gap: 10px;">
-                    {{ $galeris->links() }}
-                </div>
-            @endif
-        </section>
-                </div>
-            </div>
+        <div class="galeri-viewer">
+            <span class="arrow prev-arrow"><i class="fas fa-chevron-left"></i></span>
+            
+            <div class="galeri-image"></div>
+            
+            <span class="arrow next-arrow"><i class="fas fa-chevron-right"></i></span>
+        </div>
 
-
+        <a href="#" class="unduh-btn">UNDUH FOTO (ZIP)</a>
         
+        <p style="text-align:center; margin-top:20px; font-style:italic;">Gunakan tombol panah di atas untuk melihat foto-foto kegiatan.</p>
+    </main>
 
-    <footer class="footer">
+
+
+     <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
                 <h2>About Us</h2>
@@ -156,6 +113,7 @@
     </footer>
 
     
-    <script src="{{ asset('js/scripts.js') }}"></script>
-</body>
-</html>
+    <script src="scripts.js"></script>
+
+    </body>
+   

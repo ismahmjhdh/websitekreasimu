@@ -13,6 +13,8 @@ class Galeri extends Model
 
     protected $fillable = [
         'image_url',
+        'type',
+        'video_url',
         'caption',
         'created_by',
     ];

@@ -154,7 +154,6 @@
 
     <footer class="footer">
         <div class="footer-content">
-
             <div class="footer-left">
                 <h2>About Us</h2>
                 <p>KREASI adalah pusat kolaborasi untuk memajukan 
@@ -166,34 +165,12 @@
                 <h2>Contact Information</h2>
                 <p class="subtitle">feel free to contact and reach us!</p>
 
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i> Jalan Bangka IX Nomor 
-                    40A&B,<br> Pela Mampang, Mampang Prapatan, Jakarta Selatan,
-                    <br> DKI Jakarta 12720
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i> (+62) 217824415
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i> Indonesia.KREASI@savethechildren.org
-                </div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
 
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/SaveChildrenID/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Facebook_font_awesome.svg.png') }}">
-                    </a>
-                    <a href="https://www.instagram.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Instagram.png') }}">
-                    </a>
-                    <a href="https://x.com/savechildren_id" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Twitter_X.png') }}">
-                    </a>
-                    <a href="https://www.linkedin.com/company/savethechildren-indonesia/" target="_blank">
-                        <img src="{{ asset('images/FOOTER/LinkedIn_logo_In-Black.svg.png') }}">
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="{{ asset('images/FOOTER/Tiktok_icon.svg.png') }}">
-                    </a>
+                    <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                    <a href= "https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
                 </div>
             </div>
         </div>
@@ -209,6 +186,7 @@
             <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
         </div>
     </footer>
+
     
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
