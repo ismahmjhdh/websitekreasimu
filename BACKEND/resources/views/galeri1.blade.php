@@ -65,7 +65,9 @@
         <div class="galeri-viewer">
             <span class="arrow prev-arrow"><i class="fas fa-chevron-left"></i></span>
             
-            <div class="galeri-image"></div>
+            <div class="galeri-image">
+                <img src="{{ asset('images/FOTO GALERI/21.7.25.jpg') }}" alt="galeri image">
+            </div>
             
             <span class="arrow next-arrow"><i class="fas fa-chevron-right"></i></span>
         </div>

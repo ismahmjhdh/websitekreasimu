@@ -836,6 +836,12 @@ h2, .page-title {
     height: 100%;
 }
 
+.galeri-image img {
+   width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    aspect-ratio: 16/9;
+}
 
 /* ========================================================= */
 /* --- 6. FOOTER --- */
