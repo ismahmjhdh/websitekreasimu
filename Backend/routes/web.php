@@ -47,6 +47,10 @@ Route::get('/galeri/{type}/{id}', function ($type, $id) {
     return view('galeri1', compact('galeri', 'type'));
 })->name('galeri.detail');
 
+Route::get('/galeri1', function () {
+    return view('galeri1');
+})->name('galeri1');
+
 
 // ================= BERITA =================
 Route::get('/berita', [BeritaController::class, 'index'])
