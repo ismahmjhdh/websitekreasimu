@@ -427,7 +427,7 @@ h2, .page-title {
 }
 
 .arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0);
 }
 
 .arrow.left { left: 100px; color: #000000; }
