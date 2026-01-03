@@ -33,20 +33,6 @@ Route::get('/galeri', function (\Illuminate\Http\Request $request) {
     return view('galeri', compact('galeris', 'type'));
 })->name('galeri');
 
-// Detail view for a single gallery item (kategori: photo | video)
-Route::get('/galeri/{type}/{id}', function ($type, $id) {
-    if (!in_array($type, ['photo', 'video'])) {
-        abort(404);
-    }
-
-    $galeri = \App\Models\Galeri::find($id);
-    if (! $galeri) {
-        abort(404);
-    }
-
-    return view('galeri1', compact('galeri', 'type'));
-})->name('galeri.detail');
-
 Route::get('/galeri1', function () {
     return view('galeri1');
 })->name('galeri1');
