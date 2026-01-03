@@ -233,7 +233,7 @@ class AdminController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120|dimensions:min_width=300,min_height=200', // 5MB, min dimensions
             'files' => 'required|array|min:1|max:10', // Max 10 files
             'files.*' => 'required|file|mimes:pdf|max:51200', // 50MB per file
-            'access_password' => 'required|string|min:4|max:255', // Min 4 chars, simple validation
+            'access_password' => 'required|string|min:8|max:255|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/', // Strong password: min 8 char, uppercase, lowercase, digit
             'related_news_id' => 'nullable|exists:berita,id',
         ]);
 
@@ -330,7 +330,7 @@ class AdminController extends Controller
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120|dimensions:min_width=300,min_height=200',
             'files' => 'nullable|array',
             'files.*' => 'nullable|file|mimes:pdf|max:51200',
-            'access_password' => 'nullable|string|min:4|max:255',
+            'access_password' => 'nullable|string|min:8|max:255|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/',
             'related_news_id' => 'nullable|exists:berita,id',
         ]);
 
@@ -453,9 +453,7 @@ class AdminController extends Controller
     public function galeriStore(Request $request)
     {
         $request->validate([
-            'type' => 'required|in:photo,video',
-            'image_file' => 'required_if:type,photo|nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'video_url' => 'required_if:type,video|nullable|url',
+            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
             'caption' => 'nullable|string|max:500',
         ]);
 
@@ -470,8 +468,6 @@ class AdminController extends Controller
         }
 
         Galeri::create([
-            'type' => $request->type,
-            'video_url' => $request->video_url,
             'image_url' => $imageUrl,
             'caption' => $request->caption,
             'created_by' => session('admin_id'),
