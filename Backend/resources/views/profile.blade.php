@@ -297,7 +297,7 @@
     <div class="card-struktur">
       <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="struktur">
       <h3 class="nama">Sujiman</h3>
-      <p class="jabatan">Monitoring, Evaluation, <br>Accountability & Learning Officer
+      <p class="jabatan">MEAL Officer 
       <br>KREASI Kabupaten Ketapang</p>
     </div>
 
@@ -328,78 +328,65 @@
 
   <div class="struktur-container">
       <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="struktur">
       <h3 class="nama">Anti Angraini </h3>
       <p class="jabatan">Koordinator KREASI
       <br>Kalimantan Barat</p>
     </div>
 
     <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Santoso Setio</h3>
-      <p class="jabatan">Program Coordinator
-      <br>KREASI Kabupaten Ketapang</p>
+      <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Rezky Farnanda</h3>
+      <p class="jabatan">MEAL Officer
+      <br>KREASI Kabupaten Kayong</p>
     </div>
   </div>
 
   <div class="struktur-container">
     <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Syarif Syamsurrizal</h3>
-      <p class="jabatan">Advocacy Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Jainal Abidin</h3>
-      <p class="jabatan">Basic Education
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Ilma Karmila</h3>
-      <p class="jabatan">Early Childhood <br>Education Development
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Siti Mauliani</h3>
-      <p class="jabatan">Child Protection Officer
-      <br>KREASI Kabupaten Ketapang</p>
-  </div>
-  </div>
-
-  <div class="struktur-container">
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Sujiman</h3>
-      <p class="jabatan">Monitoring, Evaluation, <br>Accountability & Learning Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Afriyandi Nur Huda</h3>
-      <p class="jabatan">Communcitions & Media Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Heri Setiawan</h3>
-      <p class="jabatan">Logistic Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Nur Malina <br>Indah Putri</h3>
+      <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
       <p class="jabatan">Finance Officer
-      <br>KREASI Kabupaten Ketapang</p>
+      <br>KREASI Kabupaten Kayong</p>
     </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina .png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Anisah Agustina </h3>
+      <p class="jabatan">Child Protection & Gedsi 
+      <br>KREASI Kabupaten Kayong</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Muhammad Agus Tarmizi</h3>
+      <p class="jabatan">Basic Education 
+      <br>KREASI Kabupaten Kayong</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Hengki Hayatullah</h3>
+      <p class="jabatan">Advocacy & Campaign 
+      <br>KREASI Kabupaten Kayong</p>
+  </div>
+  </div>
+
+  <div class="struktur-container">
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Rinda Andri Gunawan</h3>
+      <p class="jabatan">Comunication & Media
+      <br>KREASI Kabupaten Kayong</p>
+    </div>
+
+    <div class="card-struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Sidik Puji Nugroho.png') }}" class="img-pop-tim" alt="struktur">
+      <h3 class="nama">Sidik Puji Nugroho</h3>
+      <p class="jabatan">Logistik
+      <br>KREASI Kabupaten Kayong</p>
+    </div>
+
     </div>
   </div>
 </section>

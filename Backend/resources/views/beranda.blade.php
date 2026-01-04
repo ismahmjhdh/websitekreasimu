@@ -66,7 +66,7 @@
             <div class="slider">
                 <div class="slides">
                     <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}">
+                            <img src="{{ asset('images/FOTO BERANDA/refleksi dan konitor 3 sep .JPG') }}">
                     </div>
                     <div class="slide">
                         <img src="{{ asset('images/FOTO BERANDA/Monitoring Sekolah Mentuban 1.10.25.JPG') }}">
@@ -78,7 +78,7 @@
                         <img src="{{ asset('images/FOTO BERANDA/learning revitais 18.9.25.JPG') }}">
                     </div>
                     <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/refleksi dan konitor 3 sep .JPG') }}">
+                        <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}">
                     </div>
                 </div>
             </div>
