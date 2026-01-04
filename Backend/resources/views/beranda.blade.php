@@ -65,21 +65,18 @@
         <section class="hero-banner">
             <div class="slider">
                 <div class="slides">
-                    <div class="slide">
+                    @forelse ($slides as $slide)
+                        <div class="slide">
+                            <img src="{{ asset($slide->image_path) }}" alt="{{ $slide->title }}">
+                        </div>
+                    @empty
+                        <div class="slide">
                             <img src="{{ asset('images/FOTO BERANDA/refleksi dan konitor 3 sep .JPG') }}">
-                    </div>
-                    <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/Monitoring Sekolah Mentuban 1.10.25.JPG') }}">
-                    </div>
-                    <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/meeting kreasi bersama lptk.JPG') }}">
-                    </div>
-                    <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/learning revitais 18.9.25.JPG') }}">
-                    </div>
-                    <div class="slide">
-                        <img src="{{ asset('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg') }}">
-                    </div>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ asset('images/FOTO BERANDA/Monitoring Sekolah Mentuban 1.10.25.JPG') }}">
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -88,29 +85,17 @@
             <h2>AGENDA TERBARU</h2>
 
             <div class="agenda-grid">
-                <div class="agenda-card">
-                    <img src="{{ asset('images/gambar1.jpg') }}" alt="">
-                    <div class="agenda-body">
-                        <span class="agenda-date">10 Agustus 2025</span>
-                        <p>Kampanye Perlindungan Anak</p>
+                @forelse ($agendas as $agenda)
+                    <div class="agenda-card">
+                        <img src="{{ asset($agenda->image_path) }}" alt="{{ $agenda->title }}">
+                        <div class="agenda-body">
+                            <span class="agenda-date">{{ \Carbon\Carbon::parse($agenda->date)->translatedFormat('d F Y') }}</span>
+                            <p>{{ $agenda->title }}</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="agenda-card">
-                    <img src="{{ asset('images/gambar2.jpg') }}" alt="">
-                    <div class="agenda-body">
-                        <span class="agenda-date">01 Oktober 2025</span>
-                        <p>Monitoring Sekolah Mentubang</p>
-                    </div>
-                </div>
-
-                <div class="agenda-card">
-                    <img src="{{ asset('images/gambar3.jpg') }}" alt="">
-                    <div class="agenda-body">
-                        <span class="agenda-date">11 November 2025</span>
-                        <p>Kampanye Perlindungan Anak SD Negeri 12 Pelerang</p>
-                    </div>
-                </div>
+                @empty
+                    <p style="text-align: center; grid-column: 1/-1;">Belum ada agenda terbaru.</p>
+                @endforelse
             </div>
         </section>
 
@@ -124,9 +109,12 @@
 
                 <div class="map-slider-large-wrapper">
                     <div class="map-slider-large-container" id="mapSliderContainerLarge">
-                        <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
-                        <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
-                        <img src="{{ asset('images/FOTO BERANDA/kayog.png') }}" alt="Peta 3" class="map-image-large">
+                        @forelse ($maps as $map)
+                            <img src="{{ asset($map->image_path) }}" alt="{{ $map->title }}" class="map-image-large">
+                        @empty
+                            <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
+                            <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
+                        @endforelse
                     </div>
                 </div>
 

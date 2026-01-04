@@ -131,7 +131,7 @@ class AdminController extends Controller
 
         Berita::create([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $request->input('content'),
             'category' => $request->category,
             'status' => $request->status,
             'youtube_link' => $request->youtube_link,
@@ -183,7 +183,7 @@ class AdminController extends Controller
 
         $berita->update([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $request->input('content'),
             'category' => $request->category,
             'status' => $request->status,
             'youtube_link' => $request->youtube_link,

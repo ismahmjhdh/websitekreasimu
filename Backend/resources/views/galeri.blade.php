@@ -73,33 +73,25 @@
             <!-- Gallery Grid from Database -->
             <div class="galeri-grid">
                 @forelse($galeris as $galeri)
-                    <div class="galeri-card">
-                        @if($galeri->type == 'video' && $galeri->video_url)
-                            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px 8px 0 0;">
-                                @php
-                                    // Make sure it's embed URL
-                                    $videoUrl = $galeri->video_url;
-                                    if (strpos($videoUrl, 'watch?v=') !== false) {
-                                        $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
-                                    } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
-                                        $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
-                                    }
-                                @endphp
-                                <iframe src="{{ $videoUrl }}" 
-                                        frameborder="0" 
-                                        allowfullscreen
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                                </iframe>
+                    <a href="{{ route('galeri1', $galeri->id) }}" class="galeri-card-link" style="text-decoration: none; color: inherit;">
+                        <div class="galeri-card">
+                            @if($galeri->type == 'video' && $galeri->video_url)
+                                <div class="video-thumbnail" style="position: relative;">
+                                    <img src="{{ url($galeri->image_url ?? 'images/FOTO BERANDA/refleksi dan konitor 3 sep .JPG') }}" alt="{{ $galeri->caption }}">
+                                    <div class="play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 40px; text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                </div>
+                            @else
+                                <img src="{{ url($galeri->image_url) }}" alt="{{ $galeri->caption }}">
+                            @endif
+                            
+                            <div class="galeri-body">
+                                <span class="galeri-caption">{{ $galeri->caption ?? ($galeri->type == 'video' ? 'Video Kegiatan' : 'Foto Kegiatan') }}</span>
+                                <p class="galeri-date">{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
                             </div>
-                        @else
-                            <img src="{{ url($galeri->image_url) }}" alt="{{ $galeri->caption }}">
-                        @endif
-                        
-                        <div class="galeri-body">
-                            <span class="galeri-date">{{ $galeri->caption ?? ($galeri->type == 'video' ? 'Video Kegiatan' : 'Foto Kegiatan') }}</span>
-                            <p>{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
                         </div>
-                    </div>
+                    </a>
                 @empty
                     <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
                         <p>Belum ada {{ isset($type) && $type == 'video' ? 'video' : 'foto' }} dalam galeri.</p>
