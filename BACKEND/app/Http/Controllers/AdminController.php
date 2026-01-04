@@ -7,6 +7,9 @@ use App\Models\Berita;
 use App\Models\Materi;
 use App\Models\MateriFile;
 use App\Models\Galeri;
+use App\Models\HeroSlide;
+use App\Models\Agenda;
+use App\Models\MapImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -128,7 +131,7 @@ class AdminController extends Controller
 
         Berita::create([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $request->input('content'),
             'category' => $request->category,
             'status' => $request->status,
             'youtube_link' => $request->youtube_link,
@@ -180,7 +183,7 @@ class AdminController extends Controller
 
         $berita->update([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => $request->input('content'),
             'category' => $request->category,
             'status' => $request->status,
             'youtube_link' => $request->youtube_link,
