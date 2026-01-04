@@ -10,11 +10,17 @@ use App\Http\Controllers\AdminController;
 // });
 
 Route::get('/', function () {
-    return view('beranda');
+    $slides = \App\Models\HeroSlide::orderBy('order')->get();
+    $agendas = \App\Models\Agenda::latest('date')->take(3)->get();
+    $maps = \App\Models\MapImage::orderBy('order')->get();
+    return view('beranda', compact('slides', 'agendas', 'maps'));
 });
 
 Route::get('/beranda', function () {
-    return view('beranda');
+    $slides = \App\Models\HeroSlide::orderBy('order')->get();
+    $agendas = \App\Models\Agenda::latest('date')->take(3)->get();
+    $maps = \App\Models\MapImage::orderBy('order')->get();
+    return view('beranda', compact('slides', 'agendas', 'maps'));
 })->name('beranda');
 
 Route::get('/profile', function () {
@@ -33,8 +39,9 @@ Route::get('/galeri', function (\Illuminate\Http\Request $request) {
     return view('galeri', compact('galeris', 'type'));
 })->name('galeri');
 
-Route::get('/galeri1', function () {
-    return view('galeri1');
+Route::get('/galeri/{id}', function ($id) {
+    $galeri = \App\Models\Galeri::with('images')->findOrFail($id);
+    return view('galeri1', compact('galeri'));
 })->name('galeri1');
 
 
@@ -113,5 +120,26 @@ Route::middleware(['admin.auth', 'admin.security'])->group(function () {
     Route::get('/admin/galeri', [AdminController::class, 'galeriIndex'])->name('admin.galeri.index');
     Route::get('/admin/galeri/create', [AdminController::class, 'galeriCreate'])->name('admin.galeri.create');
     Route::post('/admin/galeri', [AdminController::class, 'galeriStore'])->name('admin.galeri.store');
+    Route::get('/admin/galeri/{id}/manage', [AdminController::class, 'galeriManage'])->name('admin.galeri.manage');
+    Route::post('/admin/galeri/{id}/add-images', [AdminController::class, 'galeriAddImages'])->name('admin.galeri.add_images');
+    Route::post('/admin/galeri/image/{id}/delete', [AdminController::class, 'galeriDeleteImage'])->name('admin.galeri.delete_image');
     Route::post('/admin/galeri/{id}/delete', [AdminController::class, 'galeriDelete'])->name('admin.galeri.delete');
+
+    // Hero Management
+    Route::get('/admin/hero', [AdminController::class, 'heroIndex'])->name('admin.hero.index');
+    Route::post('/admin/hero', [AdminController::class, 'heroStore'])->name('admin.hero.store');
+    Route::post('/admin/hero/{id}/delete', [AdminController::class, 'heroDelete'])->name('admin.hero.delete');
+
+    // Agenda Management
+    Route::get('/admin/agenda', [AdminController::class, 'agendaIndex'])->name('admin.agenda.index');
+    Route::get('/admin/agenda/create', [AdminController::class, 'agendaCreate'])->name('admin.agenda.create');
+    Route::post('/admin/agenda', [AdminController::class, 'agendaStore'])->name('admin.agenda.store');
+    Route::get('/admin/agenda/{id}/edit', [AdminController::class, 'agendaEdit'])->name('admin.agenda.edit');
+    Route::post('/admin/agenda/{id}', [AdminController::class, 'agendaUpdate'])->name('admin.agenda.update');
+    Route::post('/admin/agenda/{id}/delete', [AdminController::class, 'agendaDelete'])->name('admin.agenda.delete');
+
+    // Map Management
+    Route::get('/admin/map', [AdminController::class, 'mapIndex'])->name('admin.map.index');
+    Route::post('/admin/map', [AdminController::class, 'mapStore'])->name('admin.map.store');
+    Route::post('/admin/map/{id}/delete', [AdminController::class, 'mapDelete'])->name('admin.map.delete');
 });
