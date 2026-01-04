@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <button class="hamburger-menu" id="hamburger">
+    <button class="hamburger-menu" id="hamburger" aria-label="Toggle navigation menu">
         <i class="fas fa-bars"></i>
     </button>
 
@@ -55,9 +55,8 @@
         <div class="nav-item has-dropdown">
             GALERI <i class="fas fa-caret-right"></i>
             <div class="dropdown-content galeri-dropdown">
-                    <a href="{{ route('galeri', ['type' => 'photo']) }}">FOTO KEGIATAN</a>
-                    <a href="{{ route('galeri', ['type' => 'video']) }}">VIDEO KEGIATAN</a>
-              
+                <a href="{{ route('galeri', ['type' => 'photo']) }}">FOTO KEGIATAN</a>
+                <a href="{{ route('galeri', ['type' => 'video']) }}">VIDEO KEGIATAN</a>
             </div>
         </div>
 
@@ -82,7 +81,7 @@
 
 <!-- DIKDASMEN -->
 <section id="dikdasmen" class="profile-section">
-    <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
+    <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Logo Dikdasmen">
     <div class="logo-box">
         <p>
             Majelis Pendidikan Dasar Menengah dan Pendidikan Nonformal Pimpinan
@@ -98,6 +97,7 @@
 <section id="kreasi" class="profile-section kreasi">
     <div class="left">
         <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}"
+             alt="Logo KREASI"
              class="logo-kreasi">
     </div>
 
@@ -129,7 +129,7 @@
 <section id="program" class="profile-section split-kreasi">
     <div class="split-left">
         <div class="image-container">
-            <img src="{{ asset('images/FOTO PROFILE/IMG_8446.JPG') }}">
+            <img src="{{ asset('images/FOTO PROFILE/IMG_8446.JPG') }}" alt="Program KREASI">
             <div class="overlay-text">
                 <h2>PROGRAM<br>KREASI</h2>
             </div>
@@ -149,286 +149,294 @@
     </div>
 </section>
 
-<!--goals-->
+<!-- GOALS -->
 <section id="goals" class="profile-section goals-kreasi">
     <h2><span class="red-goals">GOALS</span> PROGRAM KREASI</h2>
-    <p> Peningkatan pencapaian keterampilan dasar <span class="red-goals">
-        (Literasi, Numerasi, Pendidikan Karakter) </span> 
-        untuk siswa TK/RA dan SD/MI Indonesia</p>
+    <p>
+        Peningkatan pencapaian keterampilan dasar <span class="red-goals">
+        (Literasi, Numerasi, Pendidikan Karakter)</span> 
+        untuk siswa TK/RA dan SD/MI Indonesia
+    </p>
     
-<div class="flip-card">
-  <div class="flip-inner">
-    <!-- DEPAN (biru) -->
-    <div class="flip-front">
-      <h3>Kurikulum dan Asessmen</h3>
+    <div class="flip-card">
+        <div class="flip-inner">
+            <!-- DEPAN (biru) -->
+            <div class="flip-front">
+                <h3>Kurikulum dan Asessmen</h3>
+            </div>
+
+            <!-- BELAKANG (hijau) -->
+            <div class="flip-back">
+                <p>
+                    Kebijakan dan praktik untuk kurikulum materi pembelajaran dan 
+                    penilaian keterampilan dasar prasekolah dan sekolah dasar yang 
+                    merata di tingkat nasional dan sub-nasional.
+                </p>
+            </div>
+        </div>  
     </div>
 
-    <!-- BELAKANG (hijau) -->
-    <div class="flip-back">
-      <p>
-        Kebijakan dan praktik untuk kurikulum materi pembelajaran dan 
-        penilaian keterampilan dasar prasekolah dan sekolah dasar yang 
-        merata di tingkat nasional dan sub-nasional.
-      </p>
-    </div>
+    <div class="flip-card">
+        <div class="flip-inner">
+            <!-- DEPAN (biru) -->
+            <div class="flip-front">
+                <h3>Praktik Pembelajaran</h3>
+            </div>
+
+            <!-- BELAKANG (hijau) -->
+            <div class="flip-back">
+                <p>
+                    Kebijakan dan praktik yang ditingkatkan untuk pengajaran keterampilan 
+                    dasar yang merata di daerah target
+                </p>
+            </div>
+        </div>
     </div>  
-</div>
 
-<div class="flip-card">
-  <div class="flip-inner">
-    <!-- DEPAN (biru) -->
-    <div class="flip-front">
-      <h3>Praktik Pembelajaran</h3>
+    <div class="flip-card">
+        <div class="flip-inner">
+            <!-- DEPAN (biru) -->
+            <div class="flip-front">
+                <h3>Kepemimpinan Pendidikan</h3>
+            </div>
+
+            <!-- BELAKANG (hijau) -->
+            <div class="flip-back">
+                <p>
+                    Kebijakan dan praktik yang ditingkatkan untuk kepemimpinan pengajaran 
+                    dan pembelajaran yang adil dan efektif di daerah yang di targetkan
+                </p>
+            </div>
+        </div>
+    </div>  
+
+    <div class="flip-card">
+        <div class="flip-inner">
+            <!-- DEPAN (biru) -->
+            <div class="flip-front">
+                <h3>Perlindungan Anak</h3>
+            </div>
+
+            <!-- BELAKANG (hijau) -->
+            <div class="flip-back">
+                <p>
+                    Kebijakan dan praktik yang lebih baik untuk perlindungan 
+                    anak yang adil dan pencegahan kekerasan di daerah yang di 
+                    targetkan
+                </p>
+            </div>
+        </div>
+    </div> 
+
+    <div class="static-card">
+        <h3>Kesetaraan gender, disabilitas, inklusi sosial (GEDSI)</h3>
     </div>
 
-    <!-- BELAKANG (hijau) -->
-    <div class="flip-back">
-      <p>
-        Kebijakan dan praktik yang ditingkatkan untuk pengajaran keterampilan 
-        dasar yang merata di daerah target
-      </p>
+    <div class="static-card">
+        <h3>Perubahan iklim adaptasi dan mitigasi (Climate Change)</h3>
     </div>
-  </div>
-</div>  
-
-<div class="flip-card">
-  <div class="flip-inner">
-    <!-- DEPAN (biru) -->
-    <div class="flip-front">
-      <h3>Kepemimpinan Pendidikan</h3>
-    </div>
-
-    <!-- BELAKANG (hijau) -->
-    <div class="flip-back">
-      <p>
-        Kebijakan dan praktik yang ditingkatkan untuk kepemimpinan pengajaran 
-        dan pembelajaran yang adil dan efektif di daerah yang di targetkan
-      </p>
-    </div>
-  </div>
-</div>  
-
-<div class="flip-card">
-  <div class="flip-inner">
-    <!-- DEPAN (biru) -->
-    <div class="flip-front">
-      <h3>Perlindungan Anak</h3>
-    </div>
-
-    <!-- BELAKANG (hijau) -->
-    <div class="flip-back">
-      <p>
-        Kebijakan dan praktik yang lebih baik untuk perlindungan 
-        anak yang adil dan pencegahan kekerasan di daerah yang di 
-        targetkan
-      </p>
-    </div>
-  </div>
-</div> 
-
-<div class="static-card">
-    <h3>Kesetaraan gender, disabilitas, inklusi sosial (GEDSI)</h3>
-</div>
-
-<div class="static-card">
-    <h3>Perubahan iklim adaptasi dan mitigasi 
-        (Climate Change)</h3>
-</div>
 </section>
 
 <!-- STRUKTUR -->
-<section class="STRUKTUR ORGANISASI">
-            <h2>TIM PROGRAM KREASI</h2> 
-            
-  <div class="struktur-btn">
-      <button class="active" onclick="showStruktur(1)">KABUPATEN KETAPANG</button>
-      <button onclick="showStruktur(2)">KAYONG UTARA</button>
-  </div>
-
-  <div id="struktur1" class="struktur active">
-
-  <div class="struktur-container">
-      <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Julni Rhamawan</h3>
-      <p class="jabatan">Program Manager KREASI
-      <br>Kalimantan Barat</p>
+<section id="struktur" class="profile-section struktur-organisasi">
+    <h2>TIM PROGRAM KREASI</h2> 
+    
+    <div class="struktur-btn">
+        <button class="active" onclick="showStruktur(1)">KABUPATEN KETAPANG</button>
+        <button onclick="showStruktur(2)">KAYONG UTARA</button>
     </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Santoso Setio</h3>
-      <p class="jabatan">Program Coordinator
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-  </div>
+    <div id="struktur1" class="struktur active">
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Julni Rhamawan</h3>
+                <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
+            </div>
 
-  <div class="struktur-container">
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Syarif Syamsurrizal</h3>
-      <p class="jabatan">Advocacy Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
+                <h3 class="nama">Santoso Setio</h3>
+                <p class="jabatan">Program Coordinator<br>KREASI Kabupaten Ketapang</p>
+            </div>
+        </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Jainal Abidin</h3>
-      <p class="jabatan">Basic Education
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="Syarif Syamsurrizal">
+                <h3 class="nama">Syarif Syamsurrizal</h3>
+                <p class="jabatan">Advocacy Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Ilma Karmila</h3>
-      <p class="jabatan">Early Childhood <br>Education Development
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="Jainal Abidin">
+                <h3 class="nama">Jainal Abidin</h3>
+                <p class="jabatan">Basic Education<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Siti Mauliani</h3>
-      <p class="jabatan">Child Protection Officer
-      <br>KREASI Kabupaten Ketapang</p>
-  </div>
-  </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="Ilma Karmila">
+                <h3 class="nama">Ilma Karmila</h3>
+                <p class="jabatan">Early Childhood<br>Education Development<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-  <div class="struktur-container">
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Sujiman</h3>
-      <p class="jabatan">MEAL Officer 
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="Siti Mauliani">
+                <h3 class="nama">Siti Mauliani</h3>
+                <p class="jabatan">Child Protection Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
+        </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Afriyandi Nur Huda</h3>
-      <p class="jabatan">Communcitions & Media Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
+                <h3 class="nama">Sujiman</h3>
+                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Heri Setiawan</h3>
-      <p class="jabatan">Logistic Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
+                <h3 class="nama">Afriyandi Nur Huda</h3>
+                <p class="jabatan">Communications & Media Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Nur Malina <br>Indah Putri</h3>
-      <p class="jabatan">Finance Officer
-      <br>KREASI Kabupaten Ketapang</p>
-    </div>
-    </div>
-  </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="Heri Setiawan">
+                <h3 class="nama">Heri Setiawan</h3>
+                <p class="jabatan">Logistic Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
 
-  <div id="struktur2" class="struktur">
-
-  <div class="struktur-container">
-      <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Anti Angraini </h3>
-      <p class="jabatan">Koordinator KREASI
-      <br>Kalimantan Barat</p>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="Nur Malina Indah Putri">
+                <h3 class="nama">Nur Malina<br>Indah Putri</h3>
+                <p class="jabatan">Finance Officer<br>KREASI Kabupaten Ketapang</p>
+            </div>
+        </div>
     </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Rezky Farnanda</h3>
-      <p class="jabatan">MEAL Officer
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
-  </div>
+    <div id="struktur2" class="struktur">
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
+                <h3 class="nama">Anti Angraini</h3>
+                <p class="jabatan">Koordinator KREASI<br>Kalimantan Barat</p>
+            </div>
 
-  <div class="struktur-container">
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
-      <p class="jabatan">Finance Officer
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="Rezky Farnanda">
+                <h3 class="nama">Rezky Farnanda</h3>
+                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Kayong</p>
+            </div>
+        </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina .png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Anisah Agustina </h3>
-      <p class="jabatan">Child Protection & Gedsi 
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="Mutiara Aulia Az-Zahra">
+                <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
+                <p class="jabatan">Finance Officer<br>KREASI Kabupaten Kayong</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Muhammad Agus Tarmizi</h3>
-      <p class="jabatan">Basic Education 
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina.png') }}" class="img-pop-tim" alt="Anisah Agustina">
+                <h3 class="nama">Anisah Agustina</h3>
+                <p class="jabatan">Child Protection & Gedsi<br>KREASI Kabupaten Kayong</p>
+            </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Hengki Hayatullah</h3>
-      <p class="jabatan">Advocacy & Campaign 
-      <br>KREASI Kabupaten Kayong</p>
-  </div>
-  </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="Muhammad Agus Tarmizi">
+                <h3 class="nama">Muhammad Agus Tarmizi</h3>
+                <p class="jabatan">Basic Education<br>KREASI Kabupaten Kayong</p>
+            </div>
 
-  <div class="struktur-container">
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Rinda Andri Gunawan</h3>
-      <p class="jabatan">Comunication & Media
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="Hengki Hayatullah">
+                <h3 class="nama">Hengki Hayatullah</h3>
+                <p class="jabatan">Advocacy & Campaign<br>KREASI Kabupaten Kayong</p>
+            </div>
+        </div>
 
-    <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Sidik Puji Nugroho.png') }}" class="img-pop-tim" alt="struktur">
-      <h3 class="nama">Sidik Puji Nugroho</h3>
-      <p class="jabatan">Logistik
-      <br>KREASI Kabupaten Kayong</p>
-    </div>
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="Rinda Andri Gunawan">
+                <h3 class="nama">Rinda Andri Gunawan</h3>
+                <p class="jabatan">Communication & Media<br>KREASI Kabupaten Kayong</p>
+            </div>
 
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Sidik Puji Nugroho.png') }}" class="img-pop-tim" alt="Sidik Puji Nugroho">
+                <h3 class="nama">Sidik Puji Nugroho</h3>
+                <p class="jabatan">Logistik<br>KREASI Kabupaten Kayong</p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-
 <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <h2>About Us</h2>
-                <p>KREASI adalah pusat kolaborasi untuk memajukan 
-                pendidikan anak Indonesia melalui </p>
-                <p>inovasi dan akses materi berkualitas.</p>
-            </div>
-
-            <div class="footer-right">
-                <h2>Contact Information</h2>
-                <p class="subtitle">feel free to contact and reach us!</p>
-
-                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
-                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
-
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
-                    <a href= "https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
-                </div>
-            </div>
+    <div class="footer-content">
+        <div class="footer-left">
+            <h2>About Us</h2>
+            <p>KREASI adalah pusat kolaborasi untuk memajukan 
+            pendidikan anak Indonesia melalui</p>
+            <p>inovasi dan akses materi berkualitas.</p>
         </div>
 
-        <div class="logo-row">
-            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}">
-            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
-            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
-            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
-            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
-            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
-            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">
-            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
-        </div>
-    </footer>
+        <div class="footer-right">
+            <h2>Contact Information</h2>
+            <p class="subtitle">feel free to contact and reach us!</p>
 
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Ketapang">
+                </a>
+                <a href="https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Kayong Utara">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-row">
+        <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="Logo Tut Wuri Handayani">
+        <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="Logo Kementerian Agama">
+        <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="Logo Kementerian PPN Bappenas">
+        <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="Logo Kabupaten Kayong Utara">
+        <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="Logo GPE">
+        <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="Logo KREASI">
+        <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="Logo Save the Children">
+        <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Logo Dikdasmen">
+    </div>
+</footer>
 
 <script src="{{ asset('scripts.js') }}"></script>
+<script>
+function showStruktur(strukturNumber) {
+    // Sembunyikan semua struktur
+    const allStruktur = document.querySelectorAll('.struktur');
+    allStruktur.forEach(struktur => {
+        struktur.classList.remove('active');
+    });
+    
+    // Hapus class active dari semua button
+    const allButtons = document.querySelectorAll('.struktur-btn button');
+    allButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Tampilkan struktur yang dipilih
+    const selectedStruktur = document.getElementById('struktur' + strukturNumber);
+    if (selectedStruktur) {
+        selectedStruktur.classList.add('active');
+    }
+    
+    // Tambahkan class active ke button yang diklik
+    const buttons = document.querySelectorAll('.struktur-btn button');
+    if (buttons[strukturNumber - 1]) {
+        buttons[strukturNumber - 1].classList.add('active');
+    }
+}
+</script>
 </body>
 </html>
-
