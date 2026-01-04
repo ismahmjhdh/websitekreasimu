@@ -351,7 +351,7 @@
     </div>
 
     <div class="card-struktur">
-      <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina .png') }}" class="img-pop-tim" alt="struktur">
+      <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina.png') }}" class="img-pop-tim" alt="struktur">
       <h3 class="nama">Anisah Agustina </h3>
       <p class="jabatan">Child Protection & Gedsi 
       <br>KREASI Kabupaten Kayong</p>
