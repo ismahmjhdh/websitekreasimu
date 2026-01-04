@@ -117,48 +117,20 @@
         <section class="map-section">
             <h2>LOKASI & INTERVENSI PROGRAM</h2>
 
-            <div class="map-container">
-                <div class="map-info-side">
-                    <div class="info-box">
-                        <h3>Tahun 2025:</h3>
-                        <ul>
-                            <li>3 Kecamatan</li>
-                            <li>30 SD/MI</li>
-                            <li>10 TK/RA</li>
-                        </ul>
-                    </div>
+            <div class="map-container-full">
+                <button class="map-arrow-large map-arrow-prev-large" id="mapPrevBtnLarge"><i class="fas fa-chevron-left"></i></button>
 
-                    <div class="legend">
-                        <div class="legend-item">
-                            <span class="legend-color green"></span>
-                            <span>3 Kecamatan Intervensi</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color red"></span>
-                            <span>14 Kecamatan Yang Akan Terdampak</span>
-                        </div>
+                
+
+                <div class="map-slider-large-wrapper">
+                    <div class="map-slider-large-container" id="mapSliderContainerLarge">
+                        <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
+                        <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
+                        <img src="{{ asset('images/FOTO BERANDA/kayog.png') }}" alt="Peta 3" class="map-image-large">
                     </div>
                 </div>
 
-                <div class="map-display-area">
-                    <div class="map-slider-wrapper">
-                        <div class="map-slider-container" id="mapSliderContainer">
-                            <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image">
-                            <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image">
-                            <img src="{{ asset('images/map3.png') }}" alt="Peta 3" class="map-image">
-                        </div>
-                    </div>
-                    
-                    <div class="map-controls">
-                        <button class="map-arrow map-arrow-prev" id="mapPrevBtn"><i class="fas fa-chevron-left"></i></button>
-                        <div class="map-indicators">
-                            <span class="indicator active" data-index="0"></span>
-                            <span class="indicator" data-index="1"></span>
-                            <span class="indicator" data-index="2"></span>
-                        </div>
-                        <button class="map-arrow map-arrow-next" id="mapNextBtn"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
+                <button class="map-arrow-large map-arrow-next-large" id="mapNextBtnLarge"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
