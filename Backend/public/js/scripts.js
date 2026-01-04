@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-    // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
+    // STRUKTUR ORGANISASI
     // =============================
     window.showStruktur = function (no) {
         document.querySelectorAll('.struktur').forEach(el => {
@@ -119,7 +119,46 @@ document.addEventListener('DOMContentLoaded', () => {
             ?.classList.add('active');
     };
 
+    /* ===============================
+       5. GALERI DETAIL SLIDER
+    =============================== */
+    const galeriImageSlider = document.getElementById('galeriImageSlider');
+    const galeriPrevBtn = document.getElementById('galeriPrevBtn');
+    const galeriNextBtn = document.getElementById('galeriNextBtn');
+    const galeriCurrentSpan = document.getElementById('galeri-current');
+    const galeriCurrentBadge = document.getElementById('galeri-current-badge');
 
+    if (galeriImageSlider && galeriPrevBtn && galeriNextBtn) {
+        let currentGaleriIndex = 0;
+        const totalGaleriImages = document.querySelectorAll('.galeri-image-item').length;
+
+        function updateGaleriSlider() {
+            galeriImageSlider.style.transform = `translateX(-${currentGaleriIndex * 100}%)`;
+            galeriCurrentSpan.textContent = currentGaleriIndex + 1;
+            galeriCurrentBadge.textContent = currentGaleriIndex + 1;
+        }
+
+        galeriPrevBtn.addEventListener('click', () => {
+            currentGaleriIndex = (currentGaleriIndex - 1 + totalGaleriImages) % totalGaleriImages;
+            updateGaleriSlider();
+        });
+
+        galeriNextBtn.addEventListener('click', () => {
+            currentGaleriIndex = (currentGaleriIndex + 1) % totalGaleriImages;
+            updateGaleriSlider();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                currentGaleriIndex = (currentGaleriIndex - 1 + totalGaleriImages) % totalGaleriImages;
+                updateGaleriSlider();
+            } else if (e.key === 'ArrowRight') {
+                currentGaleriIndex = (currentGaleriIndex + 1) % totalGaleriImages;
+                updateGaleriSlider();
+            }
+        });
+    }
 });
 
 
