@@ -73,30 +73,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===============================
-       4. MAP SLIDER
+       4. MAP SLIDER (LOKASI INTERVENSI)
     =============================== */
-    const track = document.getElementById('mapTrack');
-    if (track) {
-        let mapIndex = 0;
-        const total = track.children.length;
+    const mapSliderContainer = document.getElementById('mapSliderContainer');
+    const mapPrevBtn = document.getElementById('mapPrevBtn');
+    const mapNextBtn = document.getElementById('mapNextBtn');
+    const indicators = document.querySelectorAll('.indicator');
 
-        window.nextMap = function () {
-            if (mapIndex < total - 1) {
-                mapIndex++;
-                updateMap();
-            }
-        };
+    if (mapSliderContainer && mapPrevBtn && mapNextBtn && indicators.length > 0) {
+        let currentMapIndex = 0;
+        const totalMaps = document.querySelectorAll('.map-image').length;
 
-        window.prevMap = function () {
-            if (mapIndex > 0) {
-                mapIndex--;
-                updateMap();
-            }
-        };
-
-        function updateMap() {
-            track.style.transform = `translateX(-${mapIndex * 100}%)`;
+        function updateMapSlider(index) {
+            // Constrain index between 0 and total maps - 1
+            currentMapIndex = Math.max(0, Math.min(index, totalMaps - 1));
+            
+            // Update transform
+            mapSliderContainer.style.transform = `translateX(-${currentMapIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentMapIndex);
+            });
         }
+
+        mapPrevBtn.addEventListener('click', () => {
+            updateMapSlider(currentMapIndex - 1);
+        });
+
+        mapNextBtn.addEventListener('click', () => {
+            updateMapSlider(currentMapIndex + 1);
+        });
+
+        // Click on indicators
+        indicators.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                const index = parseInt(indicator.dataset.index);
+                updateMapSlider(index);
+            });
+        });
     }
 
     // =============================
