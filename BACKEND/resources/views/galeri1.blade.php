@@ -63,61 +63,68 @@
 
         <h1 class="galeri-title">{{ $galeri->caption ?? 'NAMA KEGIATAN' }}</h1>
 
-        @php
-            $images = [];
-            if (!empty($galeri->image_url)) {
-                $img = trim($galeri->image_url);
-                if (substr($img, 0, 1) === '[') {
-                    $decoded = json_decode($img, true);
-                    if (is_array($decoded)) {
-                        $images = $decoded;
-                    }
-                } elseif (strpos($img, ',') !== false) {
-                    $parts = explode(',', $img);
-                    foreach ($parts as $p) {
-                        $p = trim($p);
-                        if ($p !== '') $images[] = $p;
-                    }
-                } else {
-                    $images[] = $img;
-                }
-            }
-            if (empty($images)) {
-                $images[] = 'images/FOTO GALERI/21.7.25.jpg';
-            }
-        @endphp
-
         <div class="galeri-detail-container">
-            <div class="galeri-header">
-                <div class="galeri-label">FOTO <span id="galeri-current">1</span></div>
-                <div class="galeri-counter-badge"><span id="galeri-current-badge">1</span>/<span id="galeri-total">{{ count($images) }}</span></div>
-            </div>
-
-            <div class="galeri-viewer-container">
-                <button class="galeri-arrow galeri-arrow-prev" id="galeriPrevBtn" aria-label="Previous">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="galeri-image-wrapper">
-                    <div class="galeri-image-slider" id="galeriImageSlider">
-                        @foreach($images as $index => $imgPath)
-                            <div class="galeri-image-item" data-index="{{ $index }}">
-                                <img src="{{ asset($imgPath) }}" alt="{{ $galeri->caption ?? 'Foto galeri' }}">
-                            </div>
-                        @endforeach
+            @if($galeri->type == 'video' && $galeri->video_url)
+                <div class="video-detail-wrapper" style="width: 100%; max-width: 900px; margin: 0 auto;">
+                    @php
+                        $videoUrl = $galeri->video_url;
+                        if (strpos($videoUrl, 'watch?v=') !== false) {
+                            $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
+                        } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
+                            $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
+                        }
+                    @endphp
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <iframe src="{{ $videoUrl }}" 
+                                frameborder="0" 
+                                allowfullscreen
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        </iframe>
+                    </div>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <p style="color: #666;">{{ date('d F Y', strtotime($galeri->created_at)) }}</p>
                     </div>
                 </div>
+            @else
+                <div class="galeri-header">
+                    <div class="galeri-label">FOTO <span id="galeri-current">1</span></div>
+                    <div class="galeri-counter-badge"><span id="galeri-current-badge">1</span>/<span id="galeri-total">{{ $galeri->images->count() ?: 1 }}</span></div>
+                </div>
 
-                <button class="galeri-arrow galeri-arrow-next" id="galeriNextBtn" aria-label="Next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+                <div class="galeri-viewer-container">
+                    @if($galeri->images->count() > 1)
+                        <button class="galeri-arrow galeri-arrow-prev" id="galeriPrevBtn" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    @endif
 
-            <div class="galeri-actions">
-                @if($galeri->id > 0)
-                    <a href="{{ route('galeri.downloadZip', ['type' => $type, 'id' => $galeri->id]) }}" class="unduh-btn">UNDUH</a>
-                @else
-                    <a href="#" class="unduh-btn" style="opacity:0.5; cursor:not-allowed;">UNDUH</a>
+                    <div class="galeri-image-wrapper">
+                        <div class="galeri-image-slider" id="galeriImageSlider">
+                            @forelse($galeri->images as $index => $img)
+                                <div class="galeri-image-item" data-index="{{ $index }}">
+                                    <img src="{{ asset($img->image_path) }}" alt="{{ $galeri->caption }}">
+                                </div>
+                            @empty
+                                <div class="galeri-image-item" data-index="0">
+                                    <img src="{{ asset($galeri->image_url) }}" alt="{{ $galeri->caption }}">
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
+
+                    @if($galeri->images->count() > 1)
+                        <button class="galeri-arrow galeri-arrow-next" id="galeriNextBtn" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    @endif
+                </div>
+            @endif
+
+            <div class="galeri-actions" style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+                <a href="{{ route('galeri', ['type' => $galeri->type]) }}" class="unduh-btn" style="background: #6c757d;">KEMBALI</a>
+                @if($galeri->type == 'photo')
+                    {{-- Assuming there might be a download feature later --}}
+                    {{-- <a href="#" class="unduh-btn">UNDUH ZIP</a> --}}
                 @endif
             </div>
         </div>

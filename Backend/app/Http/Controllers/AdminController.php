@@ -7,6 +7,9 @@ use App\Models\Berita;
 use App\Models\Materi;
 use App\Models\MateriFile;
 use App\Models\Galeri;
+use App\Models\HeroSlide;
+use App\Models\Agenda;
+use App\Models\MapImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -461,7 +464,7 @@ class AdminController extends Controller
 
         $imageUrl = null;
 
-        // Upload gambar
+        // Upload gambar cover
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -469,7 +472,7 @@ class AdminController extends Controller
             $imageUrl = 'images/galeri/' . $filename;
         }
 
-        Galeri::create([
+        $galeri = Galeri::create([
             'type' => $request->type,
             'video_url' => $request->video_url,
             'image_url' => $imageUrl,
@@ -477,7 +480,59 @@ class AdminController extends Controller
             'created_by' => session('admin_id'),
         ]);
 
-        return redirect()->route('admin.galeri.index')->with('success', 'Foto galeri berhasil ditambahkan!');
+        // Jika tipe foto, buat entri pertama di galeri_images sebagai cover
+        if ($request->type == 'photo' && $imageUrl) {
+            \App\Models\GaleriImage::create([
+                'galeri_id' => $galeri->id,
+                'image_path' => $imageUrl,
+                'order' => 0,
+            ]);
+        }
+
+        return redirect()->route('admin.galeri.manage', $galeri->id)->with('success', 'Galeri berhasil dibuat! Sekarang Anda bisa menambahkan lebih banyak foto.');
+    }
+
+    public function galeriManage($id)
+    {
+        $galeri = Galeri::with('images')->findOrFail($id);
+        return view('admin.galeri.manage', compact('galeri'));
+    }
+
+    public function galeriAddImages(Request $request, $id)
+    {
+        $galeri = Galeri::findOrFail($id);
+        $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120'
+        ]);
+
+        if ($request->hasFile('images')) {
+            $lastOrder = \App\Models\GaleriImage::where('galeri_id', $id)->max('order') ?? 0;
+            foreach ($request->file('images') as $file) {
+                $filename = time() . '_' . uniqid() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('images/galeri'), $filename);
+                $path = 'images/galeri/' . $filename;
+
+                \App\Models\GaleriImage::create([
+                    'galeri_id' => $id,
+                    'image_path' => $path,
+                    'order' => ++$lastOrder,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Foto-foto berhasil ditambahkan ke galeri.');
+    }
+
+    public function galeriDeleteImage($id)
+    {
+        $image = \App\Models\GaleriImage::findOrFail($id);
+        if (file_exists(public_path($image->image_path))) {
+            unlink(public_path($image->image_path));
+        }
+        $image->delete();
+
+        return back()->with('success', 'Foto berhasil dihapus dari galeri.');
     }
 
     // Hapus galeri
@@ -493,6 +548,175 @@ class AdminController extends Controller
         $galeri->delete();
 
         return back()->with('success', 'Foto galeri berhasil dihapus!');
+    }
+    // ===================== HERO SLIDE MANAGEMENT =====================
+
+    public function heroIndex()
+    {
+        $slides = HeroSlide::orderBy('order')->get();
+        return view('admin.hero.index', compact('slides'));
+    }
+
+    public function heroStore(Request $request)
+    {
+        $request->validate([
+            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'title' => 'nullable|string|max:255',
+        ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/hero'), $filename);
+            $imagePath = 'images/hero/' . $filename;
+
+            HeroSlide::create([
+                'image_path' => $imagePath,
+                'title' => $request->title,
+                'order' => HeroSlide::max('order') + 1,
+            ]);
+        }
+
+        return redirect()->route('admin.hero.index')->with('success', 'Slide berhasil ditambahkan!');
+    }
+
+    public function heroDelete($id)
+    {
+        $slide = HeroSlide::findOrFail($id);
+        if ($slide->image_path && file_exists(public_path($slide->image_path))) {
+            unlink(public_path($slide->image_path));
+        }
+        $slide->delete();
+
+        return back()->with('success', 'Slide berhasil dihapus!');
+    }
+
+    // ===================== AGENDA MANAGEMENT =====================
+
+    public function agendaIndex()
+    {
+        $agendas = Agenda::latest('date')->paginate(10);
+        return view('admin.agenda.index', compact('agendas'));
+    }
+
+    public function agendaCreate()
+    {
+        return view('admin.agenda.create');
+    }
+
+    public function agendaStore(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'date' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/agenda'), $filename);
+            $imagePath = 'images/agenda/' . $filename;
+        }
+
+        Agenda::create([
+            'title' => $request->title,
+            'image_path' => $imagePath,
+            'date' => $request->date,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.agenda.index')->with('success', 'Agenda berhasil ditambahkan!');
+    }
+
+    public function agendaEdit($id)
+    {
+        $agenda = Agenda::findOrFail($id);
+        return view('admin.agenda.edit', compact('agenda'));
+    }
+
+    public function agendaUpdate(Request $request, $id)
+    {
+        $agenda = Agenda::findOrFail($id);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'date' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        if ($request->hasFile('image_file')) {
+            if ($agenda->image_path && file_exists(public_path($agenda->image_path))) {
+                unlink(public_path($agenda->image_path));
+            }
+            $file = $request->file('image_file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/agenda'), $filename);
+            $agenda->image_path = 'images/agenda/' . $filename;
+        }
+
+        $agenda->update([
+            'title' => $request->title,
+            'date' => $request->date,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.agenda.index')->with('success', 'Agenda berhasil diupdate!');
+    }
+
+    public function agendaDelete($id)
+    {
+        $agenda = Agenda::findOrFail($id);
+        if ($agenda->image_path && file_exists(public_path($agenda->image_path))) {
+            unlink(public_path($agenda->image_path));
+        }
+        $agenda->delete();
+
+        return back()->with('success', 'Agenda berhasil dihapus!');
+    }
+
+    // ===================== MAP MANAGEMENT =====================
+
+    public function mapIndex()
+    {
+        $maps = MapImage::orderBy('order')->get();
+        return view('admin.map.index', compact('maps'));
+    }
+
+    public function mapStore(Request $request)
+    {
+        $request->validate([
+            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'title' => 'required|string|max:255',
+        ]);
+
+        if ($request->hasFile('image_file')) {
+            $file = $request->file('image_file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/map'), $filename);
+            $imagePath = 'images/map/' . $filename;
+
+            MapImage::create([
+                'image_path' => $imagePath,
+                'title' => $request->title,
+                'order' => MapImage::max('order') + 1,
+            ]);
+        }
+
+        return redirect()->route('admin.map.index')->with('success', 'Map berhasil ditambahkan!');
+    }
+
+    public function mapDelete($id)
+    {
+        $map = MapImage::findOrFail($id);
+        if ($map->image_path && file_exists(public_path($map->image_path))) {
+            unlink(public_path($map->image_path));
+        }
+        $map->delete();
+
+        return back()->with('success', 'Map berhasil dihapus!');
     }
 }
 

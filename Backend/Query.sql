@@ -33,14 +33,61 @@ CREATE TABLE materi (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    file_url VARCHAR(255),
+    thumbnail_url VARCHAR(255),
     access_password VARCHAR(255) NOT NULL, 
     related_news_id INT NULL,              
     created_by INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (related_news_id) REFERENCES berita(id),
     FOREIGN KEY (created_by) REFERENCES admins(id)
 );
+
+CREATE TABLE hero_slides (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_path VARCHAR(255) NOT NULL,
+    title VARCHAR(255),
+    `order` INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE agendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    image_path VARCHAR(255) NOT NULL,
+    `date` DATE NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE map_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    image_path VARCHAR(255) NOT NULL,
+    `order` INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Seed Beranda Data
+INSERT INTO hero_slides (image_path, title, `order`) VALUES
+('images/FOTO BERANDA/refleksi dan konitor 3 sep .JPG', 'Refleksi dan Monitoring', 1),
+('images/FOTO BERANDA/Monitoring Sekolah Mentuban 1.10.25.JPG', 'Monitoring Sekolah Mentubang', 2),
+('images/FOTO BERANDA/meeting kreasi bersama lptk.JPG', 'Meeting Kreasi bersama LPTK', 3),
+('images/FOTO BERANDA/learning revitais 18.9.25.JPG', 'Learning Revitalisasi', 4),
+('images/FOTO BERANDA/Kampanye Perlindungan Anak 10.9.25.jpeg', 'Kampanye Perlindungan Anak', 5);
+
+INSERT INTO agendas (title, image_path, `date`, description) VALUES
+('Kampanye Perlindungan Anak', 'images/gambar1.jpg', '2025-08-10', 'Kegiatan kampanye perlindungan anak di wilayah Ketapang.'),
+('Monitoring Sekolah Mentubang', 'images/gambar2.jpg', '2025-10-01', 'Monitoring rutin di Sekolah Mentubang.'),
+('Kampanye Perlindungan Anak SD Negeri 12 Pelerang', 'images/gambar3.jpg', '2025-11-11', 'Edukasi perlindungan anak di SD Negeri 12 Pelerang.');
+
+INSERT INTO map_images (title, image_path, `order`) VALUES
+('Peta Ketapang', 'images/FOTO BERANDA/KETAPANG OK OK.png', 1),
+('Peta Kayong Utara', 'images/FOTO BERANDA/PETA KAYONG UTARA.png', 2),
+('Peta 3', 'images/FOTO BERANDA/kayog.png', 3);
 
 
 

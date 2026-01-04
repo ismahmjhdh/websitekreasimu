@@ -27,6 +27,11 @@ class Galeri extends Model
         return $this->belongsTo(Admin::class, 'created_by');
     }
 
+    public function images()
+    {
+        return $this->hasMany(GaleriImage::class, 'galeri_id')->orderBy('order');
+    }
+
     // Scope untuk pencarian
     public function scopeSearch($query, $search)
     {
