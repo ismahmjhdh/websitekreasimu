@@ -73,34 +73,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===============================
-       4. MAP SLIDER
+       4. MAP SLIDER (LOKASI INTERVENSI)
     =============================== */
-    const track = document.getElementById('mapTrack');
-    if (track) {
-        let mapIndex = 0;
-        const total = track.children.length;
+    const mapSliderContainerLarge = document.getElementById('mapSliderContainerLarge');
+    const mapPrevBtnLarge = document.getElementById('mapPrevBtnLarge');
+    const mapNextBtnLarge = document.getElementById('mapNextBtnLarge');
 
-        window.nextMap = function () {
-            if (mapIndex < total - 1) {
-                mapIndex++;
-                updateMap();
-            }
-        };
+    if (mapSliderContainerLarge && mapPrevBtnLarge && mapNextBtnLarge) {
+        let currentMapIndexLarge = 0;
+        const totalMapsLarge = document.querySelectorAll('.map-image-large').length;
 
-        window.prevMap = function () {
-            if (mapIndex > 0) {
-                mapIndex--;
-                updateMap();
-            }
-        };
-
-        function updateMap() {
-            track.style.transform = `translateX(-${mapIndex * 100}%)`;
+        function updateMapSliderLarge(index) {
+            // Constrain index between 0 and total maps - 1
+            currentMapIndexLarge = Math.max(0, Math.min(index, totalMapsLarge - 1));
+            
+            // Update transform
+            mapSliderContainerLarge.style.transform = `translateX(-${currentMapIndexLarge * 100}%)`;
         }
+
+        mapPrevBtnLarge.addEventListener('click', () => {
+            updateMapSliderLarge(currentMapIndexLarge - 1);
+        });
+
+        mapNextBtnLarge.addEventListener('click', () => {
+            updateMapSliderLarge(currentMapIndexLarge + 1);
+        });
     }
 
     // =============================
-    // STRUKTUR ORGANISASI (INI YANG KAMU BUTUH)
+    // STRUKTUR ORGANISASI
     // =============================
     window.showStruktur = function (no) {
         document.querySelectorAll('.struktur').forEach(el => {
@@ -118,7 +119,46 @@ document.addEventListener('DOMContentLoaded', () => {
             ?.classList.add('active');
     };
 
+    /* ===============================
+       5. GALERI DETAIL SLIDER
+    =============================== */
+    const galeriImageSlider = document.getElementById('galeriImageSlider');
+    const galeriPrevBtn = document.getElementById('galeriPrevBtn');
+    const galeriNextBtn = document.getElementById('galeriNextBtn');
+    const galeriCurrentSpan = document.getElementById('galeri-current');
+    const galeriCurrentBadge = document.getElementById('galeri-current-badge');
 
+    if (galeriImageSlider && galeriPrevBtn && galeriNextBtn) {
+        let currentGaleriIndex = 0;
+        const totalGaleriImages = document.querySelectorAll('.galeri-image-item').length;
+
+        function updateGaleriSlider() {
+            galeriImageSlider.style.transform = `translateX(-${currentGaleriIndex * 100}%)`;
+            galeriCurrentSpan.textContent = currentGaleriIndex + 1;
+            galeriCurrentBadge.textContent = currentGaleriIndex + 1;
+        }
+
+        galeriPrevBtn.addEventListener('click', () => {
+            currentGaleriIndex = (currentGaleriIndex - 1 + totalGaleriImages) % totalGaleriImages;
+            updateGaleriSlider();
+        });
+
+        galeriNextBtn.addEventListener('click', () => {
+            currentGaleriIndex = (currentGaleriIndex + 1) % totalGaleriImages;
+            updateGaleriSlider();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                currentGaleriIndex = (currentGaleriIndex - 1 + totalGaleriImages) % totalGaleriImages;
+                updateGaleriSlider();
+            } else if (e.key === 'ArrowRight') {
+                currentGaleriIndex = (currentGaleriIndex + 1) % totalGaleriImages;
+                updateGaleriSlider();
+            }
+        });
+    }
 });
 
 

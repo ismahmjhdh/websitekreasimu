@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="{{ asset('FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="Logo Kreasimu" class="navbar-logo">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="Logo Kreasimu" class="navbar-logo">
             <h2>Kreasimu Admin</h2>
         </div>
         <div>

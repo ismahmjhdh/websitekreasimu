@@ -117,36 +117,20 @@
         <section class="map-section">
             <h2>LOKASI & INTERVENSI PROGRAM</h2>
 
-            <div class="map-wrapper">
-                <button class="arrow left" onclick="prevMap()"><i class="fas fa-chevron-left"></i></button>
+            <div class="map-container-full">
+                <button class="map-arrow-large map-arrow-prev-large" id="mapPrevBtnLarge"><i class="fas fa-chevron-left"></i></button>
 
-                <div class="map-content">
-                    <div class="map-info">
-                        <div class="info-box">
-                            <h3>Tahun 2025:</h3>
-                            <ul>
-                                <li>3 Kecamatan</li>
-                                <li>30 SD/MI</li>
-                                <li>10 TK/RA</li>
-                            </ul>
-                        </div>
+                
 
-                        <div class="legend">
-                            <div><span class="green"></span> 3 Kecamatan Intervensi</div>
-                            <div><span class="red"></span> 14 Kecamatan Yang Akan Terdampak</div>
-                        </div>
-                    </div>
-
-                    <div class="map-slider">
-                        <div class="map-track" id="mapTrack">
-                            <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}">
-                            <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}">
-                            <img src="{{ asset('images/map3.png') }}">
-                        </div>
+                <div class="map-slider-large-wrapper">
+                    <div class="map-slider-large-container" id="mapSliderContainerLarge">
+                        <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
+                        <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
+                        <img src="{{ asset('images/FOTO BERANDA/kayog.png') }}" alt="Peta 3" class="map-image-large">
                     </div>
                 </div>
 
-                <button class="arrow right" onclick="nextMap()"><i class="fas fa-chevron-right"></i></button>
+                <button class="map-arrow-large map-arrow-next-large" id="mapNextBtnLarge"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
