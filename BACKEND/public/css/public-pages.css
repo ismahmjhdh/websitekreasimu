@@ -12,7 +12,7 @@
     font-weight: bold;
     margin-bottom: 10px;
     background: #e3f2fd;
-    color: #1976d2;
+    color: #242d6b;
 }
 
 /* --- NAVIGATION BUTTONS --- */
@@ -28,7 +28,7 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #242d6b 0%, #da291c 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -226,7 +226,7 @@
 }
 
 .search-materi-bar .search-btn {
-    background: #667eea;
+    background: #242d6b;
     color: white;
     padding: 12px 20px;
     border: none;

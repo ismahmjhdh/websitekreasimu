@@ -54,8 +54,8 @@
 
 /* --- ADMIN DASHBOARD --- */
 .navbar {
-    background: linear-gradient(135deg, #242d6b 100%);
-    color: white;
+    background: linear-gradient(135deg, #43d596 100%);
+    color: #242d6b;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
@@ -79,7 +79,7 @@
 }
 
 .navbar a {
-    color: white;
+    color: #242d6b;
     text-decoration: none;
     margin-left: 20px;
     padding: 8px 16px;
