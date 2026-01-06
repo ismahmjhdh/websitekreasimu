@@ -239,12 +239,16 @@
 
 <!-- STRUKTUR -->
 <section id="struktur" class="profile-section struktur-organisasi">
-    <h2>TIM PROGRAM KREASI</h2> 
+    <h2>STRUKTUR ORGANISASI KREASI</h2> 
     
     <div class="struktur-btn">
-        <button class="active" onclick="showStruktur(1)">KABUPATEN KETAPANG</button>
-        <button onclick="showStruktur(2)">KAYONG UTARA</button>
+        <button onclick="showStruktur(1)">PIMPINAN PUSAT</button>
+        <button onclick="showStruktur(2)">PROGRAM MANAGER</button><br>
+        <br>
+        <button class="active" onclick="showStruktur(3)">KABUPATEN KETAPANG</button>
+        <button onclick="showStruktur(4)">KABUPATEN KAYONG UTARA</button>
     </div>
+    
 
     <div id="struktur1" class="struktur active">
         <div class="struktur-container">
@@ -253,11 +257,34 @@
                 <h3 class="nama">Julni Rhamawan</h3>
                 <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
             </div>
+           
+        </div>
+    </div>
+
+    <div id="struktur2" class="struktur">
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Julni Rhamawan</h3>
+                <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRUKTUR 3: KABUPATEN KETAPANG -->
+    <div id="struktur3" class="struktur active">
+        <div class="struktur-container">
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
                 <h3 class="nama">Santoso Setio</h3>
                 <p class="jabatan">Program Coordinator<br>KREASI Kabupaten Ketapang</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
+                <h3 class="nama">Sujiman</h3>
+                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
             </div>
         </div>
 
@@ -287,13 +314,8 @@
             </div>
         </div>
 
-        <div class="struktur-container">
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
-                <h3 class="nama">Sujiman</h3>
-                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
-            </div>
-
+        
+            <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
                 <h3 class="nama">Afriyandi Nur Huda</h3>
@@ -314,7 +336,8 @@
         </div>
     </div>
 
-    <div id="struktur2" class="struktur">
+    <!-- STRUKTUR 4: KABUPATEN KAYONG UTARA -->
+    <div id="struktur4" class="struktur">
         <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
@@ -369,11 +392,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a8b8f920d6b52f506b6f1ead8a9a226b2727b879
 </section>
 
 <footer class="footer">
@@ -442,6 +460,11 @@ function showStruktur(strukturNumber) {
         buttons[strukturNumber - 1].classList.add('active');
     }
 }
+
+// Set initial state: show struktur3 (KABUPATEN KETAPANG) on page load
+document.addEventListener('DOMContentLoaded', function() {
+    showStruktur(3);
+});
 </script>
 </body>
 </html>
