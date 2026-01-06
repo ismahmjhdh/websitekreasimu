@@ -464,7 +464,7 @@ class AdminController extends Controller
 
         $imageUrl = null;
 
-        // Upload gambar
+        // Upload gambar cover
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -472,7 +472,7 @@ class AdminController extends Controller
             $imageUrl = 'images/galeri/' . $filename;
         }
 
-        Galeri::create([
+        $galeri = Galeri::create([
             'type' => $request->type,
             'video_url' => $request->video_url,
             'image_url' => $imageUrl,
@@ -480,7 +480,59 @@ class AdminController extends Controller
             'created_by' => session('admin_id'),
         ]);
 
-        return redirect()->route('admin.galeri.index')->with('success', 'Foto galeri berhasil ditambahkan!');
+        // Jika tipe foto, buat entri pertama di galeri_images sebagai cover
+        if ($request->type == 'photo' && $imageUrl) {
+            \App\Models\GaleriImage::create([
+                'galeri_id' => $galeri->id,
+                'image_path' => $imageUrl,
+                'order' => 0,
+            ]);
+        }
+
+        return redirect()->route('admin.galeri.manage', $galeri->id)->with('success', 'Galeri berhasil dibuat! Sekarang Anda bisa menambahkan lebih banyak foto.');
+    }
+
+    public function galeriManage($id)
+    {
+        $galeri = Galeri::with('images')->findOrFail($id);
+        return view('admin.galeri.manage', compact('galeri'));
+    }
+
+    public function galeriAddImages(Request $request, $id)
+    {
+        $galeri = Galeri::findOrFail($id);
+        $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120'
+        ]);
+
+        if ($request->hasFile('images')) {
+            $lastOrder = \App\Models\GaleriImage::where('galeri_id', $id)->max('order') ?? 0;
+            foreach ($request->file('images') as $file) {
+                $filename = time() . '_' . uniqid() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('images/galeri'), $filename);
+                $path = 'images/galeri/' . $filename;
+
+                \App\Models\GaleriImage::create([
+                    'galeri_id' => $id,
+                    'image_path' => $path,
+                    'order' => ++$lastOrder,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Foto-foto berhasil ditambahkan ke galeri.');
+    }
+
+    public function galeriDeleteImage($id)
+    {
+        $image = \App\Models\GaleriImage::findOrFail($id);
+        if (file_exists(public_path($image->image_path))) {
+            unlink(public_path($image->image_path));
+        }
+        $image->delete();
+
+        return back()->with('success', 'Foto berhasil dihapus dari galeri.');
     }
 
     // Hapus galeri
