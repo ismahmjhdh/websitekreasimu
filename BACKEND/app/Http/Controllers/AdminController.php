@@ -162,7 +162,7 @@ class AdminController extends Controller
             'status' => 'required|in:draft,published',
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'youtube_link' => 'nullable|url',
-            'pdf_file' => 'nullable|mimes:pdf|max:51200',
+            'pdf_file' => 'nullable|mimes:pdf|max:102400',
         ]);
 
         // Handle image upload
