@@ -92,7 +92,7 @@ class BeritaController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required|in:berita,buletin,capaian',
-            'pdf_file' => 'nullable|mimes:pdf|max:51200',
+            'pdf_file' => 'nullable|mimes:pdf|max:102400',
         ]);
 
         $pdfUrl = null;
