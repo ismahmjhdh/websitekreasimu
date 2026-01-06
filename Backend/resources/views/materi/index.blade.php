@@ -115,7 +115,11 @@
             @if($materis->count() > 0)
                 <div class="materi-grid">
                     @foreach($materis as $materi)
-                        <div class="materi-card" onclick="openPasswordModal({{ $materi->id }}, '{{ $materi->title }}', '{{ Str::limit($materi->description, 100) }}')">
+                        <div class="materi-card" 
+                             data-id="{{ $materi->id }}" 
+                             data-title="{{ $materi->title }}" 
+                             data-description="{{ Str::limit($materi->description, 100) }}"
+                             onclick="prepareAndOpenModal(this)">
                             @if($materi->thumbnail_url)
                                 <img src="{{ asset($materi->thumbnail_url) }}" alt="{{ $materi->title }}">
                             @elseif($materi->berita && $materi->berita->image_url)
@@ -228,12 +232,23 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
     
     <script>
+        // Prepare and Open Password Modal
+        function prepareAndOpenModal(element) {
+            const materiId = element.getAttribute('data-id');
+            const title = element.getAttribute('data-title');
+            const description = element.getAttribute('data-description');
+            
+            openPasswordModal(materiId, title, description);
+        }
+
         // Open Password Modal
         function openPasswordModal(materiId, title, description) {
             const modal = document.getElementById('passwordModal');
             const form = document.getElementById('passwordForm');
             const titleEl = document.getElementById('modalMateriTitle');
             const descEl = document.getElementById('modalMateriDesc');
+            
+            if (!modal || !form) return;
             
             // Set form action
             form.action = `/materi/${materiId}/verify`;
@@ -247,7 +262,8 @@
             
             // Focus on password input
             setTimeout(() => {
-                document.getElementById('passwordInput').focus();
+                const passwordInput = document.getElementById('passwordInput');
+                if (passwordInput) passwordInput.focus();
             }, 300);
         }
 
