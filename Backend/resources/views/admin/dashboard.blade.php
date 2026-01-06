@@ -93,7 +93,7 @@
                 <a href="{{ route('admin.galeri.index') }}">Lihat Semua Foto</a>
                 <a href="{{ route('admin.galeri.create') }}">+ Tambah Foto</a>
             </div>
- 
+
             <div class="section">
                 <h3>Kelola Beranda</h3>
                 <p style="margin-bottom: 15px; color: #666;">Kelola Hero Slide, Agenda, dan Map</p>
