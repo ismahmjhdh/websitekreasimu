@@ -49,7 +49,7 @@
                                 <a href="{{ route('admin.galeri.manage', $galeri->id) }}" class="btn-edit" style="flex: 1; text-align: center; text-decoration: none; font-size: 13px; background: #4a90e2; color: white; padding: 5px; border-radius: 4px;">Isi Galeri</a>
                                 <form action="{{ route('admin.galeri.delete', $galeri->id) }}" method="POST" style="flex: 1;">
                                     @csrf
-                                    <button type="submit" class="btn-delete" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                                    <button type="submit" class="btn-delete" style="width: 100%;" onclick="return confirm('Yakin ingin menghapus seluruh galeri ini?')">Hapus</button>
                                 </form>
                             </div>
                         </div>
