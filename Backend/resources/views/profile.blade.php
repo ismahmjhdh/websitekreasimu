@@ -342,13 +342,13 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
                 <h3 class="nama">Anti Angraini</h3>
-                <p class="jabatan">Koordinator KREASI<br>Kalimantan Barat</p>
+                <p class="jabatan">Program Koordinator KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="Rezky Farnanda">
                 <h3 class="nama">Rezky Farnanda</h3>
-                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">MEAL Officer KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
         </div>
 
@@ -356,7 +356,7 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="Mutiara Aulia Az-Zahra">
                 <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
-                <p class="jabatan">Finance Officer<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Finance Officer KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
 
             <div class="card-struktur">
