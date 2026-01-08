@@ -55,6 +55,7 @@
                             <option value="berita" @if(old('category') === 'berita') selected @endif>Berita</option>
                             <option value="buletin" @if(old('category') === 'buletin') selected @endif>Buletin</option>
                             <option value="capaian" @if(old('category') === 'capaian') selected @endif>Capaian</option>
+                            <option value="praktik-baik" @if(old('category') === 'praktik-baik') selected @endif>Praktik Baik</option>
                         </select>
                         @error('category')
                             <div class="error-message">{{ $message }}</div>

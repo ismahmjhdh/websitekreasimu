@@ -178,7 +178,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'category' => 'required|in:berita,buletin,capaian,praktik-baik',
+            'category' => 'required|in:berita,buletin,capaian',
             'status' => 'required|in:draft,published',
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'youtube_link' => 'nullable|url',
