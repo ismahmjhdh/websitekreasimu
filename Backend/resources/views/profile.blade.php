@@ -404,34 +404,31 @@
         </div>
 
         <div class="footer-right">
-            <h2>Contact Information</h2>
-            <p class="subtitle">feel free to contact and reach us!</p>
+                <h2>Contact Information</h2>
+                <p class="subtitle">feel free to contact and reach us!</p>
 
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
-            <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@kreasimuhammadiyah.com</div>
 
-            <div class="social-icons">
-                <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Ketapang">
-                </a>
-                <a href="https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Kayong Utara">
-                </a>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                    <a href= "https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="logo-row">
-        <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="Logo Tut Wuri Handayani">
-        <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="Logo Kementerian Agama">
-        <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="Logo Kementerian PPN Bappenas">
-        <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="Logo Kabupaten Kayong Utara">
-        <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="Logo GPE">
-        <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="Logo KREASI">
-        <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="Logo Save the Children">
-        <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Logo Dikdasmen">
-    </div>
-</footer>
+        <div class="logo-row">
+            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}">
+            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
+            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
+            <img src="{{ asset('images/FOOTER/GKL4_Kabupaten Ketapang - Koleksilogo.com (2).png') }}">
+            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
+        </div>
+    </footer>
 
 <script src="{{ asset('scripts.js') }}"></script>
 <script>
