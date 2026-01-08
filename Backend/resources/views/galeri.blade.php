@@ -126,7 +126,7 @@
                 <p class="subtitle">feel free to contact and reach us!</p>
 
                 <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
-                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@kreasimuhammadiyah.com</div>
 
                 <div class="social-icons">
                     <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
@@ -140,6 +140,7 @@
             <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
             <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
             <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
+            <img src="{{ asset('images/FOOTER/GKL4_Kabupaten Ketapang - Koleksilogo.com (2).png') }}">
             <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
             <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
             <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">

@@ -239,12 +239,16 @@
 
 <!-- STRUKTUR -->
 <section id="struktur" class="profile-section struktur-organisasi">
-    <h2>TIM PROGRAM KREASI</h2> 
+    <h2>STRUKTUR ORGANISASI KREASI</h2> 
     
     <div class="struktur-btn">
-        <button class="active" onclick="showStruktur(1)">KABUPATEN KETAPANG</button>
-        <button onclick="showStruktur(2)">KAYONG UTARA</button>
+        <button onclick="showStruktur(1)">PIMPINAN PUSAT</button>
+        <button onclick="showStruktur(2)">PROGRAM MANAGER</button><br>
+        <br>
+        <button class="active" onclick="showStruktur(3)">KABUPATEN KETAPANG</button>
+        <button onclick="showStruktur(4)">KABUPATEN KAYONG UTARA</button>
     </div>
+    
 
     <div id="struktur1" class="struktur active">
         <div class="struktur-container">
@@ -253,11 +257,34 @@
                 <h3 class="nama">Julni Rhamawan</h3>
                 <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
             </div>
+           
+        </div>
+    </div>
+
+    <div id="struktur2" class="struktur">
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Julni Rhamawan</h3>
+                <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRUKTUR 3: KABUPATEN KETAPANG -->
+    <div id="struktur3" class="struktur active">
+        <div class="struktur-container">
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
                 <h3 class="nama">Santoso Setio</h3>
                 <p class="jabatan">Program Coordinator<br>KREASI Kabupaten Ketapang</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
+                <h3 class="nama">Sujiman</h3>
+                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
             </div>
         </div>
 
@@ -287,13 +314,8 @@
             </div>
         </div>
 
-        <div class="struktur-container">
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
-                <h3 class="nama">Sujiman</h3>
-                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
-            </div>
-
+        
+            <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
                 <h3 class="nama">Afriyandi Nur Huda</h3>
@@ -314,18 +336,19 @@
         </div>
     </div>
 
-    <div id="struktur2" class="struktur">
+    <!-- STRUKTUR 4: KABUPATEN KAYONG UTARA -->
+    <div id="struktur4" class="struktur">
         <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
                 <h3 class="nama">Anti Angraini</h3>
-                <p class="jabatan">Koordinator KREASI<br>Kalimantan Barat</p>
+                <p class="jabatan">Program Koordinator KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="Rezky Farnanda">
                 <h3 class="nama">Rezky Farnanda</h3>
-                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">MEAL Officer KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
         </div>
 
@@ -333,7 +356,7 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="Mutiara Aulia Az-Zahra">
                 <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
-                <p class="jabatan">Finance Officer<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Finance Officer KREASI Muhammadiyah<br> Kayong Utara</p>
             </div>
 
             <div class="card-struktur">
@@ -369,7 +392,11 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
 
+
+>>>>>>> a8b8f920d6b52f506b6f1ead8a9a226b2727b879
 </section>
 
 <footer class="footer">
@@ -382,34 +409,31 @@
         </div>
 
         <div class="footer-right">
-            <h2>Contact Information</h2>
-            <p class="subtitle">feel free to contact and reach us!</p>
+                <h2>Contact Information</h2>
+                <p class="subtitle">feel free to contact and reach us!</p>
 
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
-            <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@muhammadiyah.id</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Jl. Menteng Raya Nomor 62, RT.3/RW.9, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> kreasimu@kreasimuhammadiyah.com</div>
 
-            <div class="social-icons">
-                <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Ketapang">
-                </a>
-                <a href="https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ asset('images/FOOTER/Instagram.png') }}" alt="Instagram KREASI Kayong Utara">
-                </a>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/kreasiketapang?igsh=Y2tnaWp1cDN3MXNk" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                    <a href= "https://www.instagram.com/kreasikayongutara?igsh=ODdldjJiZXJtaXFl" target="_blank"><img src="{{ asset('images/FOOTER/Instagram.png') }}"></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="logo-row">
-        <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}" alt="Logo Tut Wuri Handayani">
-        <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}" alt="Logo Kementerian Agama">
-        <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}" alt="Logo Kementerian PPN Bappenas">
-        <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}" alt="Logo Kabupaten Kayong Utara">
-        <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}" alt="Logo GPE">
-        <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" alt="Logo KREASI">
-        <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}" alt="Logo Save the Children">
-        <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}" alt="Logo Dikdasmen">
-    </div>
-</footer>
+        <div class="logo-row">
+            <img src="{{ asset('images/FOOTER/Tut wuri handayani1.png') }}">
+            <img src="{{ asset('images/FOOTER/Kementerian_Agama_new_logo.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_Kementerian_PPN-Bappenas_(2023).png') }}">
+            <img src="{{ asset('images/FOOTER/Lambang_Daerah_Kab._Kayong_Utara.png') }}">
+            <img src="{{ asset('images/FOOTER/GKL4_Kabupaten Ketapang - Koleksilogo.com (2).png') }}">
+            <img src="{{ asset('images/FOOTER/GPE-removebg-preview.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}">
+            <img src="{{ asset('images/FOOTER/Logo_SavetheChildren.png') }}">
+            <img src="{{ asset('images/FOTO BERANDA/dikdesmen.png') }}">
+        </div>
+    </footer>
 
 <script src="{{ asset('scripts.js') }}"></script>
 <script>
@@ -438,6 +462,11 @@ function showStruktur(strukturNumber) {
         buttons[strukturNumber - 1].classList.add('active');
     }
 }
+
+// Set initial state: show struktur3 (KABUPATEN KETAPANG) on page load
+document.addEventListener('DOMContentLoaded', function() {
+    showStruktur(3);
+});
 </script>
 </body>
 </html>
