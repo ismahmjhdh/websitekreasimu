@@ -20,6 +20,9 @@ class AdminController extends Controller
     // Tampil halaman login
     public function loginForm()
     {
+        if (session()->has('admin_id')) {
+            return redirect()->route('admin.dashboard');
+        }
         return view('admin.login');
     }
 
@@ -31,12 +34,29 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
 
-        $admin = Admin::where('username', $request->username)->first();
+        $username = trim($request->username);
+        $admin = Admin::where('username', $username)->first();
 
-        // Bandingkan password
-        if ($admin && $request->password === $admin->password) {
-            session(['admin_id' => $admin->id, 'admin_name' => $admin->username]);
-            return redirect()->route('admin.dashboard')->with('success', 'Login berhasil!');
+        if ($admin) {
+            $passwordValid = false;
+            
+            // Support keduanya: plain text (legacy/seed) dan hashed passwords
+            if ($request->password === $admin->password) {
+                $passwordValid = true;
+            } else {
+                try {
+                    if (Hash::check($request->password, $admin->password)) {
+                        $passwordValid = true;
+                    }
+                } catch (\Exception $e) {
+                    // Not a hash
+                }
+            }
+
+            if ($passwordValid) {
+                session(['admin_id' => $admin->id, 'admin_name' => $admin->username]);
+                return redirect()->route('admin.dashboard')->with('success', 'Login berhasil!');
+            }
         }
 
         return back()->with('error', 'Username atau password salah!');

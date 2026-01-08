@@ -369,11 +369,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> a8b8f920d6b52f506b6f1ead8a9a226b2727b879
 </section>
 
 <footer class="footer">

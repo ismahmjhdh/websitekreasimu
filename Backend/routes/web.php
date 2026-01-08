@@ -91,6 +91,9 @@ Route::get('/materi/{materiId}/download/{fileId}', [MateriController::class, 'do
 
 // ================= ADMIN PANEL =================
 // Admin Login
+Route::get('/admin', function() {
+    return redirect()->route('admin.dashboard');
+});
 Route::get('/admin/login', [AdminController::class, 'loginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'login']);
 
