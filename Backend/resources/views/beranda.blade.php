@@ -111,10 +111,10 @@
                 <div class="map-slider-large-wrapper">
                     <div class="map-slider-large-container" id="mapSliderContainerLarge">
                         @forelse ($maps as $map)
-                            <img src="{{ asset($map->image_path) }}" alt="{{ $map->title }}" class="map-image-large">
+                            <img src="{{ Str::startsWith($map->image_path, 'data:') ? $map->image_path : asset($map->image_path) }}" alt="{{ $map->title }}" class="map-image-large">
                         @empty
-                            <img src="{{ asset('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
-                            <img src="{{ asset('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
+                            <img src="{{ url('images/FOTO BERANDA/KETAPANG OK OK.png') }}" alt="Peta Ketapang" class="map-image-large">
+                            <img src="{{ url('images/FOTO BERANDA/PETA KAYONG UTARA.png') }}" alt="Peta Kayong Utara" class="map-image-large">
                         @endforelse
                     </div>
                 </div>
