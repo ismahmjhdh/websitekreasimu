@@ -278,7 +278,7 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
                 <h3 class="nama">Santoso Setio</h3>
-                <p class="jabatan">Program Coordinator<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Coordinator Project<br>KREASI Kabupaten Ketapang</p>
             </div>
 
             <div class="card-struktur">
@@ -331,7 +331,7 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="Nur Malina Indah Putri">
                 <h3 class="nama">Nur Malina<br>Indah Putri</h3>
-                <p class="jabatan">Finance Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Finance Officer <br>KREASI Kabupaten Ketapang</p>
             </div>
         </div>
     </div>
@@ -342,13 +342,13 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
                 <h3 class="nama">Anti Angraini</h3>
-                <p class="jabatan">Program Koordinator KREASI Muhammadiyah<br> Kayong Utara</p>
+                <p class="jabatan">Coordinator Project Kreasi Kayong Utara<br> Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Rezky Farnanda.png') }}" class="img-pop-tim" alt="Rezky Farnanda">
                 <h3 class="nama">Rezky Farnanda</h3>
-                <p class="jabatan">MEAL Officer KREASI Muhammadiyah<br> Kayong Utara</p>
+                <p class="jabatan">MEAL Officer Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
@@ -356,25 +356,25 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="Mutiara Aulia Az-Zahra">
                 <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
-                <p class="jabatan">Finance Officer KREASI Muhammadiyah<br> Kayong Utara</p>
+                <p class="jabatan">Finance Officer Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anisah Agustina.png') }}" class="img-pop-tim" alt="Anisah Agustina">
                 <h3 class="nama">Anisah Agustina</h3>
-                <p class="jabatan">Child Protection & Gedsi<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Child Protection & Gedsi Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="Muhammad Agus Tarmizi">
                 <h3 class="nama">Muhammad Agus Tarmizi</h3>
-                <p class="jabatan">Basic Education<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Basic Education Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="Hengki Hayatullah">
                 <h3 class="nama">Hengki Hayatullah</h3>
-                <p class="jabatan">Advocacy & Campaign<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Advocacy & Campaign Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
@@ -382,21 +382,16 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="Rinda Andri Gunawan">
                 <h3 class="nama">Rinda Andri Gunawan</h3>
-                <p class="jabatan">Communication & Media<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Communication & Media Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Sidik Puji Nugroho.png') }}" class="img-pop-tim" alt="Sidik Puji Nugroho">
                 <h3 class="nama">Sidik Puji Nugroho</h3>
-                <p class="jabatan">Logistik<br>KREASI Kabupaten Kayong</p>
+                <p class="jabatan">Logistik Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a8b8f920d6b52f506b6f1ead8a9a226b2727b879
 </section>
 
 <footer class="footer">
