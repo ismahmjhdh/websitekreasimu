@@ -714,12 +714,13 @@ class AdminController extends Controller
 
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/map'), $filename);
-            $imagePath = 'images/map/' . $filename;
+            
+            // Mengambil isi file dan mengubahnya ke Base64
+            $imageData = base64_encode(file_get_contents($file->getRealPath()));
+            $base64Image = 'data:' . $file->getMimeType() . ';base64,' . $imageData;
 
             MapImage::create([
-                'image_path' => $imagePath,
+                'image_path' => $base64Image, // Sekarang isinya adalah data gambar asli
                 'title' => $request->title,
                 'order' => MapImage::max('order') + 1,
             ]);
