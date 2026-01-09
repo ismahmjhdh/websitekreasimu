@@ -83,7 +83,7 @@
         <div class="map-grid">
             @forelse ($maps as $map)
                 <div class="map-card">
-                    <img src="{{ asset($map->image_path) }}" alt="{{ $map->title }}">
+                    <img src="{{ Str::startsWith($map->image_path, 'data:') ? $map->image_path : asset($map->image_path) }}" alt="{{ $map->title }}">
                     <div class="content">
                         <strong>{{ $map->title }}</strong>
                         <form action="{{ route('admin.map.delete', $map->id) }}" method="POST" onsubmit="return confirm('Hapus map ini?')">
