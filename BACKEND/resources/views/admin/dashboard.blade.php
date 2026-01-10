@@ -101,6 +101,7 @@
                     <a href="{{ route('admin.hero.index') }}">Kelola Hero Slides</a>
                     <a href="{{ route('admin.agenda.index') }}">Kelola Agenda Terbaru</a>
                     <a href="{{ route('admin.map.index') }}">Kelola Map Lokasi</a>
+                    <a href="{{ route('admin.testimoni.index') }}">Kelola Testimoni</a>
                 </div>
             </div>
         </div>

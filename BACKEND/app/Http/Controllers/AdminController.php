@@ -740,5 +740,97 @@ class AdminController extends Controller
 
         return back()->with('success', 'Map berhasil dihapus!');
     }
+
+    // ===================== TESTIMONI MANAGEMENT =====================
+
+    public function testimoniIndex()
+    {
+        $testimonis = Testimoni::orderBy('created_at', 'desc')->get();
+        return view('admin.testimoni.index', compact('testimonis'));
+    }
+
+    public function testimoniCreate()
+    {
+        return view('admin.testimoni.create');
+    }
+
+    public function testimoniStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images/TESTIMONI'), $imageName);
+            $imagePath = 'images/TESTIMONI/' . $imageName;
+        }
+
+        Testimoni::create([
+            'name' => $request->name,
+            'content' => $request->content,
+            'image_path' => $imagePath,
+            'rating' => $request->rating,
+        ]);
+
+        return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil ditambahkan!');
+    }
+
+    public function testimoniEdit($id)
+    {
+        $testimoni = Testimoni::findOrFail($id);
+        return view('admin.testimoni.edit', compact('testimoni'));
+    }
+
+    public function testimoniUpdate(Request $request, $id)
+    {
+        $testimoni = Testimoni::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($testimoni->image_path && file_exists(public_path($testimoni->image_path))) {
+                @unlink(public_path($testimoni->image_path));
+            }
+
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images/TESTIMONI'), $imageName);
+            $testimoni->image_path = 'images/TESTIMONI/' . $imageName;
+        }
+
+        $testimoni->update([
+            'name' => $request->name,
+            'content' => $request->content,
+            'rating' => $request->rating,
+            // image_path sudah dihandle di atas
+        ]);
+
+        return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil diperbarui!');
+    }
+
+    public function testimoniDelete($id)
+    {
+        $testimoni = Testimoni::findOrFail($id);
+
+        if ($testimoni->image_path && file_exists(public_path($testimoni->image_path))) {
+            @unlink(public_path($testimoni->image_path));
+        }
+
+        $testimoni->delete();
+
+        return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil dihapus!');
+    }
 }
 
