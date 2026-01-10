@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateMapSliderLarge(index) {
             // Constrain index between 0 and total maps - 1
             currentMapIndexLarge = Math.max(0, Math.min(index, totalMapsLarge - 1));
-            
+
             // Update transform
             mapSliderContainerLarge.style.transform = `translateX(-${currentMapIndexLarge * 100}%)`;
         }
@@ -160,5 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 

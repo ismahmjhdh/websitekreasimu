@@ -14,14 +14,16 @@ Route::get('/', function () {
     $slides = \App\Models\HeroSlide::orderBy('order')->get();
     $agendas = \App\Models\Agenda::latest('date')->take(3)->get();
     $maps = \App\Models\MapImage::orderBy('order')->get();
-    return view('beranda', compact('slides', 'agendas', 'maps'));
+    $testimonis = \App\Models\Testimoni::latest()->get();
+    return view('beranda', compact('slides', 'agendas', 'maps', 'testimonis'));
 });
 
 Route::get('/beranda', function () {
     $slides = \App\Models\HeroSlide::orderBy('order')->get();
     $agendas = \App\Models\Agenda::latest('date')->take(3)->get();
     $maps = \App\Models\MapImage::orderBy('order')->get();
-    return view('beranda', compact('slides', 'agendas', 'maps'));
+    $testimonis = \App\Models\Testimoni::latest()->get();
+    return view('beranda', compact('slides', 'agendas', 'maps', 'testimonis'));
 })->name('beranda');
 
 Route::get('/profile', function () {
@@ -148,4 +150,12 @@ Route::middleware(['admin.auth', 'admin.security'])->group(function () {
     Route::get('/admin/map', [AdminController::class, 'mapIndex'])->name('admin.map.index');
     Route::post('/admin/map', [AdminController::class, 'mapStore'])->name('admin.map.store');
     Route::post('/admin/map/{id}/delete', [AdminController::class, 'mapDelete'])->name('admin.map.delete');
+
+    // Testimoni Management
+    Route::get('/admin/testimoni', [AdminController::class, 'testimoniIndex'])->name('admin.testimoni.index');
+    Route::get('/admin/testimoni/create', [AdminController::class, 'testimoniCreate'])->name('admin.testimoni.create');
+    Route::post('/admin/testimoni', [AdminController::class, 'testimoniStore'])->name('admin.testimoni.store');
+    Route::get('/admin/testimoni/{id}/edit', [AdminController::class, 'testimoniEdit'])->name('admin.testimoni.edit');
+    Route::post('/admin/testimoni/{id}', [AdminController::class, 'testimoniUpdate'])->name('admin.testimoni.update');
+    Route::post('/admin/testimoni/{id}/delete', [AdminController::class, 'testimoniDelete'])->name('admin.testimoni.delete');
 });
