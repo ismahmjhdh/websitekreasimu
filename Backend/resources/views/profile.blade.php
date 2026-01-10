@@ -241,12 +241,23 @@
 <section id="struktur" class="profile-section struktur-organisasi">
     <h2>STRUKTUR ORGANISASI KREASI</h2> 
     
-    <div class="struktur-btn">
-        <button onclick="showStruktur(1)">PIMPINAN PUSAT</button>
-        <button onclick="showStruktur(2)">PROGRAM MANAGER</button><br>
-        <br>
-        <button class="active" onclick="showStruktur(3)">KABUPATEN KETAPANG</button>
-        <button onclick="showStruktur(4)">KABUPATEN KAYONG UTARA</button>
+    <div class="struktur-btn-container">
+        <div class="struktur-btn-wrapper">
+            <button class="struktur-btn-card" onclick="showStruktur(1)">
+                <h3>PIMPINAN PUSAT</h3>
+            </button>
+            <button class="struktur-btn-card" onclick="showStruktur(2)">
+                <h3>PROGRAM MANAGER</h3>
+            </button>
+        </div>
+        <div class="struktur-btn-wrapper">
+            <button class="struktur-btn-card active" onclick="showStruktur(3)">
+                <h3>KABUPATEN KETAPANG</h3>
+            </button>
+            <button class="struktur-btn-card" onclick="showStruktur(4)">
+                <h3>KABUPATEN KAYONG UTARA</h3>
+            </button>
+        </div>
     </div>
     
 
