@@ -132,14 +132,23 @@
             <div class="slider-testi">
                 <div class="slider-track-testi">
 
-                    @for ($i = 0; $i < 6; $i++)
+                    @foreach ($testimonis as $testimoni)
                     <div class="card-testi">
-                        <img src="{{ asset('images/FOTO BERANDA/312-3120300_default-profile-hd-png-download.png') }}" class="profile-testi">
-                        <h3>Desta Saputra</h3>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <span>Bla bla la bal bal</span>
+                        @if($testimoni->image_path)
+                            <img src="{{ asset($testimoni->image_path) }}" class="profile-testi" alt="{{ $testimoni->name }}">
+                        @else
+                            <img src="{{ asset('images/FOTO BERANDA/312-3120300_default-profile-hd-png-download.png') }}" class="profile-testi" alt="Default Profile">
+                        @endif
+                        <h3>{{ $testimoni->name }}</h3>
+                        <p>{{ str_repeat('⭐', $testimoni->rating) }}</p>
+                        <span>{{ $testimoni->content }}</span>
                     </div>
-                    @endfor
+                    @endforeach
+                    @if($testimonis->isEmpty())
+                        <div class="card-testi">
+                            <p>Belum ada testimoni.</p>
+                        </div>
+                    @endif
 
                 </div>
             </div>

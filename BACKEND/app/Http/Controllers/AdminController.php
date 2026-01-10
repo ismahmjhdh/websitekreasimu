@@ -10,6 +10,7 @@ use App\Models\Galeri;
 use App\Models\HeroSlide;
 use App\Models\Agenda;
 use App\Models\MapImage;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
