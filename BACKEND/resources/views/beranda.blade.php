@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+</head>
 <body>
     <header class="main-header">
         <div class="top-bar">
@@ -18,8 +19,9 @@
                      class="kresi-logo">
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Cari...">
+                <input type="text" id="searchInput" placeholder="Cari..." autocomplete="off">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results"></div>
             </div>
             <div class="right-logos">
                 <img height="70"

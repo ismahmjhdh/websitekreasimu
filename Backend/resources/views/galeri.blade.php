@@ -19,8 +19,9 @@
                      class="kresi-logo">
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Cari...">
+                <input type="text" id="searchInput" placeholder="Cari..." autocomplete="off">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results"></div>
             </div>
             <div class="right-logos">
                 <img height="70"
@@ -150,5 +151,58 @@
 
     
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            let timeout = null;
+
+            if(searchInput && searchResults) {
+                searchInput.addEventListener('input', function() {
+                    clearTimeout(timeout);
+                    const query = this.value;
+
+                    if (query.length < 2) {
+                        searchResults.style.display = 'none';
+                        return;
+                    }
+
+                    timeout = setTimeout(() => {
+                        fetch(`{{ route('api.search') }}?query=${encodeURIComponent(query)}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                searchResults.innerHTML = '';
+                                if (data.length > 0) {
+                                    data.forEach(item => {
+                                        const a = document.createElement('a');
+                                        a.href = item.url;
+                                        a.className = 'search-result-item';
+                                        a.innerHTML = `
+                                            <strong>${item.title}</strong>
+                                            <div class="type">${item.type}</div>
+                                        `;
+                                        searchResults.appendChild(a);
+                                    });
+                                    searchResults.style.display = 'block';
+                                } else {
+                                    searchResults.innerHTML = '<div class="search-result-item" style="cursor: default;">Tidak ada hasil ditemukan</div>';
+                                    searchResults.style.display = 'block';
+                                }
+                            })
+                            .catch(err => {
+                                console.error('Error searching:', err);
+                            });
+                    }, 300); // Debounce 300ms
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                        searchResults.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

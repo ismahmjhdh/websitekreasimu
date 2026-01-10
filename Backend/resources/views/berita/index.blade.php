@@ -20,10 +20,9 @@
                      class="kresi-logo">
             </div>
             <div class="search-box">
-                <form method="GET" action="{{ route('berita') }}">
-                    <input type="text" name="search" placeholder="Cari..." value="{{ $search ?? '' }}">
-                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                </form>
+                <input type="text" id="searchInput" placeholder="Cari..." autocomplete="off">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results"></div>
             </div>
             <div class="right-logos">
                 <img height="70"
