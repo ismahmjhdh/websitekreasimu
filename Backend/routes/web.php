@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -26,6 +27,8 @@ Route::get('/beranda', function () {
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
+
+Route::get('/api/search', [HomeController::class, 'search'])->name('api.search');
 
 Route::get('/galeri', function (\Illuminate\Http\Request $request) {
     $type = $request->query('type');
