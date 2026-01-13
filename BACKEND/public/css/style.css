@@ -680,7 +680,7 @@ h2,
 .section-testimoni h2 {
   margin-left: 20px;
   padding-bottom: 20px;
-  color: white;
+  color: #27306d;
   font-size: 24px;
   font-weight: 600;
   text-align: center;
@@ -1937,7 +1937,7 @@ html {
 .card-testi {
   flex-shrink: 0;
   width: 350px;
-  background: white;
+  background: #27306d;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -1955,13 +1955,13 @@ html {
   border-radius: 50%;
   margin-bottom: 15px;
   object-fit: cover;
-  border: 3px solid #eee;
+  border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .card-testi h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
-  color: #333;
+  color: white;
 }
 
 .card-testi p {
@@ -1973,7 +1973,7 @@ html {
 
 .card-testi span {
   font-size: 0.95rem;
-  color: #666;
+  color: white;
   line-height: 1.6;
   display: block;
 }

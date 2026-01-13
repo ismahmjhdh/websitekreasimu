@@ -141,9 +141,7 @@
                         @endif
                         <h3>{{ $testimoni->name }}</h3>
                         <p class="rating">{{ str_repeat('⭐', $testimoni->rating) }}</p>
-                        <div class="testimoni-content">
-                            <p>"{{ $testimoni->content }}"</p>
-                        </div>
+                        <span>"{{ $testimoni->content }}"</span>
                     </div>
                     @endforeach
                     @if($testimonis->isEmpty())
