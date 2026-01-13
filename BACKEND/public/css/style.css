@@ -1478,7 +1478,13 @@ html {
   font-size: 30px;
   margin-bottom: 25px;
   color: #0a2a6a;
+  animation: slideInDown 0.8s ease-out;
 }
+
+.profile-section p {
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
 
 .profile-section p {
   font-size: 18px;
@@ -1567,6 +1573,7 @@ html {
   width: 80%;
   margin: 0 auto;
   border-radius: 25px;
+  animation: fadeInUp 1s ease-out;
 }
 
 .logo-box p {
@@ -1574,6 +1581,7 @@ html {
   font-size: 20px;
   line-height: 1.6;
   color: #ffffff;
+  animation: fadeInUp 1.2s ease-out 0.2s both;
 }
 
 /*profile TENTANG-KREASI*/
@@ -1584,6 +1592,7 @@ html {
   align-items: center;
   gap: 100px;
   padding: 20px;
+  animation: fadeInUp 1s ease-out;
 }
 
 .left {
@@ -1614,6 +1623,7 @@ html {
   text-align: center;
   /* biar judul di tengah */
   font-size: 40px;
+  animation: slideInDown 0.8s ease-out;
 }
 
 .tujuan-box p {
@@ -1622,6 +1632,7 @@ html {
   font-size: 20px;
   line-height: 1.6;
   color: #ffffff;
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 /* split profile-section kreasi*/
@@ -1668,6 +1679,7 @@ html {
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 0 10px;
+  animation: zoomIn 1s ease-out;
 }
 
 .overlay-text h2 {
@@ -1715,6 +1727,7 @@ html {
   display: flex;
   padding: 20px 30px;
   /* jarak atas-bawah dan kiri-kanan */
+  animation: slideInRight 1s ease-out;
 }
 
 .split-box p {
@@ -1723,6 +1736,7 @@ html {
   line-height: 1.6;
   color: #ffffff;
   padding: 0px 60px;
+  animation: fadeInUp 1.2s ease-out 0.3s both;
 }
 
 
@@ -1734,6 +1748,7 @@ html {
 .goals-kreasi h2 {
   font-size: 40px;
   color: black;
+  animation: slideInDown 0.8s ease-out;
 }
 
 .goals-kreasi p {
@@ -1754,6 +1769,7 @@ html {
   margin: 25px auto;
   perspective: 1000px;
   /* penting untuk efek 3D */
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .flip-inner {
@@ -1986,6 +2002,51 @@ html {
   100% {
     transform: translateX(-50%);
     /* Move half the width (becase we duplicated items) */
+  }
+}
+
+/* Animation untuk text muncul */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
