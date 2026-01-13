@@ -6,6 +6,8 @@
     <title>KREASI - Materi</title>
     <link rel="stylesheet" href="{{ asset('css/public-pages.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="shortcut icon" href="{{ asset('images/FOTO BERANDA/KREASI-SYMBOL_KREASI--768x416.png') }}" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
