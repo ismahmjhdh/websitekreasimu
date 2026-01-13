@@ -245,7 +245,7 @@
         <button class="struktur-btn-card struktur-btn-red" onclick="showStruktur(1)">
             <h3>Pimpinan Pusat</h3>
         </button>
-        <button class="struktur-btn-card struktur-btn-red active" onclick="showStruktur(2)">
+        <button class="struktur-btn-card struktur-btn-red" onclick="showStruktur(2)">
             <h3>Tim Pelaksana Program</h3>
         </button>
     </div>
@@ -274,7 +274,7 @@
         </div>
     </div>
 
-    <div id="struktur2" class="struktur active">
+    <div id="struktur2" class="struktur">
         <!-- PROGRAM MANAGER -->
         <div class="struktur-container">
             <div class="card-struktur">
@@ -284,9 +284,8 @@
             </div>
         </div>
 
-        <!-- STRUKTUR KABUPATEN KETAPANG -->
+        <!-- kabupaten ketapang -->
         <div class="struktur-container">
-
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
                 <h3 class="nama">Santoso Setio</h3>
@@ -298,9 +297,7 @@
                 <h3 class="nama">Sujiman</h3>
                 <p class="jabatan">MEAL Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-        </div>
 
-        <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="Syarif Syamsurrizal">
                 <h3 class="nama">Syarif Syamsurrizal</h3>
@@ -311,8 +308,10 @@
                 <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="Jainal Abidin">
                 <h3 class="nama">Jainal Abidin</h3>
                 <p class="jabatan">Basic Education Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
+            </div>  
+        </div>
 
+        <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="Ilma Karmila">
                 <h3 class="nama">Ilma Karmila</h3>
@@ -320,17 +319,15 @@
             </div>
 
             <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="Siti Mauliani">
-                <h3 class="nama">Siti Mauliani</h3>
-                <p class="jabatan">Child Protection Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
-        </div>
-
-        <div class="struktur-container">
-            <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
                 <h3 class="nama">Afriyandi Nur Huda</h3>
                 <p class="jabatan">Communications & Media Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="Nur Malina Indah Putri">
+                <h3 class="nama">Nur Malina<br>Indah Putri</h3>
+                <p class="jabatan">Finance Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
@@ -339,15 +336,18 @@
                 <p class="jabatan">Logistic Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="Nur Malina Indah Putri">
-                <h3 class="nama">Nur Malina<br>Indah Putri</h3>
-                <p class="jabatan">Finance Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
+            
         </div>
-
-        <!-- STRUKTUR KABUPATEN KAYONG UTARA -->
         <div class="struktur-container">
+        <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="Siti Mauliani">
+                <h3 class="nama">Siti Mauliani</h3>
+                <p class="jabatan">Child Protection Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+</div>
+        <!-- kabupaten kayong utara-->
+        <div class="struktur-container">
+            <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
                 <h3 class="nama">Anti Angraini</h3>
@@ -359,9 +359,33 @@
                 <h3 class="nama">Rezky Farnanda</h3>
                 <p class="jabatan">MEAL Officer Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-        </div>
+            
 
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="Hengki Hayatullah">
+                <h3 class="nama">Hengki Hayatullah</h3>
+                <p class="jabatan">Advocacy & Campaign Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+        </div>
+        
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="Muhammad Agus Tarmizi">
+                <h3 class="nama">Muhammad Agus Tarmizi</h3>
+                <p class="jabatan">Basic Education Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+        </div>
+       
+        
+        <!-- communication media-->
         <div class="struktur-container">
+            
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="Rinda Andri Gunawan">
+                <h3 class="nama">Rinda Andri Gunawan</h3>
+                <p class="jabatan">Communication & Media Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+            
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Mutiara Aulia Az-Zahra.png') }}" class="img-pop-tim" alt="Mutiara Aulia Az-Zahra">
                 <h3 class="nama">Mutiara Aulia Az-Zahra</h3>
@@ -373,27 +397,7 @@
                 <h3 class="nama">Anisah Agustina</h3>
                 <p class="jabatan">Child Protection & Gedsi Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="Muhammad Agus Tarmizi">
-                <h3 class="nama">Muhammad Agus Tarmizi</h3>
-                <p class="jabatan">Basic Education Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
-
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/Hengki Hayatullah.png') }}" class="img-pop-tim" alt="Hengki Hayatullah">
-                <h3 class="nama">Hengki Hayatullah</h3>
-                <p class="jabatan">Advocacy & Campaign Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
-        </div>
-
-        <div class="struktur-container">
-            <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/Rinda Andri Gunawan.png') }}" class="img-pop-tim" alt="Rinda Andri Gunawan">
-                <h3 class="nama">Rinda Andri Gunawan</h3>
-                <p class="jabatan">Communication & Media Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
-            </div>
-
+        
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Sidik Puji Nugroho.png') }}" class="img-pop-tim" alt="Sidik Puji Nugroho">
                 <h3 class="nama">Sidik Puji Nugroho</h3>
@@ -467,9 +471,10 @@ function showStruktur(strukturNumber) {
     }
 }
 
-// Set initial state: show struktur2 (Tim Pelaksana Program) on page load
+// Set initial state: hide all struktur on page load
 document.addEventListener('DOMContentLoaded', function() {
-    showStruktur(2);
+    // Semua struktur dimulai dalam keadaan tersembunyi
+    // Tunggu user klik button untuk menampilkannya
 });
 </script>
 </body>
