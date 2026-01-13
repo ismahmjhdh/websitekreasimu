@@ -1864,6 +1864,99 @@ html {
   font-size: 16px;
 }
 
+/* --- TESTIMONIAL MARQUEE ANIMATION --- */
+.section-testimoni {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  /* Prevent horizontal scrollbar on body */
+}
+
+.section-testimoni h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.slider-testi {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.slider-track-testi {
+  display: flex;
+  width: max-content;
+  /* Ensure width fits all items */
+  gap: 30px;
+  /* Space between cards */
+  animation: scroll-left 30s linear infinite;
+  /* Adjust speed as needed */
+}
+
+/* Pause animation on hover for better UX */
+.slider-track-testi:hover {
+  animation-play-state: paused;
+}
+
+.card-testi {
+  flex-shrink: 0;
+  width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card-testi:hover {
+  transform: translateY(-5px);
+}
+
+.profile-testi {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 3px solid #eee;
+}
+
+.card-testi h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.card-testi p {
+  color: #ffc107;
+  /* Gold color for stars */
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.card-testi span {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  display: block;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Move half the width (becase we duplicated items) */
+  }
+}
+
 .struktur-container {
   padding: 35px;
   display: flex;
