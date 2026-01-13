@@ -19,10 +19,7 @@
                  class="kresi-logo">
         </div>
 
-        <div class="search-box">
-            <input type="text" placeholder="Cari...">
-            <button class="search-btn"><i class="fas fa-search"></i></button>
-        </div>
+
 
         <div class="right-logos">
             <img height="70"
