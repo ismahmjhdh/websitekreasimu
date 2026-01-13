@@ -20,9 +20,8 @@
         </div>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Cari..." autocomplete="off">
+            <input type="text" placeholder="Cari...">
             <button class="search-btn"><i class="fas fa-search"></i></button>
-            <div id="searchResults" class="search-results"></div>
         </div>
 
         <div class="right-logos">
@@ -243,26 +242,16 @@
     <h2>STRUKTUR ORGANISASI KREASI</h2> 
     
     <div class="struktur-btn-container">
-        <div class="struktur-btn-wrapper">
-            <button class="struktur-btn-card" onclick="showStruktur(1)">
-                <h3>PIMPINAN PUSAT</h3>
-            </button>
-            <button class="struktur-btn-card" onclick="showStruktur(2)">
-                <h3>PROGRAM MANAGER</h3>
-            </button>
-        </div>
-        <div class="struktur-btn-wrapper">
-            <button class="struktur-btn-card active" onclick="showStruktur(3)">
-                <h3>KABUPATEN KETAPANG</h3>
-            </button>
-            <button class="struktur-btn-card" onclick="showStruktur(4)">
-                <h3>KABUPATEN KAYONG UTARA</h3>
-            </button>
-        </div>
+        <button class="struktur-btn-card struktur-btn-red" onclick="showStruktur(1)">
+            <h3>Pimpinan Pusat</h3>
+        </button>
+        <button class="struktur-btn-card struktur-btn-red active" onclick="showStruktur(2)">
+            <h3>Tim Pelaksana Program</h3>
+        </button>
     </div>
     
 
-    <div id="struktur1" class="struktur active">
+    <div id="struktur1" class="struktur">
         <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
@@ -273,7 +262,8 @@
         </div>
     </div>
 
-    <div id="struktur2" class="struktur">
+    <div id="struktur2" class="struktur active">
+        <!-- PROGRAM MANAGER -->
         <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
@@ -281,10 +271,8 @@
                 <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
             </div>
         </div>
-    </div>
 
-    <!-- STRUKTUR 3: KABUPATEN KETAPANG -->
-    <div id="struktur3" class="struktur active">
+        <!-- STRUKTUR KABUPATEN KETAPANG -->
         <div class="struktur-container">
 
             <div class="card-struktur">
@@ -326,8 +314,7 @@
             </div>
         </div>
 
-        
-            <div class="struktur-container">
+        <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
                 <h3 class="nama">Afriyandi Nur Huda</h3>
@@ -346,10 +333,8 @@
                 <p class="jabatan">Finance Officer <br>KREASI Kabupaten Ketapang</p>
             </div>
         </div>
-    </div>
 
-    <!-- STRUKTUR 4: KABUPATEN KAYONG UTARA -->
-    <div id="struktur4" class="struktur">
+        <!-- STRUKTUR KABUPATEN KAYONG UTARA -->
         <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
@@ -452,7 +437,7 @@ function showStruktur(strukturNumber) {
     });
     
     // Hapus class active dari semua button
-    const allButtons = document.querySelectorAll('.struktur-btn button');
+    const allButtons = document.querySelectorAll('.struktur-btn-card');
     allButtons.forEach(button => {
         button.classList.remove('active');
     });
@@ -464,68 +449,16 @@ function showStruktur(strukturNumber) {
     }
     
     // Tambahkan class active ke button yang diklik
-    const buttons = document.querySelectorAll('.struktur-btn button');
+    const buttons = document.querySelectorAll('.struktur-btn-card');
     if (buttons[strukturNumber - 1]) {
         buttons[strukturNumber - 1].classList.add('active');
     }
 }
 
-// Set initial state: show struktur3 (KABUPATEN KETAPANG) on page load
+// Set initial state: show struktur2 (Tim Pelaksana Program) on page load
 document.addEventListener('DOMContentLoaded', function() {
-    showStruktur(3);
+    showStruktur(2);
 });
 </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            let timeout = null;
-
-            searchInput.addEventListener('input', function() {
-                clearTimeout(timeout);
-                const query = this.value;
-
-                if (query.length < 2) {
-                    searchResults.style.display = 'none';
-                    return;
-                }
-
-                timeout = setTimeout(() => {
-                    fetch(`{{ route('api.search') }}?query=${encodeURIComponent(query)}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            searchResults.innerHTML = '';
-                            if (data.length > 0) {
-                                data.forEach(item => {
-                                    const a = document.createElement('a');
-                                    a.href = item.url;
-                                    a.className = 'search-result-item';
-                                    a.innerHTML = `
-                                        <strong>${item.title}</strong>
-                                        <div class="type">${item.type}</div>
-                                    `;
-                                    searchResults.appendChild(a);
-                                });
-                                searchResults.style.display = 'block';
-                            } else {
-                                searchResults.innerHTML = '<div class="search-result-item" style="cursor: default;">Tidak ada hasil ditemukan</div>';
-                                searchResults.style.display = 'block';
-                            }
-                        })
-                        .catch(err => {
-                            console.error('Error searching:', err);
-                        });
-                }, 300); // Debounce 300ms
-            });
-
-            // Close when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                    searchResults.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
