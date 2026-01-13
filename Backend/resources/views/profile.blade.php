@@ -253,7 +253,27 @@
     <div id="struktur1" class="struktur">
         <div class="struktur-container">
             <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/pak gufron.jpeg') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak didik.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Didik Suhardi, Ph.D.</h3>
+                <p class="jabatan">Pengarah KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak khairul.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Muhammad Khoirul Huda, M.Pd.</h3>
+                <p class="jabatan">Pengarah KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak kusuma.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama"> Ir. Ananto Kusuma Seta, M.Sc., Ph.D.</h3>
+                <p class="jabatan">Pengarah KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+        </div>
+
+        <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak gufron.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Dr. Gufron Amirullah M, Pd</h3>
                 <p class="jabatan">Direktur KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
@@ -264,12 +284,11 @@
                 <p class="jabatan">Finance Manager KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
-             <div class="card-struktur">
+            <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/pak dendi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Dr. Dendi Wijaya Saputra, M.Pd</h3>
                 <p class="jabatan">Safeguarding Fokal Point KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-           
         </div>
     </div>
 
@@ -334,19 +353,17 @@
                 <h3 class="nama">Heri Setiawan</h3>
                 <p class="jabatan">Logistic Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-
-            
         </div>
+
         <div class="struktur-container">
-        <div class="card-struktur">
+            <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="Siti Mauliani">
                 <h3 class="nama">Siti Mauliani</h3>
                 <p class="jabatan">Child Protection Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-</div>
+        </div>
         <!-- kabupaten kayong utara-->
         <div class="struktur-container">
-            <div class="struktur-container">
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Anti Angraini.png') }}" class="img-pop-tim" alt="Anti Angraini">
                 <h3 class="nama">Anti Angraini</h3>
@@ -365,8 +382,7 @@
                 <h3 class="nama">Hengki Hayatullah</h3>
                 <p class="jabatan">Advocacy & Campaign Kreasi Kayong Utara<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
-        </div>
-        
+
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/Muhammad Agus Tarmizi.png') }}" class="img-pop-tim" alt="Muhammad Agus Tarmizi">
                 <h3 class="nama">Muhammad Agus Tarmizi</h3>
