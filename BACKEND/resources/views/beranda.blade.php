@@ -135,7 +135,7 @@
                     @foreach ($testimonis as $testimoni)
                     <div class="card-testi">
                         @if($testimoni->image_path)
-                            <img src="{{ asset($testimoni->image_path) }}" class="profile-testi" alt="{{ $testimoni->name }}">
+                            <img src="{{ asset($testimoni->image_path) }}" class="profile-testi" alt="{{ $testimoni->name }}" onerror="this.onerror=null;this.src='{{ asset('images/FOTO BERANDA/312-3120300_default-profile-hd-png-download.png') }}';">
                         @else
                             <img src="{{ asset('images/FOTO BERANDA/312-3120300_default-profile-hd-png-download.png') }}" class="profile-testi" alt="Default Profile">
                         @endif
