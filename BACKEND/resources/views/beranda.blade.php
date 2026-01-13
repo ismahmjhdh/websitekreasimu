@@ -140,8 +140,10 @@
                             <img src="{{ asset('images/FOTO BERANDA/312-3120300_default-profile-hd-png-download.png') }}" class="profile-testi" alt="Default Profile">
                         @endif
                         <h3>{{ $testimoni->name }}</h3>
-                        <p>{{ str_repeat('⭐', $testimoni->rating) }}</p>
-                        <span>{{ $testimoni->content }}</span>
+                        <p class="rating">{{ str_repeat('⭐', $testimoni->rating) }}</p>
+                        <div class="testimoni-content">
+                            <p>"{{ $testimoni->content }}"</p>
+                        </div>
                     </div>
                     @endforeach
                     @if($testimonis->isEmpty())
