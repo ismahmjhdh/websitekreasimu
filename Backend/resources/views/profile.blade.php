@@ -254,9 +254,21 @@
     <div id="struktur1" class="struktur">
         <div class="struktur-container">
             <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
-                <h3 class="nama">Julni Rhamawan</h3>
-                <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
+                <img src="{{ asset('images/Foto Struktur organisasi/pak gufron.jpeg') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Dr. Gufron Amirullah M, Pd</h3>
+                <p class="jabatan">Direktur KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak sofyan.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Sofyan St.MT</h3>
+                <p class="jabatan">Finance Manager KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+             <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak dendi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Dr. Dendi Wijaya Saputra, M.Pd</h3>
+                <p class="jabatan">Safeguarding Fokal Point KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
            
         </div>
@@ -266,9 +278,9 @@
         <!-- PROGRAM MANAGER -->
         <div class="struktur-container">
             <div class="card-struktur">
-                <img src="{{ asset('images/Foto Struktur organisasi/2.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <img src="{{ asset('images/Foto Struktur organisasi/Julni Rhamawan.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Julni Rhamawan</h3>
-                <p class="jabatan">Program Manager KREASI<br>Kalimantan Barat</p>
+                <p class="jabatan">Program Manager KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
@@ -278,13 +290,13 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/3.png') }}" class="img-pop-tim" alt="Santoso Setio">
                 <h3 class="nama">Santoso Setio</h3>
-                <p class="jabatan">Coordinator Project<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Coordinator Project Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/4.png') }}" class="img-pop-tim" alt="Sujiman">
                 <h3 class="nama">Sujiman</h3>
-                <p class="jabatan">MEAL Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">MEAL Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
@@ -292,25 +304,25 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/5.png') }}" class="img-pop-tim" alt="Syarif Syamsurrizal">
                 <h3 class="nama">Syarif Syamsurrizal</h3>
-                <p class="jabatan">Advocacy Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Advocacy Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/6.png') }}" class="img-pop-tim" alt="Jainal Abidin">
                 <h3 class="nama">Jainal Abidin</h3>
-                <p class="jabatan">Basic Education<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Basic Education Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/11.png') }}" class="img-pop-tim" alt="Ilma Karmila">
                 <h3 class="nama">Ilma Karmila</h3>
-                <p class="jabatan">Early Childhood<br>Education Development<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Early Childhood<br>Education Development Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/9.png') }}" class="img-pop-tim" alt="Siti Mauliani">
                 <h3 class="nama">Siti Mauliani</h3>
-                <p class="jabatan">Child Protection Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Child Protection Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
@@ -318,19 +330,19 @@
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/8.png') }}" class="img-pop-tim" alt="Afriyandi Nur Huda">
                 <h3 class="nama">Afriyandi Nur Huda</h3>
-                <p class="jabatan">Communications & Media Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Communications & Media Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/7.png') }}" class="img-pop-tim" alt="Heri Setiawan">
                 <h3 class="nama">Heri Setiawan</h3>
-                <p class="jabatan">Logistic Officer<br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Logistic Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/10.png') }}" class="img-pop-tim" alt="Nur Malina Indah Putri">
                 <h3 class="nama">Nur Malina<br>Indah Putri</h3>
-                <p class="jabatan">Finance Officer <br>KREASI Kabupaten Ketapang</p>
+                <p class="jabatan">Finance Officer Kreasi Ketapang<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
         </div>
 
