@@ -302,7 +302,7 @@
         <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/pak dendi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Dr. Dendi Wijaya Saputra, M.Pd</h3>
-                <p class="jabatan">Safeguarding dan logistik pusat KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+                <p class="jabatan">Safeguarding Focal Point dan Logistik Pusat KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
         </div>
