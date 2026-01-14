@@ -1290,17 +1290,19 @@ html {
 /* tombol struktur */
 .struktur-btn-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   margin: 40px auto;
   max-width: 700px;
   width: 100%;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .struktur-btn-card {
-  width: 100%;
+  width: auto;
   padding: 25px 20px;
   border: none;
   border-radius: 8px;

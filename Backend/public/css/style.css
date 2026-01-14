@@ -1840,10 +1840,12 @@ html {
 
 .struktur-btn-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   margin: 40px 0;
+  flex-wrap: wrap;
 }
 
 .struktur-btn-wrapper {
@@ -1855,7 +1857,7 @@ html {
 }
 
 .struktur-btn-card {
-  width: 100%;
+  width: auto;
   max-width: 350px;
   padding: 40px 20px;
   border: none;
