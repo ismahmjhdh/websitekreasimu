@@ -278,17 +278,32 @@
                 <p class="jabatan">Direktur KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
+             <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/bu dein.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Dr. Dien Nurmarina Malik, M.A.</h3>
+                <p class="jabatan">Penjamin Mutu KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/pak sofyan.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Sofyan St.MT</h3>
                 <p class="jabatan">Finance Manager KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
+        </div>
 
+         <div class="struktur-container">
             <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pak fauzi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Fazhar Restu Fauzi, S.Kom. , M.M.</h3>
+                <p class="jabatan">Human Resources Development KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+        <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/pak dendi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Dr. Dendi Wijaya Saputra, M.Pd</h3>
                 <p class="jabatan">Safeguarding Fokal Point KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
+
         </div>
     </div>
 
