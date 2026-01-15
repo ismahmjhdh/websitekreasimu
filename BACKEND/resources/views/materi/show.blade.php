@@ -61,9 +61,7 @@
                 </div>
             </div>
 
-            <div class="auth-buttons">
-                <button class="btn btn-id">ID</button>
-            </div>
+            
         </nav>
     </header>
 
