@@ -879,5 +879,116 @@ class AdminController extends Controller
 
         return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil dihapus!');
     }
+
+    // ===================== ADMIN USER MANAGEMENT =====================
+
+    public function adminIndex()
+    {
+        $admins = Admin::all();
+        return view('admin.users.index', compact('admins'));
+    }
+
+    public function adminCreate()
+    {
+        return view('admin.users.create');
+    }
+
+    public function adminStore(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255|unique:admins,username',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        Admin::create([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin baru berhasil ditambahkan!');
+    }
+
+    public function adminEdit($id)
+    {
+        $admin = Admin::findOrFail($id);
+        return view('admin.users.edit', compact('admin'));
+    }
+
+    public function adminUpdate(Request $request, $id)
+    {
+        $admin = Admin::findOrFail($id);
+
+        $request->validate([
+            'username' => 'required|string|max:255|unique:admins,username,' . $id,
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        $admin->username = $request->username;
+        
+        if ($request->filled('password')) {
+            $admin->password = Hash::make($request->password);
+        }
+        
+        $admin->save();
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin berhasil diperbarui!');
+    }
+
+    public function adminDelete($id)
+    {
+        // Prevent deleting self
+        if ($id == session('admin_id')) {
+            return back()->with('error', 'Anda tidak bisa menghapus akun Anda sendiri!');
+        }
+
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin berhasil dihapus!');
+    }
+
+    // ===================== CHANGE PASSWORD =====================
+
+    public function changePasswordForm()
+    {
+        return view('admin.change-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $admin = Admin::find(session('admin_id'));
+
+        if (!$admin) {
+            return redirect()->route('admin.login')->with('error', 'Session expired. Silakan login kembali.');
+        }
+
+        // Check current password (support both plain and hashed)
+        $passwordValid = false;
+        if ($request->current_password === $admin->password) {
+            $passwordValid = true;
+        } else {
+            try {
+                if (Hash::check($request->current_password, $admin->password)) {
+                    $passwordValid = true;
+                }
+            } catch (\Exception $e) {
+                // Not a hash
+            }
+        }
+
+        if (!$passwordValid) {
+            return back()->with('error', 'Password saat ini salah!');
+        }
+
+        $admin->password = Hash::make($request->new_password);
+        $admin->save();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Password berhasil diubah!');
+    }
 }
 

@@ -104,6 +104,15 @@
                     <a href="{{ route('admin.testimoni.index') }}">Kelola Testimoni</a>
                 </div>
             </div>
+
+            <div class="section">
+                <h3>⚙️ Pengaturan</h3>
+                <p style="margin-bottom: 15px; color: #666;">Kelola admin dan akun Anda</p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="{{ route('admin.users.index') }}">Kelola Admin</a>
+                    <a href="{{ route('admin.change-password.form') }}">Ganti Password</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
