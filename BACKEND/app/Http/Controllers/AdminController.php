@@ -16,6 +16,44 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    /**
+     * Convert YouTube URL to embed format
+     * Supports: watch?v=, youtu.be/, shorts/, and existing embed URLs
+     */
+    private function convertYoutubeToEmbed($url)
+    {
+        if (empty($url)) {
+            return $url;
+        }
+
+        // Already an embed URL
+        if (strpos($url, 'youtube.com/embed/') !== false) {
+            return $url;
+        }
+
+        $videoId = null;
+
+        // Format: https://www.youtube.com/watch?v=VIDEO_ID
+        if (preg_match('/[?&]v=([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+        // Format: https://youtu.be/VIDEO_ID
+        elseif (preg_match('/youtu\.be\/([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+        // Format: https://www.youtube.com/shorts/VIDEO_ID
+        elseif (preg_match('/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+
+        if ($videoId) {
+            return 'https://www.youtube.com/embed/' . $videoId;
+        }
+
+        // Return original if no match
+        return $url;
+    }
+
     // ===================== AUTHENTICATION =====================
 
     // Tampil halaman login
@@ -480,12 +518,13 @@ class AdminController extends Controller
             'type' => 'required|in:photo,video',
             'image_file' => 'required_if:type,photo|nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'video_url' => 'required_if:type,video|nullable|url',
+            'video_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'caption' => 'nullable|string|max:500',
         ]);
 
         $imageUrl = null;
 
-        // Upload gambar cover
+        // Upload gambar cover untuk foto
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -493,9 +532,17 @@ class AdminController extends Controller
             $imageUrl = 'images/galeri/' . $filename;
         }
 
+        // Upload cover untuk video
+        if ($request->type == 'video' && $request->hasFile('video_cover')) {
+            $file = $request->file('video_cover');
+            $filename = time() . '_cover_' . $file->getClientOriginalName();
+            $file->move(public_path('images/galeri'), $filename);
+            $imageUrl = 'images/galeri/' . $filename;
+        }
+
         $galeri = Galeri::create([
             'type' => $request->type,
-            'video_url' => $request->video_url,
+            'video_url' => $this->convertYoutubeToEmbed($request->video_url),
             'image_url' => $imageUrl,
             'caption' => $request->caption,
             'created_by' => session('admin_id'),
@@ -831,6 +878,117 @@ class AdminController extends Controller
         $testimoni->delete();
 
         return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil dihapus!');
+    }
+
+    // ===================== ADMIN USER MANAGEMENT =====================
+
+    public function adminIndex()
+    {
+        $admins = Admin::all();
+        return view('admin.users.index', compact('admins'));
+    }
+
+    public function adminCreate()
+    {
+        return view('admin.users.create');
+    }
+
+    public function adminStore(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255|unique:admins,username',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        Admin::create([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin baru berhasil ditambahkan!');
+    }
+
+    public function adminEdit($id)
+    {
+        $admin = Admin::findOrFail($id);
+        return view('admin.users.edit', compact('admin'));
+    }
+
+    public function adminUpdate(Request $request, $id)
+    {
+        $admin = Admin::findOrFail($id);
+
+        $request->validate([
+            'username' => 'required|string|max:255|unique:admins,username,' . $id,
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        $admin->username = $request->username;
+        
+        if ($request->filled('password')) {
+            $admin->password = Hash::make($request->password);
+        }
+        
+        $admin->save();
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin berhasil diperbarui!');
+    }
+
+    public function adminDelete($id)
+    {
+        // Prevent deleting self
+        if ($id == session('admin_id')) {
+            return back()->with('error', 'Anda tidak bisa menghapus akun Anda sendiri!');
+        }
+
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+
+        return redirect()->route('admin.users.index')->with('success', 'Admin berhasil dihapus!');
+    }
+
+    // ===================== CHANGE PASSWORD =====================
+
+    public function changePasswordForm()
+    {
+        return view('admin.change-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $admin = Admin::find(session('admin_id'));
+
+        if (!$admin) {
+            return redirect()->route('admin.login')->with('error', 'Session expired. Silakan login kembali.');
+        }
+
+        // Check current password (support both plain and hashed)
+        $passwordValid = false;
+        if ($request->current_password === $admin->password) {
+            $passwordValid = true;
+        } else {
+            try {
+                if (Hash::check($request->current_password, $admin->password)) {
+                    $passwordValid = true;
+                }
+            } catch (\Exception $e) {
+                // Not a hash
+            }
+        }
+
+        if (!$passwordValid) {
+            return back()->with('error', 'Password saat ini salah!');
+        }
+
+        $admin->password = Hash::make($request->new_password);
+        $admin->save();
+
+        return redirect()->route('admin.dashboard')->with('success', 'Password berhasil diubah!');
     }
 }
 
