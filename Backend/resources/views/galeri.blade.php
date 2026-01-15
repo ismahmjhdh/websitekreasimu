@@ -101,11 +101,7 @@
                 </div>
             @endif
         </section>
-                </div>
-            </div>
-
-
-        
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
