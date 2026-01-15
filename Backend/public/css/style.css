@@ -64,6 +64,10 @@ h2,
 .main-header {
   background-color: var(--color-background-white);
   box-shadow: var(--color-box-shadow);
+  position: relative;
+  /* Required for absolute positioning of mobile nav */
+  z-index: 1000;
+  /* Ensure header and its children are above all content */
 }
 
 .top-bar {
@@ -366,6 +370,13 @@ h2,
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 250px;
+    /* Reduce hero height on mobile */
+  }
+}
+
 .slider {
   width: 100%;
   overflow: hidden;
@@ -395,6 +406,13 @@ h2,
   opacity: 100%;
   filter: contrast(1.1) brightness(1.05);
   display: block;
+}
+
+@media (max-width: 768px) {
+  .slide img {
+    height: 250px;
+    /* Match hero height */
+  }
 }
 
 @keyframes slide {
@@ -490,7 +508,20 @@ h2,
   }
 
   .agenda-section {
-    padding: 40px 20px;
+    padding: 30px 15px;
+    /* Reduced padding */
+  }
+
+  .agenda-section h2 {
+    font-size: 28px;
+    /* Smaller title */
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .agenda-card img {
+    height: 180px;
   }
 }
 
@@ -635,17 +666,19 @@ h2,
 
 @media (max-width: 768px) {
   .map-section {
-    padding: 40px 20px;
+    padding: 30px 15px;
+    /* Reduced padding */
   }
 
   .map-section h2 {
-    margin-bottom: 40px;
-    font-size: 28px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    /* Smaller title */
   }
 
   .map-container-full {
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
   }
 
   .map-info-legend {
@@ -653,13 +686,15 @@ h2,
   }
 
   .map-arrow-large {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
+    width: 40px;
+    /* Smaller arrows */
+    height: 40px;
+    font-size: 20px;
   }
 
   .map-image-large {
-    height: 300px;
+    height: 250px;
+    /* Smaller map height */
   }
 
   .legend-item {
@@ -1102,6 +1137,13 @@ h2,
   }
 }
 
+@media (max-width: 600px) {
+  .galeri-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
 .galeri-video {
   width: 100%;
   max-width: 100%;
@@ -1201,6 +1243,44 @@ h2,
 /* ========================================================= */
 
 @media (max-width: 1000px) {
+  .footer {
+    padding: 40px 20px;
+    height: auto;
+    max-height: none;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-left h2,
+  .footer-right h2 {
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .logo-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .logo-row img {
+    height: 25px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 1000px) {
 
   /* Header & Navigasi Mobile */
   .top-bar {
@@ -1227,34 +1307,39 @@ h2,
   }
 
   .main-nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: var(--color-primary);
     position: absolute;
     width: 100%;
-    top: 60px;
-    /* Di bawah header */
+    top: 100%;
+    /* Push it to the bottom of the header */
+    left: 0;
     padding: 0;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    z-index: 100;
   }
 
   .main-nav.menu-open {
-    max-height: 500px;
-    /* Tampilkan Menu */
+    max-height: 100vh;
+    /* Allow it to grow */
+    border-bottom: 2px solid var(--color-secondary);
   }
 
   .nav-item {
     width: 100%;
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    /* Ensure clickable area */
   }
 
   .has-dropdown:hover .dropdown-content {
     position: static;
-    width: 100%;
     box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .auth-buttons {
@@ -1698,17 +1783,186 @@ html {
 
 /* Responsif — di layar kecil, kolom jadi 1 (gambarnya dulu, teks di bawah) */
 @media (max-width: 768px) {
-  .split-section {
+  .split-kreasi {
     flex-direction: column;
   }
 
   .split-left,
   .split-right {
     width: 100%;
+    flex: none;
   }
 
   .split-right {
-    padding-top: 20px;
+    padding: 20px;
+  }
+
+  .image-container {
+    aspect-ratio: 16/9;
+  }
+
+  .overlay-text h2 {
+    font-size: 32px;
+  }
+
+  /* --- PROFILE PAGE MOBILE FIXES --- */
+
+  /* About Hero */
+  .about-hero {
+    height: 200px;
+  }
+
+  .about-hero img {
+    height: 200px;
+  }
+
+  .about-scroll {
+    font-size: 28px;
+  }
+
+  /* Logo Box (Dikdasmen) */
+  .logo-box {
+    width: 95%;
+    padding: 15px 20px;
+  }
+
+  .logo-box p {
+    font-size: 14px;
+  }
+
+  /* Kreasi Section */
+  .kreasi {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .kreasi .left {
+    width: 100%;
+  }
+
+  .kreasi .left img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .kreasi .right {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .kreasi .right p {
+    font-size: 14px;
+  }
+
+  /* Tujuan Box */
+  .tujuan-box {
+    padding: 20px 15px;
+  }
+
+  .tujuan-box h2 {
+    font-size: 24px;
+  }
+
+  .tujuan-box p {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+
+  /* Split Box */
+  .split-box {
+    padding: 15px;
+  }
+
+  .split-box p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  /* Goals Kreasi */
+  .goals-kreasi {
+    padding: 20px 10px;
+  }
+
+  .goals-kreasi h2 {
+    font-size: 24px;
+  }
+
+  .goals-kreasi p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  /* Flip Cards */
+  .flip-card {
+    max-width: 100%;
+    height: auto;
+    min-height: 100px;
+    margin: 15px 10px;
+  }
+
+  .flip-front h3,
+  .flip-back p {
+    font-size: 14px;
+  }
+
+  /* Static Cards */
+  .static-card {
+    margin: 15px 10px;
+    padding: 20px 15px;
+  }
+
+  .static-card h3 {
+    font-size: 16px;
+  }
+
+  /* Struktur Organisasi */
+  .struktur-btn-container {
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .struktur-btn-card {
+    padding: 20px 15px;
+    max-width: 100%;
+  }
+
+  .struktur-btn-card h3 {
+    font-size: 16px;
+  }
+
+  .struktur-container {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .card-struktur {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .card-struktur img {
+    width: 180px;
+    height: 230px;
+  }
+
+  .nama {
+    font-size: 18px;
+  }
+
+  .jabatan {
+    font-size: 12px;
+  }
+
+  /* Profile Section General */
+  .profile-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .profile-section p {
+    font-size: 14px;
   }
 }
 
@@ -1902,6 +2156,7 @@ html {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1920,7 +2175,6 @@ html {
   text-align: center;
   background-color: #f9f9f9;
   overflow: hidden;
-  /* Prevent horizontal scrollbar on body */
 }
 
 .section-testimoni h2 {
@@ -1928,6 +2182,8 @@ html {
   font-size: 2rem;
   color: #333;
   letter-spacing: 2px;
+  padding: 0 15px;
+  /* Add padding for mobile */
 }
 
 .slider-testi {
@@ -1940,14 +2196,11 @@ html {
 .slider-track-testi {
   display: flex;
   width: max-content;
-  /* Ensure width fits all items */
   gap: 30px;
-  /* Space between cards */
-  animation: scroll-left 30s linear infinite;
-  /* Adjust speed as needed */
+  animation: scroll-left 40s linear infinite;
+  /* Slower for better readability */
 }
 
-/* Pause animation on hover for better UX */
 .slider-track-testi:hover {
   animation-play-state: paused;
 }
@@ -1984,7 +2237,6 @@ html {
 
 .card-testi p {
   color: #ffc107;
-  /* Gold color for stars */
   margin-bottom: 15px;
   font-size: 14px;
 }
@@ -2003,7 +2255,23 @@ html {
 
   100% {
     transform: translateX(-50%);
-    /* Move half the width (becase we duplicated items) */
+  }
+}
+
+/* Responsive Testimoni */
+@media (max-width: 600px) {
+  .card-testi {
+    width: 280px;
+    /* Resize card for mobile */
+    padding: 20px;
+  }
+
+  .slider-track-testi {
+    gap: 20px;
+  }
+
+  .section-testimoni h2 {
+    font-size: 1.6rem;
   }
 }
 
@@ -2013,6 +2281,7 @@ html {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2024,6 +2293,7 @@ html {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2035,6 +2305,7 @@ html {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -2046,6 +2317,7 @@ html {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -2232,12 +2504,26 @@ html {
 }
 
 @media (max-width: 900px) {
+
+  .materi-grid,
+  .buletin-grid,
   .capaian-grid {
     grid-template-columns: 1fr;
   }
 
+  .materi-section,
+  .buletin-section,
   .capaian-section {
-    padding: 40px 20px;
+    padding: 30px 15px;
+    /* Reduced padding */
+  }
+
+  .materi-section h2,
+  .buletin-section h2,
+  .capaian-section h2 {
+    font-size: 28px;
+    /* Smaller title */
+    margin-bottom: 30px;
   }
 }
 
