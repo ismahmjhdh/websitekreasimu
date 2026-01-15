@@ -1802,7 +1802,7 @@ html {
   }
 
   .split-right {
-    padding: 20px;
+    padding: 0;
   }
 
   .image-container {
@@ -1880,12 +1880,20 @@ html {
 
   /* Split Box */
   .split-box {
-    padding: 15px;
+    padding: 20px;
+    min-height: auto;
+    flex-direction: column;
   }
 
   .split-box p {
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   /* Goals Kreasi */
@@ -1906,13 +1914,34 @@ html {
   .flip-card {
     max-width: 100%;
     height: auto;
-    min-height: 100px;
+    min-height: 110px;
     margin: 15px 10px;
+    padding: 0 10px;
   }
 
-  .flip-front h3,
+  .flip-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 20px 15px;
+    min-height: 110px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .flip-front h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
   .flip-back p {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   /* Static Cards */
@@ -1998,6 +2027,9 @@ html {
   line-height: 1.6;
   color: #ffffff;
   padding: 0px 60px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   animation: fadeInUp 1.2s ease-out 0.3s both;
 }
 
@@ -2058,8 +2090,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 20px 15px;
   text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 /* Warna depan (biru) */
@@ -2068,11 +2103,22 @@ html {
   color: #fff;
 }
 
+.flip-front h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 /* Belakang (hijau), diputar agar muncul saat flip */
 .flip-back {
   background: #43d596;
   color: var(--color-primary);
   transform: rotateY(180deg);
+}
+
+.flip-back p {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .static-card {
