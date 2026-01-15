@@ -16,6 +16,44 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    /**
+     * Convert YouTube URL to embed format
+     * Supports: watch?v=, youtu.be/, shorts/, and existing embed URLs
+     */
+    private function convertYoutubeToEmbed($url)
+    {
+        if (empty($url)) {
+            return $url;
+        }
+
+        // Already an embed URL
+        if (strpos($url, 'youtube.com/embed/') !== false) {
+            return $url;
+        }
+
+        $videoId = null;
+
+        // Format: https://www.youtube.com/watch?v=VIDEO_ID
+        if (preg_match('/[?&]v=([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+        // Format: https://youtu.be/VIDEO_ID
+        elseif (preg_match('/youtu\.be\/([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+        // Format: https://www.youtube.com/shorts/VIDEO_ID
+        elseif (preg_match('/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/', $url, $matches)) {
+            $videoId = $matches[1];
+        }
+
+        if ($videoId) {
+            return 'https://www.youtube.com/embed/' . $videoId;
+        }
+
+        // Return original if no match
+        return $url;
+    }
+
     // ===================== AUTHENTICATION =====================
 
     // Tampil halaman login
@@ -480,12 +518,13 @@ class AdminController extends Controller
             'type' => 'required|in:photo,video',
             'image_file' => 'required_if:type,photo|nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'video_url' => 'required_if:type,video|nullable|url',
+            'video_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'caption' => 'nullable|string|max:500',
         ]);
 
         $imageUrl = null;
 
-        // Upload gambar cover
+        // Upload gambar cover untuk foto
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -493,9 +532,17 @@ class AdminController extends Controller
             $imageUrl = 'images/galeri/' . $filename;
         }
 
+        // Upload cover untuk video
+        if ($request->type == 'video' && $request->hasFile('video_cover')) {
+            $file = $request->file('video_cover');
+            $filename = time() . '_cover_' . $file->getClientOriginalName();
+            $file->move(public_path('images/galeri'), $filename);
+            $imageUrl = 'images/galeri/' . $filename;
+        }
+
         $galeri = Galeri::create([
             'type' => $request->type,
-            'video_url' => $request->video_url,
+            'video_url' => $this->convertYoutubeToEmbed($request->video_url),
             'image_url' => $imageUrl,
             'caption' => $request->caption,
             'created_by' => session('admin_id'),

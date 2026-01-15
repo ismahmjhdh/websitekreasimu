@@ -68,11 +68,32 @@
 
                 <div class="form-group" id="videoInputGroup" style="display: none;">
                     <label for="video_url">URL Video (YouTube) *</label>
-                    <input type="url" id="video_url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." value="{{ old('video_url') }}">
-                    <div class="help-text">Masukkan link lengkap YouTube</div>
+                    <input type="url" id="video_url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." value="{{ old('video_url') }}" oninput="previewYoutubeVideo()">
+                    <div class="help-text">Masukkan link YouTube (format: youtube.com/watch?v=..., youtu.be/..., atau youtube.com/shorts/...)</div>
                     @error('video_url')
                         <div class="error-message">{{ $message }}</div>
                     @enderror
+                    <div id="videoPreview" style="margin-top: 15px; display: none;">
+                        <label style="margin-bottom: 8px; display: block;">Preview Video:</label>
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <iframe id="videoPreviewIframe" src="" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <label for="video_cover">Cover/Thumbnail Video (Opsional)</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="video_cover" name="video_cover" accept="image/*" onchange="previewVideoCover(event)">
+                            <label for="video_cover" class="file-input-label">
+                                <div>🖼️ Klik untuk upload cover video</div>
+                                <div class="help-text">Max 5MB (JPEG, PNG, JPG, GIF). Jika kosong, akan menggunakan thumbnail YouTube.</div>
+                            </label>
+                        </div>
+                        <div class="image-preview" id="videoCoverPreview"></div>
+                        @error('video_cover')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -131,6 +152,60 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function previewYoutubeVideo() {
+            const url = document.getElementById('video_url').value;
+            const previewContainer = document.getElementById('videoPreview');
+            const iframe = document.getElementById('videoPreviewIframe');
+            
+            if (!url) {
+                previewContainer.style.display = 'none';
+                return;
+            }
+
+            let videoId = null;
+
+            // Format: youtube.com/watch?v=VIDEO_ID
+            let match = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+            if (match) {
+                videoId = match[1];
+            }
+            // Format: youtu.be/VIDEO_ID
+            if (!videoId) {
+                match = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+                if (match) videoId = match[1];
+            }
+            // Format: youtube.com/shorts/VIDEO_ID
+            if (!videoId) {
+                match = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+                if (match) videoId = match[1];
+            }
+            // Format: youtube.com/embed/VIDEO_ID (already embed)
+            if (!videoId) {
+                match = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+                if (match) videoId = match[1];
+            }
+
+            if (videoId) {
+                iframe.src = 'https://www.youtube.com/embed/' + videoId;
+                previewContainer.style.display = 'block';
+            } else {
+                previewContainer.style.display = 'none';
+            }
+        }
+
+        function previewVideoCover(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('videoCoverPreview');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" alt="Cover Preview" style="max-width: 300px; border-radius: 8px; margin-top: 10px;">';
                 };
                 reader.readAsDataURL(file);
             }
