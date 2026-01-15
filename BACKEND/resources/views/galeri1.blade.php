@@ -64,16 +64,8 @@
         <div class="galeri-detail-container">
             @if($galeri->type == 'video' && $galeri->video_url)
                 <div class="video-detail-wrapper" style="width: 100%; max-width: 900px; margin: 0 auto;">
-                    @php
-                        $videoUrl = $galeri->video_url;
-                        if (strpos($videoUrl, 'watch?v=') !== false) {
-                            $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
-                        } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
-                            $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
-                        }
-                    @endphp
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                        <iframe src="{{ $videoUrl }}" 
+                        <iframe src="{{ $galeri->video_url }}" 
                                 frameborder="0" 
                                 allowfullscreen
                                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">

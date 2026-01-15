@@ -106,15 +106,7 @@
                 <h3>Detail Video</h3>
                 <p><strong>YouTube URL:</strong> <a href="{{ $galeri->video_url }}" target="_blank">{{ $galeri->video_url }}</a></p>
                 <div style="margin-top: 20px;">
-                    @php
-                        $videoUrl = $galeri->video_url;
-                        if (strpos($videoUrl, 'watch?v=') !== false) {
-                            $videoUrl = str_replace('watch?v=', 'embed/', $videoUrl);
-                        } elseif (strpos($videoUrl, 'youtu.be/') !== false) {
-                            $videoUrl = str_replace('youtu.be/', 'www.youtube.com/embed/', $videoUrl);
-                        }
-                    @endphp
-                    <iframe width="100%" height="400" src="{{ $videoUrl }}" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="400" src="{{ $galeri->video_url }}" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         @endif
