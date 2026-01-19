@@ -272,7 +272,6 @@
         </div>
 
         <div class="struktur-container">
-            
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/bu dein.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Dr. Dien Nurmarina Malik, M.A.</h3>
@@ -294,7 +293,6 @@
         </div>
 
          <div class="struktur-container">
-            
             <div class="card-struktur">
                 <img src="{{ asset('images/Foto Struktur organisasi/pak fauzi.png') }}" class="img-pop-tim" alt="Julni Rhamawan">
                 <h3 class="nama">Fazhar Restu Fauzi, S.Kom. , M.M.</h3>
