@@ -305,6 +305,21 @@
                 <p class="jabatan">Safeguarding Focal Point dan Logistik Pusat KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
             </div>
 
+</div>
+
+         <div class="struktur-container">
+            <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pimpinan2.jpeg') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Dra. Habibah Chairani</h3>
+                <p class="jabatan">Finance Program KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
+        <div class="card-struktur">
+                <img src="{{ asset('images/Foto Struktur organisasi/pimpinan1.jpeg') }}" class="img-pop-tim" alt="Julni Rhamawan">
+                <h3 class="nama">Rien Rizana S.T</h3>
+                <p class="jabatan">Finance Program KREASI<br>Majelis Dikdasmen PNF PP Muhammadiyah</p>
+            </div>
+
         </div>
     </div>
 
