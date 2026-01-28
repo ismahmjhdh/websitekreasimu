@@ -93,13 +93,7 @@
             </form>
         </div>
         
-        <!-- Featured Video -->
-        <div class="materi-video">
-            <iframe src="https://www.youtube.com/embed/SB0MskyMtDM" 
-                    frameborder="0" 
-                    allowfullscreen>
-            </iframe>
-        </div>
+      
 
         <!-- Materi Section -->
         <section class="materi-section">
